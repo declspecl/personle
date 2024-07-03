@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Cooper Black";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Cooper Black"), url("/fonts/Cooper-Black.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Quilon";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: local("Quilon Variable"), url("/fonts/Quilon-Variable.ttf") format("truetype");
+}
