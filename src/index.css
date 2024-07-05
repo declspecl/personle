@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --white: 0 0% 100%;
+    --black: 0 0% 0%;
+    --red: 5 100% 50%;
+}
+
 @font-face {
     font-family: "Expose";
     src:

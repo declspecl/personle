@@ -32,11 +32,16 @@ const NewspaperLetterVariants = cva(
                 base: "text-base",
                 sm: "text-sm",
                 xs: "text-xs"
+            },
+            makeRed: {
+                true: "text-red",
+                false: ""
             }
         },
         defaultVariants: {
             palette: "whiteOnBlack",
-            size: "5xl"
+            size: "5xl",
+            makeRed: false
         }
     }
 );
@@ -49,11 +54,11 @@ extends
     letter: string
 }
 
-export function NewspaperLetter({ letter, font, palette, size, className, ...props }: NewspaperLetterProps) {
+export function NewspaperLetter({ letter, font, palette, size, makeRed, className, ...props }: NewspaperLetterProps) {
     return (
         <span
             className={cn(
-                NewspaperLetterVariants({ font, palette, size }),
+                NewspaperLetterVariants({ font, palette, size, makeRed }),
                 className
             )}
             {...props}
@@ -175,6 +180,11 @@ extends
 export function NewspaperText({ text, palette, size, className, ...props }: NewspaperTextProps) {
     const MIN_BOTTOM_OFFSET = 0.025, MAX_BOTTOM_OFFSET = 0.125;
 
+    const shouldHaveRed = (palette === "blackOnWhite" || palette === "whiteOnBlack") && Math.random() < 0.25;
+    const redCharIndex = shouldHaveRed
+        ? Math.floor(Math.random() * text.replace(/\s+/g, "").length)
+        : -1;
+
     return (
         <p
             className={cn(
@@ -183,7 +193,7 @@ export function NewspaperText({ text, palette, size, className, ...props }: News
             )}
             {...props}
         >
-            {text.split("").map(char => {
+            {text.split("").map((char, i) => {
                 const bottomOffset = Math.random() * (MAX_BOTTOM_OFFSET - MIN_BOTTOM_OFFSET) + MIN_BOTTOM_OFFSET
                 
                 return (
@@ -192,6 +202,7 @@ export function NewspaperText({ text, palette, size, className, ...props }: News
                             font={getCorrespondingFontForLetter(char)}
                             palette={palette}
                             size={size}
+                            makeRed={i === redCharIndex}
                             style={{
                                 "bottom": `${bottomOffset}em`
                             }}
