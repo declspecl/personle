@@ -1,5 +1,6 @@
 import { memo, useState } from "react";
 import { NewspaperText } from "./components/typography/NewspaperText";
+import { Button } from "./components/ui/Button";
 
 export function App() {
     const [count, setCount] = useState(0)
@@ -11,7 +12,9 @@ export function App() {
             <MemoizedNewspaperText text="Personle" size="7xl" palette="blackOnWhite" />
             <MemoizedNewspaperText text="School Life" size="7xl" palette="whiteOnBlack" />
 
-            <button onClick={() => setCount(count + 1)}>Increment</button>
+            <Button palette="blackText" size="lg" onClick={() => setCount(count + 1)}>
+                Increment
+            </Button>
         </div>
     )
 }

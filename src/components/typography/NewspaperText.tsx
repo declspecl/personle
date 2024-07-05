@@ -197,18 +197,17 @@ export function NewspaperText({ text, palette, size, className, ...props }: News
                 const bottomOffset = Math.random() * (MAX_BOTTOM_OFFSET - MIN_BOTTOM_OFFSET) + MIN_BOTTOM_OFFSET
                 
                 return (
-                    <span className="relative">
-                        <NewspaperLetter
-                            font={getCorrespondingFontForLetter(char)}
-                            palette={palette}
-                            size={size}
-                            makeRed={i === redCharIndex}
-                            style={{
-                                "bottom": `${bottomOffset}em`
-                            }}
-                            letter={char}
-                        />
-                    </span>
+                    <NewspaperLetter
+                        key={`${text}-char-${i}-${char}`}
+                        font={getCorrespondingFontForLetter(char)}
+                        palette={palette}
+                        size={size}
+                        makeRed={i === redCharIndex}
+                        style={{
+                            "bottom": `${bottomOffset}em`
+                        }}
+                        letter={char}
+                    />
                 )
             })}
         </p>

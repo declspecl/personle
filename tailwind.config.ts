@@ -13,7 +13,8 @@ export default {
                 cooper: ["Cooper", "sans-serif"],
                 earwig: ["Earwig Factory", "sans-serif"],
                 expose: ["Expose", "serif"],
-                times: ["Times New Roman", "serif"]
+                times: ["Times New Roman", "serif"],
+                arsenal: ["Arsenal", "sans-serif"]
             }
         }
     },

@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --white: 0 0% 100%;
-    --black: 0 0% 0%;
-    --red: 5 100% 50%;
-}
-
 @font-face {
     font-family: "Expose";
     src:
@@ -39,4 +33,43 @@
     font-weight: 900;
     font-style: normal;
     font-display: swap;
+}
+
+@font-face {
+    font-family: "Arsenal";
+    src:
+        url("/fonts/CooperBlack.woff2") format("woff2"),
+        url("/fonts/CooperBlack.woff") format("woff"),
+        url("/fonts/CooperBlack.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Arsenal";
+    src:
+        url("/fonts/Arsenal-Bold.woff2") format("woff2"),
+        url("/fonts/Arsenal-Bold.woff") format("woff"),
+        url("/fonts/Arsenal-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Arsenal";
+    src:
+        url("/fonts/Arsenal-Regular.woff2") format("woff2"),
+        url("/fonts/Arsenal-Regular.woff") format("woff"),
+        url("/fonts/Arsenal-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --white: 0 0% 100%;
+    --black: 0 0% 0%;
+    --red: 5 100% 50%;
 }
