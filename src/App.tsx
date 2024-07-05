@@ -13,7 +13,16 @@ export function App() {
             <MemoizedNewspaperText text="School Life" size="7xl" palette="whiteOnBlack" />
             <MemoizedNewspaperText text="1234567890!@#$%^&*()" size="7xl" palette="whiteOnBlack" />
 
+            <Button palette="blackText" size="sm" onClick={() => setCount(count + 1)}>
+                Increment
+            </Button>
+            <Button palette="blackText" size="md" onClick={() => setCount(count + 1)}>
+                Increment
+            </Button>
             <Button palette="blackText" size="lg" onClick={() => setCount(count + 1)}>
+                Increment
+            </Button>
+            <Button palette="blackText" size="icon" onClick={() => setCount(count + 1)}>
                 Increment
             </Button>
         </div>

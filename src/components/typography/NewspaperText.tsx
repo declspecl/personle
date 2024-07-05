@@ -192,13 +192,14 @@ extends
     React.HTMLAttributes<HTMLParagraphElement>,
     VariantProps<typeof NewspaperTextVariants>
 {
-    text: string
+    text: string,
+    forceRed?: boolean
 }
 
-export function NewspaperText({ text, palette, size, className, ...props }: NewspaperTextProps) {
+export function NewspaperText({ text, forceRed, palette, size, className, ...props }: NewspaperTextProps) {
     const MIN_BOTTOM_OFFSET = 0.025, MAX_BOTTOM_OFFSET = 0.125;
 
-    const shouldHaveRed = (palette === "blackOnWhite" || palette === "whiteOnBlack") && Math.random() < 0.25;
+    const shouldHaveRed = forceRed || (palette === "whiteOnBlack" || palette === "blackOnWhite") && Math.random() < 0.25;
     const redCharIndex = shouldHaveRed
         ? Math.floor(Math.random() * text.replace(/\s+/g, "").length)
         : -1;
