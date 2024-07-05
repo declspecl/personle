@@ -5,9 +5,9 @@
 @font-face {
     font-family: "Expose";
     src:
-        url("/fonts/Expose-Regular.woff2") format("woff2"),
-        url("/fonts/Expose-Regular.woff") format("woff"),
-        url("/fonts/Expose-Regular.ttf") format("truetype");
+        url("/fonts/Expose.woff2") format("woff2"),
+        url("/fonts/Expose.woff") format("woff"),
+        url("/fonts/Expose.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -16,9 +16,9 @@
 @font-face {
     font-family: "Earwig Factory";
     src:
-        url("/fonts/EarwigFactory-Regular.woff2") format("woff2"),
-        url("/fonts/EarwigFactory-Regular.woff") format("woff"),
-        url("/fonts/EarwigFactory-Regular.ttf") format("truetype");
+        url("/fonts/EarwigFactory.woff2") format("woff2"),
+        url("/fonts/EarwigFactory.woff") format("woff"),
+        url("/fonts/EarwigFactory.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -31,17 +31,6 @@
         url("/fonts/CooperBlack.woff") format("woff"),
         url("/fonts/CooperBlack.ttf") format("truetype");
     font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Arsenal";
-    src:
-        url("/fonts/CooperBlack.woff2") format("woff2"),
-        url("/fonts/CooperBlack.woff") format("woff"),
-        url("/fonts/CooperBlack.ttf") format("truetype");
-    font-weight: 400 700;
     font-style: normal;
     font-display: swap;
 }
@@ -72,4 +61,5 @@
     --white: 0 0% 100%;
     --black: 0 0% 0%;
     --red: 5 100% 50%;
+    --grey: 0 0% 40%;
 }

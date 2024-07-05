@@ -1,6 +1,7 @@
 import { memo, useState } from "react";
-import { NewspaperText } from "./components/typography/NewspaperText";
 import { Button } from "./components/ui/Button";
+import { NewspaperText } from "./components/typography/NewspaperText";
+import { StarBackground } from "./components/graphics/StarBackground";
 
 export function App() {
     const [count, setCount] = useState(0)
@@ -25,6 +26,8 @@ export function App() {
             <Button palette="blackText" size="icon" onClick={() => setCount(count + 1)}>
                 Increment
             </Button>
+
+            <StarBackground width={800} height={800} />
         </div>
     )
 }
