@@ -81,6 +81,10 @@ function getCorrespondingFontForLetter(letter: string): "times" | "cooper" | "ea
         case "j":
         case "p":
         case "y":
+        case "5":
+        case "6":
+        case "9":
+        case "$":
             return "times";
 
         case "C":
@@ -102,6 +106,15 @@ function getCorrespondingFontForLetter(letter: string): "times" | "cooper" | "ea
         case "q":
         case "u":
         case "x":
+        case "1":
+        case "4":
+        case "7":
+        case "0":
+        case "@":
+        case "%":
+        case "^":
+        case "(":
+        case ")":
             return "earwig";
         
         case "B":
@@ -120,6 +133,9 @@ function getCorrespondingFontForLetter(letter: string): "times" | "cooper" | "ea
         case "s":
         case "w":
         case "z":
+        case "3":
+        case "8":
+        case "!":
             return "expose";
 
         case "D":
@@ -129,6 +145,8 @@ function getCorrespondingFontForLetter(letter: string): "times" | "cooper" | "ea
         case "n":
         case "t":
         case "v":
+        case "2":
+        case "#":
             return "cooper";
 
         default:

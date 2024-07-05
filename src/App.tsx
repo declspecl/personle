@@ -9,8 +9,9 @@ export function App() {
 
     return (
         <div className="w-screen h-screen bg-red-500">
-            <MemoizedNewspaperText text="Personle" size="7xl" palette="blackOnWhite" />
+            <MemoizedNewspaperText text="Personle!" size="7xl" palette="blackOnWhite" />
             <MemoizedNewspaperText text="School Life" size="7xl" palette="whiteOnBlack" />
+            <MemoizedNewspaperText text="1234567890!@#$%^&*()" size="7xl" palette="whiteOnBlack" />
 
             <Button palette="blackText" size="lg" onClick={() => setCount(count + 1)}>
                 Increment
