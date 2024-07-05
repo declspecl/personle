@@ -7,8 +7,9 @@ export function App() {
     const MemoizedNewspaperText = memo(NewspaperText);
 
     return (
-        <div>
-            <MemoizedNewspaperText text="School Life" size="7xl" />
+        <div className="w-screen h-screen bg-red-500">
+            <MemoizedNewspaperText text="Personle" size="7xl" palette="blackOnWhite" />
+            <MemoizedNewspaperText text="School Life" size="7xl" palette="whiteOnBlack" />
 
             <button onClick={() => setCount(count + 1)}>Increment</button>
         </div>

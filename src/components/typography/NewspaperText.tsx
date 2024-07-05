@@ -1,6 +1,6 @@
-import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 import { cn } from "~/lib/utils";
+import { cva, VariantProps } from "class-variance-authority";
 
 const NewspaperLetterVariants = cva(
     "relative",
@@ -11,6 +11,12 @@ const NewspaperLetterVariants = cva(
                 times: "font-times font-bold",
                 expose: "font-expose",
                 earwig: "font-earwig"
+            },
+            palette: {
+                whiteOnBlack: "text-white",
+                blackOnWhite: "text-black",
+                whiteOnTransparent: "bg-transparent text-white",
+                blackOnTransparent: "bg-transparent text-black"
             },
             size: {
                 "9xl": "text-9xl",
@@ -29,6 +35,7 @@ const NewspaperLetterVariants = cva(
             }
         },
         defaultVariants: {
+            palette: "whiteOnBlack",
             size: "5xl"
         }
     }
@@ -42,11 +49,11 @@ extends
     letter: string
 }
 
-export function NewspaperLetter({ letter, font, size, className, ...props }: NewspaperLetterProps) {
+export function NewspaperLetter({ letter, font, palette, size, className, ...props }: NewspaperLetterProps) {
     return (
         <span
             className={cn(
-                NewspaperLetterVariants({ font, size }),
+                NewspaperLetterVariants({ font, palette, size }),
                 className
             )}
             {...props}
@@ -125,9 +132,15 @@ function getCorrespondingFontForLetter(letter: string): "times" | "cooper" | "ea
 }
 
 const NewspaperTextVariants = cva(
-    "tracking-tight",
+    "w-fit block tracking-tight",
     {
         variants: {
+            palette: {
+                whiteOnBlack: "bg-black text-white",
+                blackOnWhite: "bg-white text-black",
+                whiteOnTransparent: "bg-transparent text-white",
+                blackOnTransparent: "bg-transparent text-black"
+            },
             size: {
                 "9xl": "text-9xl",
                 "8xl": "text-8xl",
@@ -145,6 +158,7 @@ const NewspaperTextVariants = cva(
             }
         },
         defaultVariants: {
+            palette: "whiteOnBlack",
             size: "2xl"
         }
     }
@@ -158,29 +172,32 @@ extends
     text: string
 }
 
-export function NewspaperText({ text, size, className, ...props }: NewspaperTextProps) {
-    const MIN_Y_OFFSET = -0.1, MAX_Y_OFFSET = 0.075;
+export function NewspaperText({ text, palette, size, className, ...props }: NewspaperTextProps) {
+    const MIN_BOTTOM_OFFSET = 0.025, MAX_BOTTOM_OFFSET = 0.125;
 
     return (
         <p
             className={cn(
-                NewspaperTextVariants({ size }),
+                NewspaperTextVariants({ palette, size }),
                 className,
             )}
             {...props}
         >
             {text.split("").map(char => {
-                const yOffset = Math.random() * (MAX_Y_OFFSET - MIN_Y_OFFSET) + MIN_Y_OFFSET;
+                const bottomOffset = Math.random() * (MAX_BOTTOM_OFFSET - MIN_BOTTOM_OFFSET) + MIN_BOTTOM_OFFSET
                 
                 return (
-                    <NewspaperLetter
-                        font={getCorrespondingFontForLetter(char)}
-                        size={size}
-                        style={{
-                            top: `${yOffset}em`
-                        }}
-                        letter={char}
-                    />
+                    <span className="relative">
+                        <NewspaperLetter
+                            font={getCorrespondingFontForLetter(char)}
+                            palette={palette}
+                            size={size}
+                            style={{
+                                "bottom": `${bottomOffset}em`
+                            }}
+                            letter={char}
+                        />
+                    </span>
                 )
             })}
         </p>
