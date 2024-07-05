@@ -8,7 +8,7 @@ export function App() {
 
     return (
         <div>
-            <MemoizedNewspaperText text="Count" />
+            <MemoizedNewspaperText text="School Life" size="7xl" />
 
             <button onClick={() => setCount(count + 1)}>Increment</button>
         </div>

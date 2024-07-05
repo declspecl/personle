@@ -3,16 +3,34 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Cooper Black";
-    font-style: normal;
+    font-family: "Expose";
+    src:
+        url("/fonts/Expose-Regular.woff2") format("woff2"),
+        url("/fonts/Expose-Regular.woff") format("woff"),
+        url("/fonts/Expose-Regular.ttf") format("truetype");
     font-weight: normal;
-    src: local("Cooper Black"), url("/fonts/Cooper-Black.ttf") format("truetype");
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: "Quilon";
+    font-family: "Earwig Factory";
+    src:
+        url("/fonts/EarwigFactory-Regular.woff2") format("woff2"),
+        url("/fonts/EarwigFactory-Regular.woff") format("woff"),
+        url("/fonts/EarwigFactory-Regular.ttf") format("truetype");
+    font-weight: normal;
     font-style: normal;
-    font-weight: 400 700;
     font-display: swap;
-    src: local("Quilon Variable"), url("/fonts/Quilon-Variable.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Cooper";
+    src:
+        url("/fonts/CooperBlack.woff2") format("woff2"),
+        url("/fonts/CooperBlack.woff") format("woff"),
+        url("/fonts/CooperBlack.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }

@@ -5,8 +5,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                cooper: ["Cooper Black", "sans-serif"],
-                quilon: ["Quilon", "sans-serif"],
+                cooper: ["Cooper", "sans-serif"],
+                earwig: ["Earwig Factory", "sans-serif"],
+                expose: ["Expose", "serif"],
                 times: ["Times New Roman", "serif"]
             }
         }

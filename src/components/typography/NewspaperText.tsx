@@ -1,27 +1,34 @@
 import { cva, VariantProps } from "class-variance-authority";
-import clsx from "clsx";
 import React from "react";
 import { cn } from "~/lib/utils";
 
 const NewspaperLetterVariants = cva(
-    "relative inline-block border-x-[0.125rem]",
+    "relative",
     {
         variants: {
-            variant: {
-                whiteOnBlack: "bg-black border-black text-white",
-                blackOnWhite: "bg-white border-white text-black"
-            },
             font: {
-                times: "font-times font-medium",
-                cooper: "font-cooper font-normal",
-                quilon: "font-quilon font-extralight"
+                cooper: "font-cooper",
+                times: "font-times font-bold",
+                expose: "font-expose",
+                earwig: "font-earwig"
             },
             size: {
-                "5xl": "text-5xl"
+                "9xl": "text-9xl",
+                "8xl": "text-8xl",
+                "7xl": "text-7xl",
+                "6xl": "text-6xl",
+                "5xl": "text-5xl",
+                "4xl": "text-4xl",
+                "3xl": "text-3xl",
+                "2xl": "text-2xl",
+                xl: "text-xl",
+                lg: "text-lg",
+                base: "text-base",
+                sm: "text-sm",
+                xs: "text-xs"
             }
         },
         defaultVariants: {
-            variant: "whiteOnBlack",
             size: "5xl"
         }
     }
@@ -31,58 +38,149 @@ interface NewspaperLetterProps
 extends
     React.HTMLAttributes<HTMLSpanElement>,
     VariantProps<typeof NewspaperLetterVariants>
-{}
+{
+    letter: string
+}
 
-export function NewspaperLetter({ className, variant, font, ...props }: NewspaperLetterProps) {
+export function NewspaperLetter({ letter, font, size, className, ...props }: NewspaperLetterProps) {
     return (
         <span
-            className={clsx(
-                NewspaperLetterVariants({ variant, font }),
+            className={cn(
+                NewspaperLetterVariants({ font, size }),
                 className
             )}
             {...props}
-        />
+        >
+            {letter}
+        </span>
     );
 
 }
 
-interface NewspaperTextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+function getCorrespondingFontForLetter(letter: string): "times" | "cooper" | "earwig" | "expose" {
+    switch (letter) {
+        case "A":
+        case "I":
+        case "L":
+        case "M":
+        case "W":
+        case "X":
+        case "a":
+        case "j":
+        case "p":
+        case "y":
+            return "times";
+
+        case "C":
+        case "F":
+        case "J":
+        case "N":
+        case "P":
+        case "R":
+        case "T":
+        case "V":
+        case "Z":
+        case "b":
+        case "c":
+        case "e":
+        case "i":
+        case "k":
+        case "m":
+        case "o":
+        case "q":
+        case "u":
+        case "x":
+            return "earwig";
+        
+        case "B":
+        case "E":
+        case "G":
+        case "H":
+        case "O":
+        case "Q":
+        case "S":
+        case "U":
+        case "d":
+        case "f":
+        case "g":
+        case "l":
+        case "r":
+        case "s":
+        case "w":
+        case "z":
+            return "expose";
+
+        case "D":
+        case "K":
+        case "Y":
+        case "h":
+        case "n":
+        case "t":
+        case "v":
+            return "cooper";
+
+        default:
+            return "times";
+    }
+}
+
+const NewspaperTextVariants = cva(
+    "tracking-tight",
+    {
+        variants: {
+            size: {
+                "9xl": "text-9xl",
+                "8xl": "text-8xl",
+                "7xl": "text-7xl",
+                "6xl": "text-6xl",
+                "5xl": "text-5xl",
+                "4xl": "text-4xl",
+                "3xl": "text-3xl",
+                "2xl": "text-2xl",
+                xl: "text-xl",
+                lg: "text-lg",
+                base: "text-base",
+                sm: "text-sm",
+                xs: "text-xs"
+            }
+        },
+        defaultVariants: {
+            size: "2xl"
+        }
+    }
+)
+
+interface NewspaperTextProps
+extends
+    React.HTMLAttributes<HTMLParagraphElement>,
+    VariantProps<typeof NewspaperTextVariants>
+{
     text: string
 }
 
-export function NewspaperText({ text, className, ...props }: NewspaperTextProps) {
-    const MIN_Y_OFFSET = -5, MAX_Y_OFFSET = 5;
+export function NewspaperText({ text, size, className, ...props }: NewspaperTextProps) {
+    const MIN_Y_OFFSET = -0.1, MAX_Y_OFFSET = 0.075;
 
     return (
-        <p className={cn("tracking-[-0.1rem]", className)} {...props}>
+        <p
+            className={cn(
+                NewspaperTextVariants({ size }),
+                className,
+            )}
+            {...props}
+        >
             {text.split("").map(char => {
-                let yOffset = Math.random() * (MAX_Y_OFFSET - MIN_Y_OFFSET) + MIN_Y_OFFSET;
-
-                // make lowercase letters have less variation in y offset
-                if (char.toLocaleLowerCase() === char) {
-                    yOffset *= 0.5;
-                }
-
-                const isWhiteOnBlack = Math.random() < 0.95;
-                const fontChoiceNumber = Math.floor(Math.random() * 3);
+                const yOffset = Math.random() * (MAX_Y_OFFSET - MIN_Y_OFFSET) + MIN_Y_OFFSET;
                 
                 return (
                     <NewspaperLetter
-                        variant={isWhiteOnBlack ? "whiteOnBlack" : "blackOnWhite"}
-                        font={
-                            fontChoiceNumber === 0
-                            ? "times"
-                            : fontChoiceNumber === 1
-                            ? "cooper"
-                            : "quilon"
-                        }
-                        className="relative"
+                        font={getCorrespondingFontForLetter(char)}
+                        size={size}
                         style={{
-                            top: `${yOffset}px`
+                            top: `${yOffset}em`
                         }}
-                    >
-                        {char}
-                    </NewspaperLetter>
+                        letter={char}
+                    />
                 )
             })}
         </p>
