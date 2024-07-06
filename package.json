@@ -13,7 +13,7 @@
         "@types/node": "^20.14.9",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
-        "fast-2d-poisson-disk-sampling": "^1.0.3",
+        "poisson-disk-sampling": "^2.3.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.23.1",
@@ -21,6 +21,7 @@
         "zod": "^3.23.8"
     },
     "devDependencies": {
+        "@types/poisson-disk-sampling": "^2.2.4",
         "@types/react": "^18.2.66",
         "@types/react-dom": "^18.2.22",
         "@typescript-eslint/eslint-plugin": "^7.2.0",
