@@ -61,5 +61,10 @@
     --white: 0 0% 100%;
     --black: 0 0% 0%;
     --red: 5 100% 50%;
+    --dark-red: 5 100% 30%;
+    --yellow-white: 99 67% 92%;
     --grey: 0 0% 40%;
+    --dark-blue: 226 65% 44%;
+    --matte-blue: 205 100% 46%;
+    --light-blue: 185 100% 48%;
 }

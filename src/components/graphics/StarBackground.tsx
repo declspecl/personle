@@ -1,25 +1,37 @@
 import PoissonDiskSampling from "poisson-disk-sampling";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface StarBackgroundProps extends React.DetailedHTMLProps<React.CanvasHTMLAttributes<HTMLCanvasElement>, HTMLCanvasElement> {
 
 }
 
-export function StarBackground({ width, height, className, ...props }: StarBackgroundProps) {
+export function StarBackground({ className, ...props }: StarBackgroundProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null!);
 
     const [points, setPoints] = useState<number[][]>(null!);
 
-    useLayoutEffect(() => {
-        const pds = new PoissonDiskSampling({
-            shape: [canvasRef.current.width, canvasRef.current.height],
-            minDistance: 64,
-            tries: 15
-        });
+    useEffect(() => {
+        const resizeHandler = () => {
+            canvasRef.current.width = window.innerWidth;
+            canvasRef.current.height = window.innerHeight;
 
-        pds.fill();
+            const pds = new PoissonDiskSampling({
+                shape: [canvasRef.current.width, canvasRef.current.height],
+                minDistance: 64,
+                tries: 15
+            });
 
-        setPoints(pds.getAllPoints());
+            pds.fill();
+
+            setPoints(pds.getAllPoints());
+        }
+
+        resizeHandler();
+        window.addEventListener("resize", resizeHandler);
+
+        return () => {
+            window.removeEventListener("resize", resizeHandler);
+        }
     }, []);
 
     const drawStar = useCallback((ctx: CanvasRenderingContext2D, x: number, y: number, radius: number, rotation: number, color: string): void => {
@@ -56,6 +68,8 @@ export function StarBackground({ width, height, className, ...props }: StarBackg
     }, [drawStar]);
 
     useEffect(() => {
+        if (points === null || canvasRef.current === null) return;
+
         const ctx = canvasRef.current.getContext("2d")!;
 
         let isCancelled = false;
@@ -94,8 +108,8 @@ export function StarBackground({ width, height, className, ...props }: StarBackg
     return (
         <canvas
             ref={canvasRef}
-            width={width}
-            height={height}
+            width={window.innerWidth}
+            height={window.innerHeight}
             className={className}
             {...props}
         />
