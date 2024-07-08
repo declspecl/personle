@@ -68,3 +68,8 @@
     --matte-blue: 205 100% 46%;
     --light-blue: 185 100% 48%;
 }
+
+html, body, #root {
+    width: 100%;
+    height: 100%;
+}

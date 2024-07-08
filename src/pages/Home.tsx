@@ -1,26 +1,29 @@
-import { StarBackground } from "~/components/graphics/StarBackground";
+import { PersonleBackground } from "~/components/graphics/PersonleBackground";
 import { SkewedContainer } from "~/components/ui/SkewedContainer";
+import { cn } from "~/lib/utils";
 
-interface HomeProps extends React.HTMLAttributes<HTMLDivElement> {
-
-}
-
-export function Home({ className, children, ...props }: HomeProps) {
+export function Home() {
     return (
-        <div className={className} {...props}>
-            <StarBackground
-                width={window.innerWidth}
-                height={window.innerHeight}
-                className="-z-10 absolute inset-0 w-screen h-screen"
-            />
+        <div className={cn("relative w-full h-full")}>
+            <PersonleBackground />
 
-            <SkewedContainer className="ml-4 w-fit bg-red p-0.5" variant="smRight">
-                <SkewedContainer className="bg-white p-0.25 h-80">
-                    <p>Hello</p>
+            <div className={cn(
+                "absolute top-0 left-0 p-4 w-full min-h-[100svh] h-full flex flex-col items-center",
+                "sm:p-6",
+                "md:p-8"
+            )}>
+                <SkewedContainer
+                    deltaWidthRem={1}
+                    skewDirection="right"
+                    className={cn(
+                        "mx-auto w-full bg-white",
+                        "sm:w-[600px]",
+                        "md:w-[720px]"
+                    )}
+                >
+                    <p>yo</p>
                 </SkewedContainer>
-            </SkewedContainer>
-
-            {children}
+            </div>
         </div>
     );
 }

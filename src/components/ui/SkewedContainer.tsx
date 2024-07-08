@@ -1,68 +1,50 @@
-import { cva, VariantProps } from "class-variance-authority";
-import { cn } from "~/lib/utils";
+import { useEffect, useRef, useState } from "react";
+import { useWindowDimensions } from "~/hooks/useWindowDimensions";
+import { cn, convertRemToPixels } from "~/lib/utils";
 
-const skewedContainerVariants = cva(
-    "",
-    {
-        variants: {
-            variant: {
-                smLeft: "skew-x-2",
-                mdLeft: "skew-x-3",
-                lgLeft: "skew-x-6",
-                smRight: "-skew-x-2",
-                mdRight: "-skew-x-3",
-                lgRight: "-skew-x-6"
-            }
-        }
-    }
-)
-
-interface SkewedContainerProps
-extends
-    React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof skewedContainerVariants>
-{
-
+interface SkewedContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+    deltaWidthRem: number,
+    skewDirection: "left" | "right"
 }
 
-export function SkewedContainer({ className, variant, children, ...props }: SkewedContainerProps) {
-    let oppositeVariant: "smLeft" | "mdLeft" | "lgLeft" | "smRight" | "mdRight" | "lgRight" = "smLeft";
+export function SkewedContainer({ className, children, deltaWidthRem, skewDirection, ...props }: SkewedContainerProps) {
+    const [skew, setSkew] = useState(0);
+    const windowDimensions = useWindowDimensions();
+    const elementRef = useRef<HTMLDivElement>(null!);
 
-    switch (variant) {
-        case "smLeft":
-            oppositeVariant = "smRight";
-            break;
+    useEffect(() => {
+        const newSkew = calculateSkewFordeltaWidthPixels(convertRemToPixels(deltaWidthRem)) * (skewDirection === "left" ? 1 : -1);
 
-        case "mdLeft":
-            oppositeVariant = "mdRight";
-            break;
+        elementRef.current.style.setProperty("--skew", newSkew + "rad");
 
-        case "lgLeft":
-            oppositeVariant = "lgRight";
-            break;
+        setSkew(newSkew);
 
-        case "smRight":
-            oppositeVariant = "smLeft";
-            break;
-        
-        case "mdRight":
-            oppositeVariant = "mdLeft";
-            break;
-        
-        case "lgRight":
-            oppositeVariant = "lgLeft";
-            break;
+        const calculatedWidth = elementRef.current.offsetWidth + Math.abs(elementRef.current.offsetHeight * Math.tan(newSkew));
+        console.log(calculatedWidth);
+    }, [windowDimensions, deltaWidthRem, skewDirection]);
+
+    const calculateSkewFordeltaWidthPixels = (deltaWidthPixels: number) => {
+        // newWidth = width + (height * tan(skew))
+        // atan((newWidth - width) / height) = skew
+        // atan(deltaWidth / height) = skew
+
+        return Math.atan(deltaWidthPixels / elementRef.current.offsetHeight);
     }
 
     return (
         <div
+            ref={elementRef}
             className={cn(
-                skewedContainerVariants({ variant }),
                 className
             )}
+            style={{
+                transform: `skewX(${skew}rad)`
+            }}
             {...props}
         >
-            <div className={skewedContainerVariants({ variant: oppositeVariant })}>
+            <div style={{
+                transform: `skewX(${-skew}rad)`
+            }}>
                 {children}
             </div>
         </div>

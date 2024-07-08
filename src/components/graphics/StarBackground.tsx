@@ -1,38 +1,30 @@
 import PoissonDiskSampling from "poisson-disk-sampling";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useWindowDimensions } from "~/hooks/useWindowDimensions";
 
 interface StarBackgroundProps extends React.DetailedHTMLProps<React.CanvasHTMLAttributes<HTMLCanvasElement>, HTMLCanvasElement> {
 
 }
 
 export function StarBackground({ className, ...props }: StarBackgroundProps) {
+    const windowDimensions = useWindowDimensions();
     const canvasRef = useRef<HTMLCanvasElement>(null!);
-
-    const [points, setPoints] = useState<number[][]>(null!);
+    const [points, setPoints] = useState<number[][]>([]);
 
     useEffect(() => {
-        const resizeHandler = () => {
-            canvasRef.current.width = window.innerWidth;
-            canvasRef.current.height = window.innerHeight;
+        canvasRef.current.width = windowDimensions.width;
+        canvasRef.current.height = windowDimensions.height;
 
-            const pds = new PoissonDiskSampling({
-                shape: [canvasRef.current.width, canvasRef.current.height],
-                minDistance: 64,
-                tries: 15
-            });
+        const pds = new PoissonDiskSampling({
+            shape: [windowDimensions.width, windowDimensions.height],
+            minDistance: 64,
+            tries: 15
+        });
 
-            pds.fill();
+        pds.fill();
 
-            setPoints(pds.getAllPoints());
-        }
-
-        resizeHandler();
-        window.addEventListener("resize", resizeHandler);
-
-        return () => {
-            window.removeEventListener("resize", resizeHandler);
-        }
-    }, []);
+        setPoints(pds.getAllPoints());
+    }, [windowDimensions]);
 
     const drawStar = useCallback((ctx: CanvasRenderingContext2D, x: number, y: number, radius: number, rotation: number, color: string): void => {
         ctx.save();
@@ -77,7 +69,7 @@ export function StarBackground({ className, ...props }: StarBackgroundProps) {
         requestAnimationFrame(() => {
             if (isCancelled) return;
             
-            ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+            ctx.clearRect(0, 0, windowDimensions.width, windowDimensions.height);
 
             for (const [i, point] of points.entries()) {
                 const radius = Math.floor(Math.random() * 8) + 12;
@@ -103,13 +95,13 @@ export function StarBackground({ className, ...props }: StarBackgroundProps) {
         return () => {
             isCancelled = true;
         }
-    }, [points, drawNestedStars]);
+    }, [points, drawNestedStars, windowDimensions]);
 
     return (
         <canvas
             ref={canvasRef}
-            width={window.innerWidth}
-            height={window.innerHeight}
+            width={windowDimensions.width}
+            height={windowDimensions.height}
             className={className}
             {...props}
         />
