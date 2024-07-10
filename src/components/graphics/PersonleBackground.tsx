@@ -1,27 +1,28 @@
-import { ContourBackground } from "./ContourBackground";
 import { StarBackground } from "./StarBackground";
+import { ContourBackground } from "./ContourBackground";
 
-export function PersonleBackground() {
-    const minStripThickness = "-2rem";
-    const additionalThickness = "5rem";
+interface PersonleBackgroundProps {
+    stripThickness: number,
+}
 
+export function PersonleBackground({ stripThickness }: PersonleBackgroundProps) {
     return (
-        <div className="relative w-full h-full bg-white -z-20">
+        <div className="absolute top-0 left-0 w-full h-full bg-white -z-20">
             <ContourBackground
                 className="absolute top-0 left-0 w-full min-h-[100svh] h-full -z-10"
                 style={{
-                    //                  TL      BL                                  BR                                                  TR
-                    clipPath: `polygon(0% 0%, 0% 100%, calc(50% - ${minStripThickness} - ${additionalThickness}) 100%, calc(50% - ${minStripThickness}) 0%)`,
-                    WebkitClipPath: `polygon(0% 0%, 0% 100%, calc(50% - ${minStripThickness} - ${additionalThickness}) 100%, calc(50% - ${minStripThickness}) 0%)`
+                    //                 |-TL|  |--BL-|  |-----------------BR----------------|  |-----------------TR--------------|
+                    clipPath: `polygon(0% 0%, 0% 100%, calc(50% - ${stripThickness / 2}rem) 100%, calc(50% - ${stripThickness}rem) 0%)`,
+                    WebkitClipPath: `polygon(0% 0%, 0% 100%, calc(50% - ${stripThickness}) 100%, 50% 0%)`
                 }}
             />
 
             <StarBackground
                 className="absolute top-0 left-0 w-full min-h-[100svh] h-full -z-10"
                 style={{
-                    //                                                TL                                                  BL                    BR        TR
-                    clipPath: `polygon(calc(50% + ${minStripThickness} + ${additionalThickness}) 0%, calc(50% + ${minStripThickness}) 100%, 100% 100%, 100% 0%)`,
-                    WebkitClipPath: `polygon(calc(50% + ${minStripThickness} + ${additionalThickness}) 0%, calc(50% + ${minStripThickness}) 100%, 100% 100%, 100% 0%)`
+                    //                 |------------------BL-----------------|  |------------------TL---------------|  |--BR---|  |-TR--|
+                    clipPath: `polygon(calc(50% + ${stripThickness / 2}rem) 0%, calc(50% + ${stripThickness}rem) 100%, 100% 100%, 100% 0%)`,
+                    WebkitClipPath: `polygon(calc(50% + ${stripThickness / 2}rem) 0%, calc(50% + ${stripThickness}rem) 100%, 100% 100%, 100% 0%)`
                 }}
             />
         </div>
