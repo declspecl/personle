@@ -2,6 +2,13 @@ import PoissonDiskSampling from "poisson-disk-sampling";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useWindowDimensions } from "~/hooks/useWindowDimensions";
 
+const STAR_BACKGROUND_COLOR = "#ffffff";
+const STAR_PRIMARY_COLOR = "#000000", STAR_SECONDARY_COLOR = "#666666";
+const STAR_MIN_RADIUS = 10, STAR_MAX_RADIUS = 18;
+const STAR_MIN_LAYERS = 5, STAR_MAX_LAYERS = 8;
+const STAR_MIN_ROTATION_RADIANS = 0, STAR_MAX_ROTATION_RADIANS = Math.PI * 2;
+const STAR_SECONDARY_MODULO_INTERVAL = 7;
+
 interface StarBackgroundProps extends React.DetailedHTMLProps<React.CanvasHTMLAttributes<HTMLCanvasElement>, HTMLCanvasElement> {
 
 }
@@ -52,8 +59,8 @@ export function StarBackground({ className, ...props }: StarBackgroundProps) {
         for (let i = layers; i > 0; i--) {
             const color = colors[i % colors.length];
 
-            // don't draw the outer layer if it's white
-            if (i === layers && color === "#ffffff") continue;
+            // don't draw the outer layer if it's background
+            if (i === layers && color === STAR_BACKGROUND_COLOR) continue;
 
             drawStar(ctx, x, y, radius * i, rotation, color);
         }
@@ -72,10 +79,10 @@ export function StarBackground({ className, ...props }: StarBackgroundProps) {
             ctx.clearRect(0, 0, windowDimensions.width, windowDimensions.height);
 
             for (const [i, point] of points.entries()) {
-                const radius = Math.floor(Math.random() * 8) + 12;
-                const layers = Math.floor(Math.random() * 3) + 6;
-                const rotation = (Math.random() * Math.PI * 4) - (Math.PI * 2);
-                const primaryColor = i % 8 === 0 ? "#666666" : "#000000";
+                const radius = Math.floor(Math.random() * (STAR_MAX_RADIUS - STAR_MIN_RADIUS)) + STAR_MIN_RADIUS;
+                const layers = Math.floor(Math.random() * (STAR_MAX_LAYERS - STAR_MIN_LAYERS)) + STAR_MAX_LAYERS;
+                const rotation = (Math.random() * (STAR_MAX_ROTATION_RADIANS - STAR_MIN_ROTATION_RADIANS)) + STAR_MIN_ROTATION_RADIANS;
+                const primaryColor = i % STAR_SECONDARY_MODULO_INTERVAL === 0 ? STAR_SECONDARY_COLOR : STAR_PRIMARY_COLOR;
                 const isPrimaryInner = Math.random() < 0.5;
 
                 drawNestedStars(
@@ -85,8 +92,8 @@ export function StarBackground({ className, ...props }: StarBackgroundProps) {
                     radius,
                     rotation,
                     isPrimaryInner
-                        ? ["#ffffff", primaryColor]
-                        : [primaryColor, "#ffffff"],
+                        ? [STAR_BACKGROUND_COLOR, primaryColor]
+                        : [primaryColor, STAR_BACKGROUND_COLOR],
                     layers
                 );
             }
