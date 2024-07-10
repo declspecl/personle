@@ -1,75 +1,10 @@
 import React from "react";
 import { cn } from "~/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
+import { Slot } from "@radix-ui/react-slot";
+import clsx from "clsx";
 
-const NewspaperLetterVariants = cva(
-    "relative",
-    {
-        variants: {
-            font: {
-                cooper: "font-cooper",
-                times: "font-times font-bold",
-                expose: "font-expose",
-                earwig: "font-earwig"
-            },
-            palette: {
-                whiteOnBlack: "text-white",
-                blackOnWhite: "text-black",
-                whiteOnTransparent: "bg-transparent text-white",
-                blackOnTransparent: "bg-transparent text-black"
-            },
-            size: {
-                "9xl": "text-9xl",
-                "8xl": "text-8xl",
-                "7xl": "text-7xl",
-                "6xl": "text-6xl",
-                "5xl": "text-5xl",
-                "4xl": "text-4xl",
-                "3xl": "text-3xl",
-                "2xl": "text-2xl",
-                xl: "text-xl",
-                lg: "text-lg",
-                base: "text-base",
-                sm: "text-sm",
-                xs: "text-xs"
-            },
-            makeRed: {
-                true: "text-red",
-                false: ""
-            }
-        },
-        defaultVariants: {
-            palette: "whiteOnBlack",
-            size: "5xl",
-            makeRed: false
-        }
-    }
-);
-
-interface NewspaperLetterProps
-extends
-    React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof NewspaperLetterVariants>
-{
-    letter: string
-}
-
-export function NewspaperLetter({ letter, font, palette, size, makeRed, className, ...props }: NewspaperLetterProps) {
-    return (
-        <span
-            className={cn(
-                NewspaperLetterVariants({ font, palette, size, makeRed }),
-                className
-            )}
-            {...props}
-        >
-            {letter}
-        </span>
-    );
-
-}
-
-function getCorrespondingFontForLetter(letter: string): "times" | "cooper" | "earwig" | "expose" {
+function getCorrespondingFontForLetter(letter: string): "font-times" | "font-cooper" | "font-earwig" | "font-expose" {
     switch (letter) {
         case "A":
         case "I":
@@ -85,7 +20,7 @@ function getCorrespondingFontForLetter(letter: string): "times" | "cooper" | "ea
         case "6":
         case "9":
         case "$":
-            return "times";
+            return "font-times";
 
         case "C":
         case "F":
@@ -115,7 +50,7 @@ function getCorrespondingFontForLetter(letter: string): "times" | "cooper" | "ea
         case "^":
         case "(":
         case ")":
-            return "earwig";
+            return "font-earwig";
         
         case "B":
         case "E":
@@ -136,7 +71,7 @@ function getCorrespondingFontForLetter(letter: string): "times" | "cooper" | "ea
         case "3":
         case "8":
         case "!":
-            return "expose";
+            return "font-expose";
 
         case "D":
         case "K":
@@ -147,88 +82,85 @@ function getCorrespondingFontForLetter(letter: string): "times" | "cooper" | "ea
         case "v":
         case "2":
         case "#":
-            return "cooper";
+            return "font-cooper";
 
         default:
-            return "times";
+            return "font-times";
     }
 }
 
+interface NewspaperLetterProps extends React.HTMLAttributes<HTMLSpanElement>
+{
+    letter: string,
+    asChild?: boolean
+}
+
+export function NewspaperLetter({ letter, className, asChild, ...props }: NewspaperLetterProps) {
+    const Comp = asChild ? Slot : "span";
+
+    const correspondingFont = getCorrespondingFontForLetter(letter);
+
+    return (
+        <Comp className={cn("relative", correspondingFont, className)} {...props}>
+            {letter}
+        </Comp>
+    );
+}
+
 const NewspaperTextVariants = cva(
-    "w-fit block tracking-tight",
+    "tracking-tight",
     {
         variants: {
             palette: {
-                whiteOnBlack: "bg-black text-white",
-                blackOnWhite: "bg-white text-black",
-                whiteOnTransparent: "bg-transparent text-white",
-                blackOnTransparent: "bg-transparent text-black"
-            },
-            size: {
-                "9xl": "text-9xl",
-                "8xl": "text-8xl",
-                "7xl": "text-7xl",
-                "6xl": "text-6xl",
-                "5xl": "text-5xl",
-                "4xl": "text-4xl",
-                "3xl": "text-3xl",
-                "2xl": "text-2xl",
-                xl: "text-xl",
-                lg: "text-lg",
-                base: "text-base",
-                sm: "text-sm",
-                xs: "text-xs"
+                whiteOnRed: "text-white bg-red",
+                whiteOnBlack: "text-white bg-black",
+                blackOnWhite: "text-black bg-white",
+                whiteOnTransparent: "text-white bg-transparent",
+                blackOnTransparent: "text-black bg-transparent",
+                redOnTransparent: "text-red bg-transparent"
             }
         },
         defaultVariants: {
-            palette: "whiteOnBlack",
-            size: "2xl"
+            palette: "whiteOnBlack"
         }
     }
 )
 
-interface NewspaperTextProps
-extends
-    React.HTMLAttributes<HTMLParagraphElement>,
-    VariantProps<typeof NewspaperTextVariants>
+const LETTER_MIN_BOTTOM_OFFSET = 0.025, LETTER_MAX_BOTTOM_OFFSET = 0.125;
+
+interface NewspaperTextProps extends VariantProps<typeof NewspaperTextVariants>
 {
     text: string,
-    forceRed?: boolean
+    redLetters?: string[],
+    element?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span" | "div",
+    className?: string
 }
 
-export function NewspaperText({ text, forceRed, palette, size, className, ...props }: NewspaperTextProps) {
-    const MIN_BOTTOM_OFFSET = 0.025, MAX_BOTTOM_OFFSET = 0.125;
-
-    const shouldHaveRed = forceRed || (palette === "whiteOnBlack" || palette === "blackOnWhite") && Math.random() < 0.25;
-    const redCharIndex = shouldHaveRed
-        ? Math.floor(Math.random() * text.replace(/\s+/g, "").length)
-        : -1;
+export function NewspaperText({ text, redLetters = [], element = "p", className, palette, ...props }: NewspaperTextProps) {
+    const Comp = element;
 
     return (
-        <p
+        <Comp
             className={cn(
-                NewspaperTextVariants({ palette, size }),
+                NewspaperTextVariants({ palette }),
                 className,
             )}
             {...props}
         >
             {text.split("").map((char, i) => {
-                const bottomOffset = Math.random() * (MAX_BOTTOM_OFFSET - MIN_BOTTOM_OFFSET) + MIN_BOTTOM_OFFSET
+                const bottomOffset = Math.random() * (LETTER_MAX_BOTTOM_OFFSET - LETTER_MIN_BOTTOM_OFFSET) + LETTER_MIN_BOTTOM_OFFSET;
                 
                 return (
                     <NewspaperLetter
-                        key={`${text}-char-${i}-${char}`}
-                        font={getCorrespondingFontForLetter(char)}
-                        palette={palette}
-                        size={size}
-                        makeRed={i === redCharIndex}
+                        key={`${text}-char@${i}-${char}`}
+                        letter={char}
+                        className={clsx({ "text-red" : redLetters.includes(char) })}
                         style={{
                             "bottom": `${bottomOffset}em`
                         }}
-                        letter={char}
                     />
-                )
+                );
             })}
-        </p>
+        </Comp>
     );
 }

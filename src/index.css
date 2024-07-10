@@ -5,9 +5,9 @@
 @font-face {
     font-family: "Expose";
     src:
-        url("/fonts/Expose.woff2") format("woff2"),
-        url("/fonts/Expose.woff") format("woff"),
-        url("/fonts/Expose.ttf") format("truetype");
+        url("/assets/fonts/Expose.woff2") format("woff2"),
+        url("/assets/fonts/Expose.woff") format("woff"),
+        url("/assets/fonts/Expose.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -16,9 +16,9 @@
 @font-face {
     font-family: "Earwig Factory";
     src:
-        url("/fonts/EarwigFactory.woff2") format("woff2"),
-        url("/fonts/EarwigFactory.woff") format("woff"),
-        url("/fonts/EarwigFactory.ttf") format("truetype");
+        url("/assets/fonts/EarwigFactory.woff2") format("woff2"),
+        url("/assets/fonts/EarwigFactory.woff") format("woff"),
+        url("/assets/fonts/EarwigFactory.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -27,9 +27,9 @@
 @font-face {
     font-family: "Cooper";
     src:
-        url("/fonts/CooperBlack.woff2") format("woff2"),
-        url("/fonts/CooperBlack.woff") format("woff"),
-        url("/fonts/CooperBlack.ttf") format("truetype");
+        url("/assets/fonts/CooperBlack.woff2") format("woff2"),
+        url("/assets/fonts/CooperBlack.woff") format("woff"),
+        url("/assets/fonts/CooperBlack.ttf") format("truetype");
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -38,9 +38,9 @@
 @font-face {
     font-family: "Arsenal";
     src:
-        url("/fonts/Arsenal-Bold.woff2") format("woff2"),
-        url("/fonts/Arsenal-Bold.woff") format("woff"),
-        url("/fonts/Arsenal-Bold.ttf") format("truetype");
+        url("/assets/fonts/Arsenal-Bold.woff2") format("woff2"),
+        url("/assets/fonts/Arsenal-Bold.woff") format("woff"),
+        url("/assets/fonts/Arsenal-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -49,9 +49,9 @@
 @font-face {
     font-family: "Arsenal";
     src:
-        url("/fonts/Arsenal-Regular.woff2") format("woff2"),
-        url("/fonts/Arsenal-Regular.woff") format("woff"),
-        url("/fonts/Arsenal-Regular.ttf") format("truetype");
+        url("/assets/fonts/Arsenal-Regular.woff2") format("woff2"),
+        url("/assets/fonts/Arsenal-Regular.woff") format("woff"),
+        url("/assets/fonts/Arsenal-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;

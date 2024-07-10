@@ -8,7 +8,7 @@ export function ContourBackground({ className, ...props }: ContourBackgroundProp
     return (
         <div
             className={cn(
-                "bg-red bg-[url(/images/contour-noise.png)] bg-contain",
+                "bg-red bg-[url(/assets/images/contour-noise.png)] bg-contain",
                 className
             )}
             {...props}

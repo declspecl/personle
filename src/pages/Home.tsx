@@ -1,16 +1,18 @@
-import { PersonleBackground } from "~/components/graphics/PersonleBackground";
-import { SkewedContainer } from "~/components/ui/SkewedContainer";
 import { cn } from "~/lib/utils";
+import { SkewedContainer } from "~/components/ui/SkewedContainer";
+import { PersonleBackground } from "~/components/graphics/PersonleBackground";
+import { RepsonsiveViewportContainer } from "~/layouts/ResponsiveViewportContainer";
+import { NewspaperText } from "~/components/typography/NewspaperText";
 
 export function Home() {
     return (
-        <div className={cn("relative w-full h-full")}>
+        <div className="relative w-full h-full">
             <PersonleBackground stripThickness={0.5} />
 
-            <div className={cn(
-                "absolute top-0 left-0 p-4 w-full min-h-[100svh] h-full flex flex-col items-center",
-                "sm:p-6",
-                "md:p-8"
+            <RepsonsiveViewportContainer className={cn(
+                "p-4 flex flex-col items-center",
+                "sm:px-6",
+                "md:px-8"
             )}>
                 <SkewedContainer
                     deltaWidthRem={3}
@@ -25,13 +27,23 @@ export function Home() {
                         deltaWidthRem={-3}
                         skewDirection="right"
                         className={cn(
-                            "grow w-full bg-black"
+                            "grow p-4 w-full bg-black"
                         )}
+                        asChild
                     >
-                        <p className="text-white">yo</p>
+                        <main>
+                            <NewspaperText
+                                text="Personle!"
+                                element="h1"
+                                palette="whiteOnTransparent"
+                                className={cn(
+                                    "mx-auto w-fit block text-6xl"
+                                )}
+                            />
+                        </main>
                     </SkewedContainer>
                 </SkewedContainer>
-            </div>
+            </RepsonsiveViewportContainer>
         </div>
     );
 }
