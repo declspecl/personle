@@ -2,7 +2,7 @@ import { StarBackground } from "./StarBackground";
 import { ContourBackground } from "./ContourBackground";
 
 interface PersonleBackgroundProps {
-    stripThickness: number,
+    stripThickness: number
 }
 
 export function PersonleBackground({ stripThickness }: PersonleBackgroundProps) {
@@ -13,7 +13,7 @@ export function PersonleBackground({ stripThickness }: PersonleBackgroundProps) 
                 style={{
                     //                 |-TL|  |--BL-|  |-----------------BR----------------|  |-----------------TR--------------|
                     clipPath: `polygon(0% 0%, 0% 100%, calc(50% - ${stripThickness / 2}rem) 100%, calc(50% - ${stripThickness}rem) 0%)`,
-                    WebkitClipPath: `polygon(0% 0%, 0% 100%, calc(50% - ${stripThickness}) 100%, 50% 0%)`
+                    WebkitClipPath: `polygon(0% 0%, 0% 100%, calc(50% - ${stripThickness / 2}rem) 100%, calc(50% - ${stripThickness}rem) 0%)`
                 }}
             />
 
