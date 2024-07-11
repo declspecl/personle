@@ -1,18 +1,21 @@
 import { cn } from "~/lib/utils";
+import { SiKofi } from "react-icons/si";
+import { Link } from "react-router-dom";
+import { IconContext } from "react-icons";
+import { FaGithub } from "react-icons/fa6";
+import { Button } from "~/components/ui/Button";
 import { SkewedContainer } from "~/components/ui/SkewedContainer";
+import { NewspaperText } from "~/components/typography/NewspaperText";
 import { PersonleBackground } from "~/components/graphics/PersonleBackground";
 import { RepsonsiveViewportContainer } from "~/layouts/ResponsiveViewportContainer";
-import { NewspaperText } from "~/components/typography/NewspaperText";
-import { Button } from "~/components/ui/Button";
-import { DateWithDay } from "~/components/typography/DateWithDay";
 
-export function Home() {
+export function HomePage() {
     return (
         <div className="relative w-full h-full overflow-hidden">
-            <PersonleBackground stripThickness={3} />
+            <PersonleBackground stripThickness={2} />
 
             <RepsonsiveViewportContainer className={cn(
-                "px-8 py-4 flex flex-col items-center overflow-auto",
+                "p-4 flex flex-col items-center overflow-auto",
                 "sm:px-6",
                 "md:px-8 md:py-8"
             )}>
@@ -26,60 +29,82 @@ export function Home() {
                         "lg:w-[64rem]"
                     )}
                 >
-                    <main className="grow p-4 w-full bg-black -z-10">
-                        <NewspaperText
-                            text="Personle!"
-                            redLetters={["o"]}
-                            element="h1"
-                            palette="whiteOnTransparent"
-                            className={cn(
-                                "mx-auto w-fit block text-5xl lg:text-6xl xl:text-7xl"
-                            )}
-                        />
+                    <main className={cn(
+                        "grow p-4 w-full flex flex-col gap-8 bg-black -z-10"
+                    )}>
+                        <Link to="/">
+                            <NewspaperText
+                                text="Personle!"
+                                redLetters={["o"]}
+                                element="h1"
+                                palette="whiteOnTransparent"
+                                className={cn(
+                                    "mx-auto w-fit block text-[min(12.5vw,5rem)]"
+                                )}
+                            />
+                        </Link>
 
-                        <DateWithDay className="text-4xl -rotate-12" />
+                        <div className="grow flex flex-col justify-center items-center">
+                            <Link to="/play">
+                                <NewspaperText
+                                    text="Play"
+                                    redLetters={["P"]}
+                                    palette="whiteOnTransparent"
+                                    className={cn(
+                                        "text-[min(12.5vw,4rem)]",
+                                    )}
+                                />
+                            </Link>
 
-                        <br />
+                            <Link to="/profile">
+                                <NewspaperText
+                                    text="Profile"
+                                    redLetters={["f"]}
+                                    palette="whiteOnTransparent"
+                                    className={cn(
+                                        "text-[min(12.5vw,4rem)]",
+                                    )}
+                                />
+                            </Link>
 
-                        <p className="text-center text-white text-2xl">Test test 123</p>
+                            <Link to="/leaderboard">
+                                <NewspaperText
+                                    text="Leaderboard"
+                                    redLetters={["L", "b"]}
+                                    palette="whiteOnTransparent"
+                                    className={cn(
+                                        "text-[min(10vw,4rem)]",
+                                    )}
+                                />
+                            </Link>
 
-                        <Button palette="whiteText" size="sm">
-                            Click me!
-                        </Button>
+                            <Link to="/settings">
+                                <NewspaperText
+                                    text="Settings"
+                                    redLetters={["e", "i"]}
+                                    palette="whiteOnTransparent"
+                                    className={cn(
+                                        "text-[min(12.5vw,4rem)]",
+                                    )}
+                                />
+                            </Link>
+                        </div>
 
-                        <Button palette="whiteText" size="md">
-                            Click me!
-                        </Button>
+                        <div className="flex flex-row gap-4 justify-center items-center">
+                            <IconContext.Provider value={{ className: "w-full aspect-square text-2xl md:text-3xl" }}>
+                                <Button palette="whiteText" size="icon" asChild>
+                                    <a href="https://github.com/declspecl/personle-website" target="_blank">
+                                        <FaGithub />
+                                    </a>
+                                </Button>
 
-                        <Button palette="whiteText" size="lg">
-                            Click me!
-                        </Button>
-
-                        <Button palette="whiteText" size="xl">
-                            Click me!
-                        </Button>
-
-                        <Button palette="whiteText" size="icon">
-                            A
-                        </Button>
-
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
-                        <p className="text-white">Click me!</p>
+                                <Button palette="whiteText" size="icon" asChild>
+                                    <a href="https://ko-fi.com/declspecl" target="_blank">
+                                        <SiKofi />
+                                    </a>
+                                </Button>
+                            </IconContext.Provider>
+                        </div>
                     </main>
                 </SkewedContainer>
             </RepsonsiveViewportContainer>

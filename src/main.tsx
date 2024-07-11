@@ -4,17 +4,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RootLayout } from "./layouts/RootLayout.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home } from "./pages/Home.tsx";
-import { Play } from "./pages/Play.tsx";
+import { HomePage } from "./pages/Home.tsx";
+import { PlayPage } from "./pages/Play.tsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />
+        element: <HomePage />
     },
     {
         path: "/play",
-        element: <Play />
+        element: <PlayPage />
     }
 ]);
 

@@ -1,8 +1,8 @@
+import clsx from "clsx";
 import React from "react";
 import { cn } from "~/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
 import { Slot } from "@radix-ui/react-slot";
-import clsx from "clsx";
+import { cva, VariantProps } from "class-variance-authority";
 
 function getCorrespondingFontForLetter(letter: string): "font-times" | "font-cooper" | "font-earwig" | "font-expose" {
     switch (letter) {
@@ -124,7 +124,7 @@ const NewspaperTextVariants = cva(
             palette: "whiteOnBlack"
         }
     }
-)
+);
 
 const LETTER_MIN_BOTTOM_OFFSET = 0.025, LETTER_MAX_BOTTOM_OFFSET = 0.125;
 

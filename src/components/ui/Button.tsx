@@ -1,5 +1,6 @@
 import { clsx } from "clsx";
 import { cn } from "~/lib/utils";
+import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority"
 
 const buttonVariants = cva(
@@ -27,6 +28,7 @@ const buttonVariants = cva(
             }
         },
         defaultVariants: {
+            palette: "whiteText",
             size: "md"
         }
     }
@@ -36,11 +38,15 @@ interface ButtonProps
 extends
     React.HTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants>
-{}
+{
+    asChild?: boolean
+}
 
-export function Button({ palette, destructive, size, className, children, ...props }: ButtonProps) {
+export function Button({ palette, destructive, size, className, children, asChild = false, ...props }: ButtonProps) {
+    const Comp = asChild ? Slot : "button";
+
     return (
-        <button
+        <Comp
             className={cn(
                 buttonVariants({ palette, destructive, size }),
                 className
@@ -52,6 +58,6 @@ export function Button({ palette, destructive, size, className, children, ...pro
                     {children}
                 </span>
             </div>
-        </button>
+        </Comp>
     );
 }
