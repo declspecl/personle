@@ -4,6 +4,7 @@ import { PersonleBackground } from "~/components/graphics/PersonleBackground";
 import { RepsonsiveViewportContainer } from "~/layouts/ResponsiveViewportContainer";
 import { NewspaperText } from "~/components/typography/NewspaperText";
 import { Button } from "~/components/ui/Button";
+import { DateWithDay } from "~/components/typography/DateWithDay";
 
 export function Home() {
     return (
@@ -13,8 +14,7 @@ export function Home() {
             <RepsonsiveViewportContainer className={cn(
                 "px-8 py-4 flex flex-col items-center overflow-auto",
                 "sm:px-6",
-                "md:px-8 md:py-8",
-                "lg:py-12"
+                "md:px-8 md:py-8"
             )}>
                 <SkewedContainer
                     deltaWidthRem={2}
@@ -26,90 +26,61 @@ export function Home() {
                         "lg:w-[64rem]"
                     )}
                 >
-                    <SkewedContainer
-                        deltaWidthRem={0}
-                        skewDirection="right"
-                        className={cn(
-                            "grow p-4 w-full bg-black"
-                        )}
-                        asChild
-                    >
-                        {/* TODO: investigate adding another SkewedContainer to keep the black bg skewed but return skew back to normal for child contents, and how this affects responsiveness*/}
+                    <main className="grow p-4 w-full bg-black -z-10">
+                        <NewspaperText
+                            text="Personle!"
+                            redLetters={["o"]}
+                            element="h1"
+                            palette="whiteOnTransparent"
+                            className={cn(
+                                "mx-auto w-fit block text-5xl lg:text-6xl xl:text-7xl"
+                            )}
+                        />
 
-                        <main>
-                            <NewspaperText
-                                text="Personle!"
-                                redLetters={["o"]}
-                                element="h1"
-                                palette="whiteOnTransparent"
-                                className={cn(
-                                    "mx-auto w-fit block text-5xl lg:text-6xl xl:text-7xl"
-                                )}
-                            />
+                        <DateWithDay className="text-4xl -rotate-12" />
 
-                            <NewspaperText
-                                text="Personle!"
-                                redLetters={["o"]}
-                                element="h1"
-                                palette="whiteOnTransparent"
-                                className={cn(
-                                    "mx-auto w-fit block text-5xl lg:text-6xl xl:text-7xl"
-                                )}
-                            />
+                        <br />
 
-                            <NewspaperText
-                                text="abcdefghijkl"
-                                redLetters={["a", "l", "c"]}
-                                element="h1"
-                                palette="whiteOnTransparent"
-                                className={cn(
-                                    "mx-auto w-fit block text-5xl lg:text-6xl xl:text-7xl"
-                                )}
-                            />
+                        <p className="text-center text-white text-2xl">Test test 123</p>
 
-                            <br />
+                        <Button palette="whiteText" size="sm">
+                            Click me!
+                        </Button>
 
-                            <p className="text-center text-white text-2xl">Test test 123</p>
+                        <Button palette="whiteText" size="md">
+                            Click me!
+                        </Button>
 
-                            <Button palette="whiteText" size="sm">
-                                Click me!
-                            </Button>
+                        <Button palette="whiteText" size="lg">
+                            Click me!
+                        </Button>
 
-                            <Button palette="whiteText" size="md">
-                                Click me!
-                            </Button>
+                        <Button palette="whiteText" size="xl">
+                            Click me!
+                        </Button>
 
-                            <Button palette="whiteText" size="lg">
-                                Click me!
-                            </Button>
+                        <Button palette="whiteText" size="icon">
+                            A
+                        </Button>
 
-                            <Button palette="whiteText" size="xl">
-                                Click me!
-                            </Button>
-
-                            <Button palette="whiteText" size="icon">
-                                A
-                            </Button>
-
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                        </main>
-                    </SkewedContainer>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                        <p className="text-white">Click me!</p>
+                    </main>
                 </SkewedContainer>
             </RepsonsiveViewportContainer>
         </div>
