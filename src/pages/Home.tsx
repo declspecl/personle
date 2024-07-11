@@ -71,12 +71,24 @@ export function Home() {
 
                             <p className="text-center text-white text-2xl">Test test 123</p>
 
-                            <Button palette="whiteText" size="lg" destructive>
+                            <Button palette="whiteText" size="sm">
                                 Click me!
                             </Button>
 
-                            <Button palette="blackText" size="lg" destructive>
+                            <Button palette="whiteText" size="md">
                                 Click me!
+                            </Button>
+
+                            <Button palette="whiteText" size="lg">
+                                Click me!
+                            </Button>
+
+                            <Button palette="whiteText" size="xl">
+                                Click me!
+                            </Button>
+
+                            <Button palette="whiteText" size="icon">
+                                A
                             </Button>
 
                             <p className="text-white">Click me!</p>

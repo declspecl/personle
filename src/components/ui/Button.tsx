@@ -1,6 +1,6 @@
-import { cva, VariantProps } from "class-variance-authority"
 import { clsx } from "clsx";
 import { cn } from "~/lib/utils";
+import { cva, VariantProps } from "class-variance-authority"
 
 const buttonVariants = cva(
     clsx(
@@ -19,9 +19,10 @@ const buttonVariants = cva(
                 true: "hover:before:bg-red hover:text-white"
             },
             size: {
-                sm: "h-9 px-3",
+                sm: "h-9 px-3 text-sm",
                 md: "h-10 px-4",
-                lg: "h-10 px-5",
+                lg: "h-10 px-6 text-lg",
+                xl: "h-10 px-8 text-xl font-bold",
                 icon: "h-10 w-10"
             }
         },

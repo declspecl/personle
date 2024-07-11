@@ -9,7 +9,7 @@ export function RepsonsiveViewportContainer({ className, children, asChild = fal
     const Comp = asChild ? Slot : "div";
 
     return (
-        <Comp className={cn("w-full min-h-[100svh] h-full", className)} {...props}>
+        <Comp className={cn("min-w-[100svw] w-full min-h-[100svh] h-full", className)} {...props}>
             {children}
         </Comp>
     );
