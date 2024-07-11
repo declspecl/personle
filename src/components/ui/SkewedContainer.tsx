@@ -29,6 +29,8 @@ export function SkewedContainer({ deltaWidthRem, skewDirection, asChild = false,
         ? "100%"
         : `calc(100% - ${deltaWidthRem / 2}rem)`;
 
+    const clipPathPolygon = `polygon(${tlXPos} 0%, ${blXPos} 100%, ${brXPos} 100%, ${trXPos} 0%)`;
+
     const Comp = asChild ? Slot : "div";
 
     return (
@@ -36,8 +38,8 @@ export function SkewedContainer({ deltaWidthRem, skewDirection, asChild = false,
             ref={elementRef}
             className={className}
             style={{
-                clipPath: `polygon(${tlXPos} 0%, ${blXPos} 100%, ${brXPos} 100%, ${trXPos} 0%)`,
-                WebkitClipPath: `polygon(${tlXPos} 0%, ${blXPos} 100%, ${brXPos} 100%, ${trXPos} 0%)`
+                clipPath: clipPathPolygon,
+                WebkitClipPath: clipPathPolygon
             }}
         >
             {children}
