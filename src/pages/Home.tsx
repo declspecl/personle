@@ -7,30 +7,30 @@ import { Button } from "~/components/ui/Button";
 
 export function Home() {
     return (
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full overflow-hidden">
             <PersonleBackground stripThickness={3} />
 
             <RepsonsiveViewportContainer className={cn(
-                "px-8 py-4 flex flex-col items-center",
+                "px-8 py-4 flex flex-col items-center overflow-auto",
                 "sm:px-6",
                 "md:px-8 md:py-8",
                 "lg:py-12"
             )}>
                 <SkewedContainer
-                    deltaWidthRem={3}
+                    deltaWidthRem={2}
                     skewDirection="right"
                     className={cn(
-                        "grow mx-auto p-8 w-full flex flex-col bg-white overflow-hidden",
+                        "grow mx-auto p-8 w-full flex flex-col bg-white",
                         "sm:w-[40rem]",
                         "md:w-[48rem]",
                         "lg:w-[64rem]"
                     )}
                 >
                     <SkewedContainer
-                        deltaWidthRem={3}
-                        skewDirection="left"
+                        deltaWidthRem={0}
+                        skewDirection="right"
                         className={cn(
-                            "grow p-4 w-full bg-black overflow-auto"
+                            "grow p-4 w-full bg-black"
                         )}
                         asChild
                     >
@@ -79,10 +79,6 @@ export function Home() {
                                 Click me!
                             </Button>
 
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
-                            <p className="text-white">Click me!</p>
                             <p className="text-white">Click me!</p>
                             <p className="text-white">Click me!</p>
                             <p className="text-white">Click me!</p>

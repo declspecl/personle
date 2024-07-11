@@ -1,7 +1,5 @@
+import React, { useRef } from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { convertRemToPixels } from "~/lib/utils";
-import React, { useLayoutEffect, useRef, useState } from "react";
-import { useWindowDimensions } from "~/hooks/useWindowDimensions";
 
 interface SkewedContainerProps {
     skewDirection: "left" | "right",
@@ -13,38 +11,23 @@ interface SkewedContainerProps {
 }
 
 export function SkewedContainer({ deltaWidthRem, skewDirection, asChild = false, className, children }: SkewedContainerProps) {
-    const [skew, setSkew] = useState(0);
-    const windowDimensions = useWindowDimensions();
-
     const elementRef = useRef<HTMLDivElement>(null!);
 
-    // using `useLayoutEffect` to avoid skew of 0 on first render resulting in layout shift
-    useLayoutEffect(() => {
-        const newSkew = calculateSkewForDeltaWidthPixels(convertRemToPixels(deltaWidthRem / 2)) * (skewDirection === "left" ? 1 : -1);
-        setSkew(newSkew);
+    const tlXPos = skewDirection === "left"
+        ? "0%"
+        : `calc(0% + ${deltaWidthRem / 2}rem)`;
 
-        const calculatedWidth = elementRef.current.offsetWidth + Math.abs(elementRef.current.offsetHeight * Math.tan(newSkew));
-        console.log(calculatedWidth);
-    }, [windowDimensions, deltaWidthRem, skewDirection]);
+    const trXPos = skewDirection === "right"
+        ? "100%"
+        : `calc(100% - ${deltaWidthRem / 2}rem)`;
 
-    const calculateSkewForDeltaWidthPixels = (deltaWidthPixels: number) => {
-        //        /|
-        //       / |
-        //      /  |
-        //     /   |
-        //    /    | deltaWidth
-        //   /     |
-        //  /      |
-        // / skew  |
-        // ---------
-        //   height
-        //
-        // newWidth = width + (height * tan(skew))
-        // atan((newWidth - width) / height) = skew
-        // atan(deltaWidth / height) = skew
+    const blXPos = skewDirection === "right"
+        ? "0%"
+        : `calc(0% + ${deltaWidthRem / 2}rem)`
 
-        return Math.atan(deltaWidthPixels / elementRef.current.offsetHeight);
-    }
+    const brXPos = skewDirection === "left"
+        ? "100%"
+        : `calc(100% - ${deltaWidthRem / 2}rem)`;
 
     const Comp = asChild ? Slot : "div";
 
@@ -53,7 +36,8 @@ export function SkewedContainer({ deltaWidthRem, skewDirection, asChild = false,
             ref={elementRef}
             className={className}
             style={{
-                transform: `skewX(${skew}rad)`
+                clipPath: `polygon(${tlXPos} 0%, ${blXPos} 100%, ${brXPos} 100%, ${trXPos} 0%)`,
+                WebkitClipPath: `polygon(${tlXPos} 0%, ${blXPos} 100%, ${brXPos} 100%, ${trXPos} 0%)`
             }}
         >
             {children}
