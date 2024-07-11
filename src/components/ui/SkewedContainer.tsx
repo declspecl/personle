@@ -4,14 +4,15 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import { useWindowDimensions } from "~/hooks/useWindowDimensions";
 
 interface SkewedContainerProps {
-    className: string,
-    children: React.ReactNode,
-    deltaWidthRem: number,
     skewDirection: "left" | "right",
-    asChild?: boolean
+    deltaWidthRem: number,
+
+    asChild?: boolean,
+    className?: string,
+    children?: React.ReactNode
 }
 
-export function SkewedContainer({ className, children, deltaWidthRem, skewDirection, asChild = false }: SkewedContainerProps) {
+export function SkewedContainer({ deltaWidthRem, skewDirection, asChild = false, className, children }: SkewedContainerProps) {
     const [skew, setSkew] = useState(0);
     const windowDimensions = useWindowDimensions();
 

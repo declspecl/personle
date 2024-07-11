@@ -1,16 +1,22 @@
 import { cva, VariantProps } from "class-variance-authority"
+import { clsx } from "clsx";
 import { cn } from "~/lib/utils";
 
 const buttonVariants = cva(
-    "inline-flex items-center justify-center -skew-x-[20deg] rotate-[9deg] whitespace-nowrap text-base focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
+    clsx(
+        "relative inline-flex items-center justify-center whitespace-nowrap text-base",
+        "before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:-skew-x-[20deg] before:rotate-6 before:-z-10",
+        "focus-visible:outline-none",
+        "disabled:pointer-events-none disabled:opacity-50",
+    ),
     {
         variants: {
             palette: {
-                blackText: "bg-transparent text-black hover:bg-black hover:text-white",
-                whiteText: "bg-transparent text-white hover:bg-white hover:text-black",
+                blackText: "before:bg-transparent text-black hover:before:bg-black hover:text-white",
+                whiteText: "before:bg-transparent text-white hover:before:bg-white hover:text-black",
             },
             destructive: {
-                true: "hover:bg-red"
+                true: "hover:before:bg-red hover:text-white"
             },
             size: {
                 sm: "h-9 px-3",
@@ -40,9 +46,11 @@ export function Button({ palette, destructive, size, className, children, ...pro
             )}
             {...props}
         >
-            <span className="skew-x-[20deg] -rotate-[9deg]">
-                {children}
-            </span>
+            <div>
+                <span>
+                    {children}
+                </span>
+            </div>
         </button>
     );
 }
