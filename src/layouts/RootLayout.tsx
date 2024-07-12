@@ -23,9 +23,9 @@ export function RootLayout({ className }: RootLayoutProps) {
                     skewDirection="right"
                     className={cn(
                         "grow mx-auto p-8 w-full flex flex-col bg-white",
-                        "sm:w-[40rem]",
-                        "md:w-[48rem]",
-                        "lg:w-[64rem]"
+                        "sm:w-[36rem]",
+                        "md:w-[44rem]",
+                        "lg:w-[60rem]"
                     )}
                 >
                     <main className={cn(

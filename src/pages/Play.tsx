@@ -1,11 +1,11 @@
-interface PlayProps extends React.HTMLAttributes<HTMLDivElement> {
+interface PlayProps {
 
 }
 
-export function PlayPage({ className, children, ...props }: PlayProps) {
+export function PlayPage(props: PlayProps) {
     return (
-        <div className={className} {...props}>
-            {children}
-        </div>
+        <>
+        
+        </>
     );
 }

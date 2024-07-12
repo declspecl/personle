@@ -14,8 +14,9 @@ function getCorrespondingFontForLetter(letter: string): "font-times" | "font-coo
         case "X":
         case "a":
         case "j":
+        case "l":
+        case "r":
         case "p":
-        case "y":
         case "5":
         case "6":
         case "9":
@@ -42,6 +43,7 @@ function getCorrespondingFontForLetter(letter: string): "font-times" | "font-coo
         case "q":
         case "u":
         case "x":
+        case "y":
         case "1":
         case "4":
         case "7":
@@ -63,8 +65,6 @@ function getCorrespondingFontForLetter(letter: string): "font-times" | "font-coo
         case "d":
         case "f":
         case "g":
-        case "l":
-        case "r":
         case "s":
         case "w":
         case "z":
