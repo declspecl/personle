@@ -10,12 +10,14 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@radix-ui/react-popover": "^1.1.1",
         "@radix-ui/react-slot": "^1.1.0",
         "@tanstack/react-query": "^5.51.1",
         "@types/node": "^20.14.9",
         "@vitejs/plugin-react-swc": "^3.7.0",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
+        "cmdk": "^1.0.0",
         "poisson-disk-sampling": "^2.3.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

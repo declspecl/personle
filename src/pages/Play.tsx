@@ -3,7 +3,11 @@ import { Suspense, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DateWithDay } from "~/components/typography/DateWithDay";
 import { NewspaperText } from "~/components/typography/NewspaperText";
+import { Button } from "~/components/ui/Button";
+import { ComboboxDemo } from "~/components/ui/Combobox";
+import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from "~/components/ui/Command";
 import { MessageBox } from "~/components/ui/MessageBox";
+import { Popover, PopoverContent, PopoverTrigger } from "~/components/ui/Popover";
 import { Skeleton } from "~/components/ui/Skeleton";
 import { getGuesses } from "~/lib/backend/api";
 import { cn } from "~/lib/utils";
@@ -59,6 +63,10 @@ export function PlayPage() {
                     <p>Guess today's Persona!</p>
                 </MessageBox>
             </div>
+
+            <MessageBox fromSide="left" className="text-white">
+                <ComboboxDemo />
+            </MessageBox>
 
             <Suspense fallback={<Skeleton deltaWidthRem={1} skewDirection="right" className="w-20 h-20" />}>
                 <UserGuesses />

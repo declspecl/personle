@@ -53,11 +53,7 @@ export function Button({ palette, destructive, size, className, children, asChil
             )}
             {...props}
         >
-            <div>
-                <span>
-                    {children}
-                </span>
-            </div>
+            {children}
         </Comp>
     );
 }
