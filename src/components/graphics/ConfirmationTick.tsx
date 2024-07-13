@@ -26,7 +26,7 @@ export function ConfirmationTick({ size, className }: ConfirmationTickProps) {
 
     return (
         <div
-            className="p-2 w-fit h-fit bg-black rotate-12"
+            className={cn("p-2 w-fit h-fit bg-black rotate-12", className)}
             style={{
                 clipPath: tickClipPathPolygon,
                 WebkitClipPath: tickClipPathPolygon

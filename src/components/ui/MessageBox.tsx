@@ -1,52 +1,35 @@
-import { cva } from "class-variance-authority";
 import { cn } from "~/lib/utils";
 import { SkewedContainer } from "./SkewedContainer";
-import { WithTail } from "../graphics/WithTail";
-
-const messageBoxVariants = cva(
-    "",
-    {
-        variants: {
-            palette: {
-                a: ""
-            }
-        }
-    }
-);
+import { MessageBoxTail } from "../graphics/MessageBoxTail";
 
 interface MessageBoxProps {
-    tailDirection: "left" | "right",
+    fromSide: "left" | "right",
     children?: React.ReactNode,
     className?: string
 }
 
-export function MessageBox({ tailDirection, children, className }: MessageBoxProps) {
+export function MessageBox({ fromSide, children, className }: MessageBoxProps) {
+    const oppositeSide = fromSide === "left" ? "right" : "left";
+
     return (
         <div className={cn(
-            "flex flex-row items-end",
-            { "flex-row-reverse" : tailDirection === "right" },
+            "max-w-full flex flex-row items-end",
+            { "flex-row-reverse" : fromSide === "right" },
             className
         )}>
-            <WithTail
-                fromSide={tailDirection}
-                className={cn(
-                    "relative w-20 h-8"
-                )}
-                outerClassName="bg-white -z-10"
-                innerClassName="bg-black z-10"
-            />
+            <MessageBoxTail fromSide={fromSide} />
 
             <SkewedContainer
-                skewDirection={tailDirection === "left" ? "right" : "left"}
+                skewDirection={oppositeSide}
                 deltaWidthRem={1}
                 className={cn(
                     "relative p-1.5 bg-white z-0",
-                    { "right-8" : tailDirection === "left" },
-                    { "left-8" : tailDirection === "right" }
+                    { "right-5 sm:right-8" : fromSide === "left" },
+                    { "left-5 sm:left-8" : fromSide === "right" }
                 )}
             >
                 <SkewedContainer
-                    skewDirection={tailDirection === "left" ? "right" : "left"}
+                    skewDirection={oppositeSide}
                     deltaWidthRem={1}
                     className={cn(
                         "relative p-2 px-4 bg-black z-0"
