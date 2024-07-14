@@ -3,11 +3,11 @@ export interface GetGuessesResponse {
     guesses: string[]
 }
 
-export async function getGuesses(): Promise<GetGuessesResponse> {
+export async function getGuesses(): Promise<Response> {
     return fetch("http://localhost:3345/guess", {
         method: "GET",
         credentials: "include"
-    }).then(res => res.json());
+    })
 }
 
 export async function addGuess(persona: string): Promise<Response> {

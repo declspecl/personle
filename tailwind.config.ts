@@ -13,7 +13,14 @@ export default {
         colors: {
             white: "hsl(var(--white))",
             black: "hsl(var(--black))",
-            red: "hsl(var(--red))",
+            red: {
+                DEFAULT: "hsl(var(--red))",
+                dark: "hsl(var(--red-dark))"
+            },
+            yellow: {
+                DEFAULT: "hsl(var(--yellow))",
+                white: "hsl(var(--yellow-white))"
+            },
             grey: {
                 dark: "hsl(var(--grey-dark))",
                 light: "hsl(var(--grey-light))"

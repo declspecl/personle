@@ -60,11 +60,16 @@
 :root {
     --white: 0 0% 100%;
     --black: 0 0% 0%;
+
     --red: 5 100% 50%;
-    --dark-red: 5 100% 30%;
+    --red-dark: 5 100% 30%;
+
+    --yellow: 47 99% 56%;
     --yellow-white: 99 67% 92%;
+
     --grey-dark: 0 0% 40%;
     --grey-light: 0 0% 70%;
+
     --blue-dark: 226 65% 44%;
     --blue-matte: 205 100% 46%;
     --blue-light: 185 100% 48%;

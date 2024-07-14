@@ -1,13 +1,13 @@
 import { useQuery, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { Suspense, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Await, Link, useLoaderData, useNavigate } from "react-router-dom";
 import { DateWithDay } from "~/components/typography/DateWithDay";
 import { NewspaperText } from "~/components/typography/NewspaperText";
 import { Button } from "~/components/ui/Button";
 import { PersonaCombobox } from "~/components/ui/PersonaCombobox";
 import { MessageBox } from "~/components/ui/MessageBox";
 import { Skeleton } from "~/components/ui/Skeleton";
-import { addGuess, getGuesses } from "~/lib/backend/api";
+import { addGuess, getGuesses, GetGuessesResponse } from "~/lib/backend/api";
 import { cn } from "~/lib/utils";
 import { PersonaData } from "~/lib/backend/model";
 
@@ -41,34 +41,36 @@ function MakeGuessController({ onClick }: MakeGuessControllerProps) {
 }
 
 function UserGuessManager() {
-    const queryClient = useQueryClient();
+    const navigate = useNavigate();
 
     const [todayPersona, setTodayPersona] = useState<string>(null!)
     const [guesses, setGuesses] = useState<string[]>([]);
-
-    const { isError, isLoading, data } = useSuspenseQuery({
-        queryKey: ["getGuesses"],
-        queryFn: getGuesses
-    });
-
-    useEffect(() => {
-        if (data) {
-            setTodayPersona(data.persona);
-            setGuesses(data.guesses);
-        }
-    }, [data]);
 
     return (
         <>
             <MakeGuessController onClick={async (guess: PersonaData) => {
                 setGuesses([...guesses, guess.name]);
 
-                const response = await queryClient.fetchQuery({
-                    queryKey: ["addGuess", guess.name],
-                    queryFn: () => addGuess(guess.name)
-                });
+                console.log(document.cookie);
 
-                console.log(response);
+                if (document.cookie.includes("session=")) {
+                    const response = await fetch("http://localhost:3345/guess", {
+                        method: "PUT",
+                        credentials: "include",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            persona_guess: guess.name
+                        })
+                    });
+
+                    response.headers.getSetCookie().forEach(cookie => {
+                        document.cookie = cookie;
+                    });
+
+                    console.log(response);
+                }
             }} />
 
             <Suspense fallback={<Skeleton deltaWidthRem={1} skewDirection="right" className="w-20 h-20" />}>
@@ -87,6 +89,10 @@ function UserGuessManager() {
 }
 
 export function PlayPage() {
+    const data = useLoaderData();
+
+    console.log(data);
+
     return (
         <div className="w-full flex flex-col gap-4">
             <Link to="/">
@@ -101,8 +107,8 @@ export function PlayPage() {
                 />
             </Link>
 
-            <DateWithDay className="self-start text-[min(7.5vw,2.5rem)] -rotate-12" />
-            
+            <DateWithDay className="self-start text-[min(7.5vw,2.5rem)] -rotate-[24deg]" />
+
             <div className="w-full flex flex-row justify-end">
                 <MessageBox fromSide="right" className="text-white" deltaWidthRem={1}>
                     <p>Guess today's Persona!</p>
