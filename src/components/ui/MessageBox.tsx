@@ -4,11 +4,12 @@ import { MessageBoxTail } from "../graphics/MessageBoxTail";
 
 interface MessageBoxProps {
     fromSide: "left" | "right",
+    deltaWidthRem: number,
     children?: React.ReactNode,
     className?: string
 }
 
-export function MessageBox({ fromSide, children, className }: MessageBoxProps) {
+export function MessageBox({ fromSide, deltaWidthRem, children, className }: MessageBoxProps) {
     const oppositeSide = fromSide === "left" ? "right" : "left";
 
     return (
@@ -21,21 +22,23 @@ export function MessageBox({ fromSide, children, className }: MessageBoxProps) {
 
             <SkewedContainer
                 skewDirection={oppositeSide}
-                deltaWidthRem={1}
+                deltaWidthRem={deltaWidthRem}
                 className={cn(
-                    "relative p-1.5 bg-white z-0",
+                    "relative p-1.5 bg-white",
                     { "right-5 sm:right-8" : fromSide === "left" },
                     { "left-5 sm:left-8" : fromSide === "right" }
                 )}
             >
                 <SkewedContainer
                     skewDirection={oppositeSide}
-                    deltaWidthRem={1}
+                    deltaWidthRem={deltaWidthRem}
                     className={cn(
-                        "relative p-2 px-4 bg-black z-0"
+                        "relative p-2 px-4 bg-black"
                     )}
                 >
-                    {children}
+                    <div className="z-20">
+                        {children}
+                    </div>
                 </SkewedContainer>
             </SkewedContainer>
         </div>

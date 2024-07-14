@@ -6,7 +6,7 @@ import { cva, VariantProps } from "class-variance-authority"
 const buttonVariants = cva(
     clsx(
         "relative inline-flex items-center justify-center whitespace-nowrap text-base",
-        "before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:-skew-x-[20deg] before:rotate-6 before:-z-10",
+        "before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:-z-10",
         "focus-visible:outline-none",
         "disabled:pointer-events-none disabled:opacity-50",
     ),
@@ -25,11 +25,18 @@ const buttonVariants = cva(
                 lg: "h-10 px-6 text-lg",
                 xl: "h-10 px-8 text-xl font-bold",
                 icon: "h-10 w-10"
+            },
+            skewMagnitude: {
+                none: "before:skew-x-0",
+                sm: "before:-skew-x-[12deg]",
+                md: "before:-skew-x-[16deg]",
+                lg: "before:-skew-x-[20deg]"
             }
         },
         defaultVariants: {
             palette: "whiteText",
-            size: "md"
+            size: "md",
+            skewMagnitude: "lg"
         }
     }
 );
@@ -39,16 +46,18 @@ extends
     React.HTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants>
 {
+    rotate?: boolean,
     asChild?: boolean
 }
 
-export function Button({ palette, destructive, size, className, children, asChild = false, ...props }: ButtonProps) {
+export function Button({ palette, destructive, size, skewMagnitude, className, children, rotate = true, asChild = false, ...props }: ButtonProps) {
     const Comp = asChild ? Slot : "button";
 
     return (
         <Comp
             className={cn(
-                buttonVariants({ palette, destructive, size }),
+                buttonVariants({ palette, destructive, size, skewMagnitude }),
+                rotate && "before:rotate-6",
                 className
             )}
             {...props}

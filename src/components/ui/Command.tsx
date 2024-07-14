@@ -24,7 +24,7 @@ export const CommandInput = React.forwardRef<
     React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
     <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
-        <IconContext.Provider value={{ className: "mr-2 h-4 w-4 shrink-0 opacity-50 "}}>
+        <IconContext.Provider value={{ className: "mr-2 h-4 w-4 shrink-0 text-grey-light" }}>
             <CiSearch />
         </IconContext.Provider>
 
@@ -32,7 +32,7 @@ export const CommandInput = React.forwardRef<
             ref={ref}
             className={cn(
                 "py-3 h-11 w-full flex bg-transparent text-sm outline-none",
-                "placeholder:text-grey-dark",
+                "placeholder:text-grey-light",
                 "disabled:cursor-not-allowed disabled:opacity-50",
                 className
             )}
@@ -74,8 +74,8 @@ export const CommandItem = React.forwardRef<
         ref={ref}
         className={cn(
             "px-2 py-1.5 relative flex items-center cursor-default select-none text-sm outline-none",
-            "aria-selected:bg-blue aria-selected:text-white",
-            "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+            "aria-selected:bg-blue-light aria-selected:text-black",
+            "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
             className
         )}
         {...props}

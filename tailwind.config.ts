@@ -18,6 +18,11 @@ export default {
                 dark: "hsl(var(--grey-dark))",
                 light: "hsl(var(--grey-light))"
             },
+            blue: {
+                dark: "hsl(var(--blue-dark))",
+                matte: "hsl(var(--blue-matte))",
+                light: "hsl(var(--blue-light))"
+            },
             transparent: "transparent"
         },
         extend: {

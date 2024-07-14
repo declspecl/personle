@@ -59,12 +59,12 @@ export function PlayPage() {
             <DateWithDay className="self-start text-[min(7.5vw,2.5rem)] -rotate-12" />
             
             <div className="w-full flex flex-row justify-end">
-                <MessageBox fromSide="right" className="text-white">
+                <MessageBox fromSide="right" className="text-white" deltaWidthRem={1}>
                     <p>Guess today's Persona!</p>
                 </MessageBox>
             </div>
 
-            <MessageBox fromSide="left" className="text-white">
+            <MessageBox fromSide="left" className="text-white" deltaWidthRem={1}>
                 <ComboboxDemo />
             </MessageBox>
 

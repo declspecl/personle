@@ -26,7 +26,31 @@ const frameworks = [
     {
         value: "astro",
         label: "Astro",
-    }
+    },
+    {
+        value: "astro2",
+        label: "Astro2",
+    },
+    {
+        value: "astro3",
+        label: "Astro3",
+    },
+    {
+        value: "astro4",
+        label: "Astro4",
+    },
+    {
+        value: "astro5",
+        label: "Astro4",
+    },
+    {
+        value: "astro6",
+        label: "Astro4",
+    },
+    {
+        value: "astro7",
+        label: "Astro4",
+    },
 ]
 
 export function ComboboxDemo() {
@@ -39,25 +63,26 @@ export function ComboboxDemo() {
                 palette="whiteText"
                 role="combobox"
                 aria-expanded={open}
-                className="w-[200px] justify-between"
+                className="w-52 justify-between gap-2 hover:before:bg-opacity-0 group"
+                rotate={false}
                 asChild
             >
                 <PopoverTrigger>
                     {value
                         ? frameworks.find((framework) => framework.value === value)?.label
-                        : "Select persona..."
+                        : "Select a persona..."
                     }
 
-                    <IconContext.Provider value={{ className: "ml-2 h-4 w-4 shrink-0 opacity-50" }}>
+                    <IconContext.Provider value={{ className: "h-4 w-4 shrink-0 text-grey-light group-hover:text-grey-dark" }}>
                         <LuChevronsUpDown />
                     </IconContext.Provider>
                 </PopoverTrigger>
             </Button>
-            <PopoverContent className="w-[200px] p-0">
+            <PopoverContent className="w-52 p-0">
                 <Command>
-                    <CommandInput placeholder="Search framework..." />
-                    <CommandEmpty>No framework found.</CommandEmpty>
-                    <CommandList>
+                    <CommandInput placeholder="Search personas..." />
+                    <CommandEmpty>No persona found.</CommandEmpty>
+                    <CommandList className="max-h-40">
                         {frameworks.map((framework) => (
                             <CommandItem
                                 key={framework.value}
@@ -71,7 +96,7 @@ export function ComboboxDemo() {
                                     <LuCheck />
                                 </IconContext.Provider>
 
-                                {framework.label}
+                                <span>{framework.label}</span>
                             </CommandItem>
                         ))}
                     </CommandList>

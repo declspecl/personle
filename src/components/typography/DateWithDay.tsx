@@ -8,13 +8,13 @@ interface DateWithDayProps {
 export function DateWithDay({ className }: DateWithDayProps) {
     const today = new Date();
 
-    const formattedMonthAndDay = `${today.getMonth()}/${today.getDate()}`;
+    const formattedMonthAndDay = `${today.getMonth() + 1}/${today.getDate()}`;
     const weekdayName = today.toLocaleDateString("en-US", { weekday: "long" });
 
     return (
         <div className={cn("inline-block", className)}>
-            <NewspaperText text={formattedMonthAndDay} className="text-center" />
-            <NewspaperText text={weekdayName} className="text-center" />
+            <NewspaperText text={formattedMonthAndDay} className="text-center leading-none" />
+            <NewspaperText text={weekdayName} className="text-center leading-none" />
         </div>
     );
 }

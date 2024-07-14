@@ -17,7 +17,7 @@ export const PopoverContent = React.forwardRef<
             align={align}
             sideOffset={sideOffset}
             className={cn(
-                "w-72 shadow-md outline-none z-50",
+                "mt-4 w-72 shadow-md outline-none z-50",
                 "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
                 "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
                 "data-[side=bottom]:slide-in-from-top-2",
@@ -28,12 +28,12 @@ export const PopoverContent = React.forwardRef<
             )}
             {...props}
         >
-            <SkewedContainer deltaWidthRem={0.5} skewDirection="right" className="p-1 w-full h-full bg-white">
-                <SkewedContainer deltaWidthRem={0.5} skewDirection="right" className="p-4 w-full h-full bg-black text-white">
+            <SkewedContainer deltaWidthRem={1.5} skewDirection="right" className="p-1 w-full h-full bg-white">
+                <SkewedContainer deltaWidthRem={1.5} skewDirection="right" className="p-4 w-full h-full bg-black text-white">
                     {children}
                 </SkewedContainer>
             </SkewedContainer>
         </PopoverPrimitive.Content>
     </PopoverPrimitive.Portal>
-))
+));
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
