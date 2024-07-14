@@ -1,0 +1,2434 @@
+{
+  "Abaddon": {
+    "name": "Abaddon",
+    "level": 75,
+    "arcana": "Judgement",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Bless"
+    ],
+    "weaknesses": []
+  },
+  "Agathion": {
+    "name": "Agathion",
+    "level": 3,
+    "arcana": "Chariot",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Electric",
+      "Gun"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Alice": {
+    "name": "Alice",
+    "level": 83,
+    "arcana": "Death",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Nuclear",
+      "Psychokinesis"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Alilat": {
+    "name": "Alilat",
+    "level": 81,
+    "arcana": "Empress",
+    "highest_stat": "Endurance",
+    "resistances": [],
+    "weaknesses": [
+      "Curse",
+      "Fire"
+    ]
+  },
+  "Ame-no-Uzume": {
+    "name": "Ame-no-Uzume",
+    "level": 13,
+    "arcana": "Lovers",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Ananta": {
+    "name": "Ananta",
+    "level": 44,
+    "arcana": "Councillor",
+    "highest_stat": "Endurance",
+    "resistances": [],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Andras": {
+    "name": "Andras",
+    "level": 27,
+    "arcana": "Devil",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Psychokinesis",
+      "Ice"
+    ],
+    "weaknesses": [
+      "Bless",
+      "Fire"
+    ]
+  },
+  "Angel": {
+    "name": "Angel",
+    "level": 9,
+    "arcana": "Justice",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Gun",
+      "Curse"
+    ]
+  },
+  "Anubis": {
+    "name": "Anubis",
+    "level": 34,
+    "arcana": "Judgement",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Psychokinesis",
+      "Gun"
+    ],
+    "weaknesses": []
+  },
+  "Anzu": {
+    "name": "Anzu",
+    "level": 25,
+    "arcana": "Hierophant",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Gun",
+      "Nuclear"
+    ]
+  },
+  "Apsaras": {
+    "name": "Apsaras",
+    "level": 11,
+    "arcana": "Priestess",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Ice"
+    ],
+    "weaknesses": [
+      "Fire",
+      "Electric"
+    ]
+  },
+  "Ara Mitama": {
+    "name": "Ara Mitama",
+    "level": 30,
+    "arcana": "Chariot",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Arahabaki": {
+    "name": "Arahabaki",
+    "level": 35,
+    "arcana": "Hermit",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Curse",
+      "Bless"
+    ],
+    "weaknesses": [
+      "Nuclear",
+      "Psychokinesis"
+    ]
+  },
+  "Archangel": {
+    "name": "Archangel",
+    "level": 14,
+    "arcana": "Justice",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Curse",
+      "Electric"
+    ]
+  },
+  "Ardha": {
+    "name": "Ardha",
+    "level": 84,
+    "arcana": "Temperance",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": []
+  },
+  "Arsene": {
+    "name": "Arsene",
+    "level": 1,
+    "arcana": "Fool",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Curse"
+    ],
+    "weaknesses": [
+      "Bless",
+      "Ice"
+    ]
+  },
+  "Asura": {
+    "name": "Asura",
+    "level": 76,
+    "arcana": "Sun",
+    "highest_stat": "Strength",
+    "resistances": [],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Atavaka": {
+    "name": "Atavaka",
+    "level": 65,
+    "arcana": "Faith",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Curse",
+      "Phys"
+    ],
+    "weaknesses": []
+  },
+  "Atropos": {
+    "name": "Atropos",
+    "level": 39,
+    "arcana": "Fortune",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Attis": {
+    "name": "Attis",
+    "level": 82,
+    "arcana": "Hanged",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Baal": {
+    "name": "Baal",
+    "level": 82,
+    "arcana": "Emperor",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Fire",
+      "Bless"
+    ],
+    "weaknesses": []
+  },
+  "Baphomet": {
+    "name": "Baphomet",
+    "level": 58,
+    "arcana": "Devil",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Fire"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Barong": {
+    "name": "Barong",
+    "level": 52,
+    "arcana": "Emperor",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Gun",
+      "Electric"
+    ],
+    "weaknesses": [
+      "Wind",
+      "Curse"
+    ]
+  },
+  "Beelzebub": {
+    "name": "Beelzebub",
+    "level": 87,
+    "arcana": "Devil",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Belial": {
+    "name": "Belial",
+    "level": 82,
+    "arcana": "Devil",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Ice"
+    ],
+    "weaknesses": []
+  },
+  "Belphegor": {
+    "name": "Belphegor",
+    "level": 37,
+    "arcana": "Tower",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric",
+      "Ice",
+      "Nuclear"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Berith": {
+    "name": "Berith",
+    "level": 9,
+    "arcana": "Hierophant",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Fire"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Bicorn": {
+    "name": "Bicorn",
+    "level": 4,
+    "arcana": "Hermit",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Curse"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Bishamonten": {
+    "name": "Bishamonten",
+    "level": 67,
+    "arcana": "Hierophant",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Bless",
+      "Curse"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Black Frost": {
+    "name": "Black Frost",
+    "level": 67,
+    "arcana": "Fool",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": []
+  },
+  "Black Ooze": {
+    "name": "Black Ooze",
+    "level": 18,
+    "arcana": "Moon",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Ice",
+      "Gun",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Bless",
+      "Psychokinesis",
+      "Electric"
+    ]
+  },
+  "Black Rider": {
+    "name": "Black Rider",
+    "level": 59,
+    "arcana": "Tower",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Bless",
+      "Curse"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Bugs": {
+    "name": "Bugs",
+    "level": 49,
+    "arcana": "Fool",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Psychokinesis"
+    ],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Byakhee": {
+    "name": "Byakhee",
+    "level": 70,
+    "arcana": "Moon",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Nuclear",
+      "Ice"
+    ]
+  },
+  "Byakko": {
+    "name": "Byakko",
+    "level": 45,
+    "arcana": "Temperance",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Curse"
+    ],
+    "weaknesses": [
+      "Fire",
+      "Nuclear"
+    ]
+  },
+  "Cait Sith": {
+    "name": "Cait Sith",
+    "level": 5,
+    "arcana": "Magician",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Cerberus": {
+    "name": "Cerberus",
+    "level": 55,
+    "arcana": "Chariot",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Nuclear"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Chernobog": {
+    "name": "Chernobog",
+    "level": 62,
+    "arcana": "Death",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun"
+    ],
+    "weaknesses": [
+      "Bless",
+      "Fire"
+    ]
+  },
+  "Chi You": {
+    "name": "Chi You",
+    "level": 88,
+    "arcana": "Chariot",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Gun",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Chimera": {
+    "name": "Chimera",
+    "level": 74,
+    "arcana": "Strength",
+    "highest_stat": "Strength",
+    "resistances": [],
+    "weaknesses": [
+      "Wind",
+      "Curse"
+    ]
+  },
+  "Choronzon": {
+    "name": "Choronzon",
+    "level": 28,
+    "arcana": "Magician",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Clotho": {
+    "name": "Clotho",
+    "level": 27,
+    "arcana": "Fortune",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Ice",
+      "Nuclear"
+    ]
+  },
+  "Crystal Skull": {
+    "name": "Crystal Skull",
+    "level": 50,
+    "arcana": "Fool",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Cu Chulainn": {
+    "name": "Cu Chulainn",
+    "level": 76,
+    "arcana": "Faith",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Cybele": {
+    "name": "Cybele",
+    "level": 83,
+    "arcana": "Priestess",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Fire"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Daisoujou": {
+    "name": "Daisoujou",
+    "level": 40,
+    "arcana": "Hierophant",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Dakini": {
+    "name": "Dakini",
+    "level": 50,
+    "arcana": "Empress",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Fire"
+    ],
+    "weaknesses": []
+  },
+  "Decarabia": {
+    "name": "Decarabia",
+    "level": 32,
+    "arcana": "Councillor",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Curse",
+      "Nuclear"
+    ],
+    "weaknesses": [
+      "Phys"
+    ]
+  },
+  "Dionysus": {
+    "name": "Dionysus",
+    "level": 71,
+    "arcana": "Councillor",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": []
+  },
+  "Dominion": {
+    "name": "Dominion",
+    "level": 68,
+    "arcana": "Justice",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Curse"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Eligor": {
+    "name": "Eligor",
+    "level": 16,
+    "arcana": "Emperor",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Curse",
+      "Fire"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Emperor's Amulet": {
+    "name": "Emperor's Amulet",
+    "level": 35,
+    "arcana": "Hanged",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Fafnir": {
+    "name": "Fafnir",
+    "level": 86,
+    "arcana": "Hermit",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": []
+  },
+  "Flauros": {
+    "name": "Flauros",
+    "level": 19,
+    "arcana": "Devil",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Wind",
+      "Nuclear"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Forneus": {
+    "name": "Forneus",
+    "level": 63,
+    "arcana": "Magician",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Fortuna": {
+    "name": "Fortuna",
+    "level": 46,
+    "arcana": "Fortune",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Futsunushi": {
+    "name": "Futsunushi",
+    "level": 86,
+    "arcana": "Magician",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Fuu-Ki": {
+    "name": "Fuu-Ki",
+    "level": 23,
+    "arcana": "Star",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Gun"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Gabriel": {
+    "name": "Gabriel",
+    "level": 77,
+    "arcana": "Temperance",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": []
+  },
+  "Ganesha": {
+    "name": "Ganesha",
+    "level": 53,
+    "arcana": "Sun",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Garuda": {
+    "name": "Garuda",
+    "level": 52,
+    "arcana": "Star",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Wind"
+    ],
+    "weaknesses": []
+  },
+  "Genbu": {
+    "name": "Genbu",
+    "level": 7,
+    "arcana": "Temperance",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Psychokinesis"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Girimehkala": {
+    "name": "Girimehkala",
+    "level": 43,
+    "arcana": "Moon",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Fire"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Hanuman": {
+    "name": "Hanuman",
+    "level": 64,
+    "arcana": "Strength",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Bless",
+      "Psychokinesis",
+      "Gun"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Hariti": {
+    "name": "Hariti",
+    "level": 40,
+    "arcana": "Empress",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Bless",
+      "Psychokinesis"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Hastur": {
+    "name": "Hastur",
+    "level": 84,
+    "arcana": "Star",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Fire"
+    ],
+    "weaknesses": []
+  },
+  "Hecatoncheires": {
+    "name": "Hecatoncheires",
+    "level": 42,
+    "arcana": "Hanged",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Hell Biker": {
+    "name": "Hell Biker",
+    "level": 37,
+    "arcana": "Death",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Wind"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "High Pixie": {
+    "name": "High Pixie",
+    "level": 16,
+    "arcana": "Fool",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric",
+      "Wind"
+    ],
+    "weaknesses": [
+      "Gun",
+      "Nuclear"
+    ]
+  },
+  "Hope Diamond": {
+    "name": "Hope Diamond",
+    "level": 40,
+    "arcana": "Death",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Phys",
+      "Gun"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Horus": {
+    "name": "Horus",
+    "level": 47,
+    "arcana": "Sun",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Hua Po": {
+    "name": "Hua Po",
+    "level": 9,
+    "arcana": "Hanged",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Ice",
+      "Gun"
+    ]
+  },
+  "Incubus": {
+    "name": "Incubus",
+    "level": 5,
+    "arcana": "Devil",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Fire",
+      "Bless"
+    ]
+  },
+  "Inugami": {
+    "name": "Inugami",
+    "level": 14,
+    "arcana": "Hanged",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Ippon-Datara": {
+    "name": "Ippon-Datara",
+    "level": 13,
+    "arcana": "Hermit",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Gun",
+      "Curse",
+      "Fire",
+      "Bless"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Ishtar": {
+    "name": "Ishtar",
+    "level": 85,
+    "arcana": "Lovers",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Isis": {
+    "name": "Isis",
+    "level": 26,
+    "arcana": "Priestess",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Jack Frost": {
+    "name": "Jack Frost",
+    "level": 11,
+    "arcana": "Magician",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Jack-o'-Lantern": {
+    "name": "Jack-o'-Lantern",
+    "level": 2,
+    "arcana": "Magician",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Ice",
+      "Wind"
+    ]
+  },
+  "Jatayu": {
+    "name": "Jatayu",
+    "level": 51,
+    "arcana": "Hanged",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Bless",
+      "Ice"
+    ],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Jikokuten": {
+    "name": "Jikokuten",
+    "level": 22,
+    "arcana": "Temperance",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Bless",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Kaiwan": {
+    "name": "Kaiwan",
+    "level": 36,
+    "arcana": "Star",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Kali": {
+    "name": "Kali",
+    "level": 63,
+    "arcana": "Empress",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Curse"
+    ],
+    "weaknesses": []
+  },
+  "Kelpie": {
+    "name": "Kelpie",
+    "level": 6,
+    "arcana": "Strength",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Ice"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Kikuri-Hime": {
+    "name": "Kikuri-Hime",
+    "level": 40,
+    "arcana": "Priestess",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Bless"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Kin-Ki": {
+    "name": "Kin-Ki",
+    "level": 25,
+    "arcana": "Chariot",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": []
+  },
+  "King Frost": {
+    "name": "King Frost",
+    "level": 61,
+    "arcana": "Emperor",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": []
+  },
+  "Kodama": {
+    "name": "Kodama",
+    "level": 11,
+    "arcana": "Star",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Ice"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Koh-i-Noor": {
+    "name": "Koh-i-Noor",
+    "level": 25,
+    "arcana": "Priestess",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": [
+      "Gun"
+    ]
+  },
+  "Kohryu": {
+    "name": "Kohryu",
+    "level": 76,
+    "arcana": "Hierophant",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Koppa Tengu": {
+    "name": "Koppa Tengu",
+    "level": 11,
+    "arcana": "Temperance",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Wind"
+    ],
+    "weaknesses": [
+      "Bless",
+      "Ice"
+    ]
+  },
+  "Koropokkuru": {
+    "name": "Koropokkuru",
+    "level": 9,
+    "arcana": "Hermit",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Ice",
+      "Wind"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Koumokuten": {
+    "name": "Koumokuten",
+    "level": 49,
+    "arcana": "Hermit",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Phys",
+      "Bless"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Kumbhanda": {
+    "name": "Kumbhanda",
+    "level": 42,
+    "arcana": "Hermit",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Curse"
+    ],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Kurama Tengu": {
+    "name": "Kurama Tengu",
+    "level": 31,
+    "arcana": "Hermit",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Curse",
+      "Bless"
+    ],
+    "weaknesses": []
+  },
+  "Kushinada": {
+    "name": "Kushinada",
+    "level": 42,
+    "arcana": "Lovers",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Ice",
+      "Nuclear"
+    ]
+  },
+  "Kusi Mitama": {
+    "name": "Kusi Mitama",
+    "level": 12,
+    "arcana": "Councillor",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Wind"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Lachesis": {
+    "name": "Lachesis",
+    "level": 35,
+    "arcana": "Fortune",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Wind"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Lakshmi": {
+    "name": "Lakshmi",
+    "level": 69,
+    "arcana": "Fortune",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Bless",
+      "Ice"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Lamia": {
+    "name": "Lamia",
+    "level": 26,
+    "arcana": "Empress",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Nuclear",
+      "Ice"
+    ]
+  },
+  "Leanan Sidhe": {
+    "name": "Leanan Sidhe",
+    "level": 19,
+    "arcana": "Lovers",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Psychokinesis",
+      "Wind"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Legion": {
+    "name": "Legion",
+    "level": 38,
+    "arcana": "Fool",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Psychokinesis",
+      "Fire",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Lilim": {
+    "name": "Lilim",
+    "level": 32,
+    "arcana": "Devil",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Ice"
+    ],
+    "weaknesses": [
+      "Wind",
+      "Bless"
+    ]
+  },
+  "Lilith": {
+    "name": "Lilith",
+    "level": 60,
+    "arcana": "Moon",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Loa": {
+    "name": "Loa",
+    "level": 70,
+    "arcana": "Hermit",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Nuclear",
+      "Fire"
+    ],
+    "weaknesses": [
+      "Psychokinesis",
+      "Bless"
+    ]
+  },
+  "Lucifer": {
+    "name": "Lucifer",
+    "level": 93,
+    "arcana": "Star",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Ice",
+      "Electric",
+      "Fire",
+      "Wind"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Macabre": {
+    "name": "Macabre",
+    "level": 73,
+    "arcana": "Hanged",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Mada": {
+    "name": "Mada",
+    "level": 90,
+    "arcana": "Tower",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Psychokinesis"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Makami": {
+    "name": "Makami",
+    "level": 15,
+    "arcana": "Temperance",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Wind",
+      "Nuclear"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Mandrake": {
+    "name": "Mandrake",
+    "level": 3,
+    "arcana": "Death",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Mara": {
+    "name": "Mara",
+    "level": 73,
+    "arcana": "Tower",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Bless"
+    ],
+    "weaknesses": []
+  },
+  "Maria": {
+    "name": "Maria",
+    "level": 93,
+    "arcana": "Faith",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Matador": {
+    "name": "Matador",
+    "level": 17,
+    "arcana": "Death",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Melchizedek": {
+    "name": "Melchizedek",
+    "level": 58,
+    "arcana": "Justice",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Psychokinesis"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Metatron": {
+    "name": "Metatron",
+    "level": 89,
+    "arcana": "Justice",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Curse",
+      "Electric"
+    ]
+  },
+  "Michael": {
+    "name": "Michael",
+    "level": 87,
+    "arcana": "Judgement",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun"
+    ],
+    "weaknesses": []
+  },
+  "Mishaguji": {
+    "name": "Mishaguji",
+    "level": 52,
+    "arcana": "Hierophant",
+    "highest_stat": "Luck",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Mithra": {
+    "name": "Mithra",
+    "level": 33,
+    "arcana": "Temperance",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Mithras": {
+    "name": "Mithras",
+    "level": 39,
+    "arcana": "Sun",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Mokoi": {
+    "name": "Mokoi",
+    "level": 9,
+    "arcana": "Death",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Moloch": {
+    "name": "Moloch",
+    "level": 60,
+    "arcana": "Hanged",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Wind",
+      "Electric"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Mot": {
+    "name": "Mot",
+    "level": 72,
+    "arcana": "Death",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Gun"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Mother Harlot": {
+    "name": "Mother Harlot",
+    "level": 85,
+    "arcana": "Empress",
+    "highest_stat": "Strength",
+    "resistances": [],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Mothman": {
+    "name": "Mothman",
+    "level": 33,
+    "arcana": "Moon",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Psychokinesis"
+    ],
+    "weaknesses": [
+      "Gun"
+    ]
+  },
+  "Naga": {
+    "name": "Naga",
+    "level": 24,
+    "arcana": "Hermit",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Gun"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Narcissus": {
+    "name": "Narcissus",
+    "level": 48,
+    "arcana": "Lovers",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Wind",
+      "Bless"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Nebiros": {
+    "name": "Nebiros",
+    "level": 74,
+    "arcana": "Devil",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Curse"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Neko Shogun": {
+    "name": "Neko Shogun",
+    "level": 30,
+    "arcana": "Star",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Curse",
+      "Phys",
+      "Electric"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Nekomata": {
+    "name": "Nekomata",
+    "level": 17,
+    "arcana": "Magician",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Psychokinesis"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Nigi Mitama": {
+    "name": "Nigi Mitama",
+    "level": 22,
+    "arcana": "Councillor",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Curse",
+      "Bless"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Norn": {
+    "name": "Norn",
+    "level": 52,
+    "arcana": "Fortune",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Bless"
+    ],
+    "weaknesses": []
+  },
+  "Nue": {
+    "name": "Nue",
+    "level": 20,
+    "arcana": "Death",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Ice"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Obariyon": {
+    "name": "Obariyon",
+    "level": 8,
+    "arcana": "Fool",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Oberon": {
+    "name": "Oberon",
+    "level": 66,
+    "arcana": "Emperor",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Odin": {
+    "name": "Odin",
+    "level": 84,
+    "arcana": "Emperor",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": []
+  },
+  "Okuninushi": {
+    "name": "Okuninushi",
+    "level": 54,
+    "arcana": "Faith",
+    "highest_stat": "Strength",
+    "resistances": [],
+    "weaknesses": [
+      "Wind",
+      "Nuclear"
+    ]
+  },
+  "Ongyo-Ki": {
+    "name": "Ongyo-Ki",
+    "level": 89,
+    "arcana": "Hermit",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": []
+  },
+  "Oni": {
+    "name": "Oni",
+    "level": 20,
+    "arcana": "Strength",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun",
+      "Phys"
+    ],
+    "weaknesses": []
+  },
+  "Onmoraki": {
+    "name": "Onmoraki",
+    "level": 12,
+    "arcana": "Moon",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Fire"
+    ],
+    "weaknesses": [
+      "Ice",
+      "Bless"
+    ]
+  },
+  "Orichalcum": {
+    "name": "Orichalcum",
+    "level": 60,
+    "arcana": "Faith",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Phys",
+      "Gun"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Orlov": {
+    "name": "Orlov",
+    "level": 30,
+    "arcana": "Strength",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Orobas": {
+    "name": "Orobas",
+    "level": 17,
+    "arcana": "Hierophant",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Curse",
+      "Wind"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Orthrus": {
+    "name": "Orthrus",
+    "level": 21,
+    "arcana": "Hanged",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Nuclear"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Ose": {
+    "name": "Ose",
+    "level": 42,
+    "arcana": "Fool",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Fire"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Pale Rider": {
+    "name": "Pale Rider",
+    "level": 54,
+    "arcana": "Death",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Wind"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Parvati": {
+    "name": "Parvati",
+    "level": 56,
+    "arcana": "Lovers",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Psychokinesis",
+      "Bless"
+    ],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Pazuzu": {
+    "name": "Pazuzu",
+    "level": 45,
+    "arcana": "Devil",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Wind"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Phoenix": {
+    "name": "Phoenix",
+    "level": 21,
+    "arcana": "Faith",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Ice"
+    ],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Pisaca": {
+    "name": "Pisaca",
+    "level": 28,
+    "arcana": "Death",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Bless",
+      "Fire"
+    ]
+  },
+  "Pixie": {
+    "name": "Pixie",
+    "level": 2,
+    "arcana": "Lovers",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Bless",
+      "Electric"
+    ],
+    "weaknesses": [
+      "Curse",
+      "Gun",
+      "Ice"
+    ]
+  },
+  "Power": {
+    "name": "Power",
+    "level": 41,
+    "arcana": "Justice",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Wind"
+    ],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Principality": {
+    "name": "Principality",
+    "level": 29,
+    "arcana": "Justice",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Fire"
+    ],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Queen Mab": {
+    "name": "Queen Mab",
+    "level": 43,
+    "arcana": "Magician",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Queen's Necklace": {
+    "name": "Queen's Necklace",
+    "level": 15,
+    "arcana": "Empress",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Phys",
+      "Gun"
+    ],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Quetzalcoatl": {
+    "name": "Quetzalcoatl",
+    "level": 66,
+    "arcana": "Sun",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Wind"
+    ],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Raja Naga": {
+    "name": "Raja Naga",
+    "level": 55,
+    "arcana": "Temperance",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": []
+  },
+  "Rakshasa": {
+    "name": "Rakshasa",
+    "level": 24,
+    "arcana": "Strength",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Fire",
+      "Phys",
+      "Curse"
+    ],
+    "weaknesses": [
+      "Bless",
+      "Wind"
+    ]
+  },
+  "Rangda": {
+    "name": "Rangda",
+    "level": 48,
+    "arcana": "Magician",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Bless",
+      "Electric"
+    ]
+  },
+  "Raphael": {
+    "name": "Raphael",
+    "level": 78,
+    "arcana": "Lovers",
+    "highest_stat": "Strength",
+    "resistances": [],
+    "weaknesses": []
+  },
+  "Red Rider": {
+    "name": "Red Rider",
+    "level": 41,
+    "arcana": "Tower",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Regent": {
+    "name": "Regent",
+    "level": 10,
+    "arcana": "Emperor",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Phys",
+      "Gun"
+    ],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Saki Mitama": {
+    "name": "Saki Mitama",
+    "level": 6,
+    "arcana": "Lovers",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Ice"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "Sandalphon": {
+    "name": "Sandalphon",
+    "level": 75,
+    "arcana": "Moon",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Gun",
+      "Phys"
+    ],
+    "weaknesses": []
+  },
+  "Sandman": {
+    "name": "Sandman",
+    "level": 23,
+    "arcana": "Magician",
+    "highest_stat": "Luck",
+    "resistances": [
+      "Wind"
+    ],
+    "weaknesses": [
+      "Fire",
+      "Electric"
+    ]
+  },
+  "Sarasvati": {
+    "name": "Sarasvati",
+    "level": 50,
+    "arcana": "Priestess",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Satan": {
+    "name": "Satan",
+    "level": 92,
+    "arcana": "Judgement",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun"
+    ],
+    "weaknesses": []
+  },
+  "Satanael": {
+    "name": "Satanael",
+    "level": 95,
+    "arcana": "Fool",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Phys",
+      "Wind",
+      "Psychokinesis",
+      "Ice",
+      "Gun",
+      "Nuclear",
+      "Electric",
+      "Fire"
+    ],
+    "weaknesses": []
+  },
+  "Scathach": {
+    "name": "Scathach",
+    "level": 77,
+    "arcana": "Priestess",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": []
+  },
+  "Seiryu": {
+    "name": "Seiryu",
+    "level": 62,
+    "arcana": "Councillor",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Ice"
+    ],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Setanta": {
+    "name": "Setanta",
+    "level": 25,
+    "arcana": "Emperor",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun",
+      "Nuclear"
+    ],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Seth": {
+    "name": "Seth",
+    "level": 51,
+    "arcana": "Tower",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Curse"
+    ],
+    "weaknesses": [
+      "Bless"
+    ]
+  },
+  "Shiisaa": {
+    "name": "Shiisaa",
+    "level": 15,
+    "arcana": "Strength",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": [
+      "Curse",
+      "Psychokinesis"
+    ]
+  },
+  "Shiki-Ouji": {
+    "name": "Shiki-Ouji",
+    "level": 18,
+    "arcana": "Chariot",
+    "highest_stat": "Strength",
+    "resistances": [],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Shiva": {
+    "name": "Shiva",
+    "level": 82,
+    "arcana": "Judgement",
+    "highest_stat": "Strength",
+    "resistances": [],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Siegfried": {
+    "name": "Siegfried",
+    "level": 84,
+    "arcana": "Faith",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Ice",
+      "Gun"
+    ],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Silky": {
+    "name": "Silky",
+    "level": 6,
+    "arcana": "Priestess",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Ice"
+    ],
+    "weaknesses": [
+      "Electric",
+      "Fire"
+    ]
+  },
+  "Skadi": {
+    "name": "Skadi",
+    "level": 53,
+    "arcana": "Priestess",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": []
+  },
+  "Slime": {
+    "name": "Slime",
+    "level": 10,
+    "arcana": "Chariot",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Gun",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Wind",
+      "Fire"
+    ]
+  },
+  "Sraosha": {
+    "name": "Sraosha",
+    "level": 80,
+    "arcana": "Star",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Stone of Scone": {
+    "name": "Stone of Scone",
+    "level": 20,
+    "arcana": "Fortune",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Phys",
+      "Gun"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Succubus": {
+    "name": "Succubus",
+    "level": 7,
+    "arcana": "Moon",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Fire"
+    ],
+    "weaknesses": [
+      "Wind",
+      "Bless"
+    ]
+  },
+  "Sudama": {
+    "name": "Sudama",
+    "level": 17,
+    "arcana": "Hermit",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Ice",
+      "Nuclear"
+    ]
+  },
+  "Sui-Ki": {
+    "name": "Sui-Ki",
+    "level": 24,
+    "arcana": "Moon",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Electric",
+      "Gun"
+    ],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Surt": {
+    "name": "Surt",
+    "level": 83,
+    "arcana": "Magician",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun",
+      "Nuclear"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Suzaku": {
+    "name": "Suzaku",
+    "level": 16,
+    "arcana": "Sun",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Nuclear"
+    ],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Take-Minakata": {
+    "name": "Take-Minakata",
+    "level": 26,
+    "arcana": "Hanged",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric",
+      "Curse"
+    ],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Tam Lin": {
+    "name": "Tam Lin",
+    "level": 27,
+    "arcana": "Faith",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Wind",
+      "Phys"
+    ],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Thor": {
+    "name": "Thor",
+    "level": 64,
+    "arcana": "Chariot",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Curse",
+      "Bless",
+      "Phys"
+    ],
+    "weaknesses": []
+  },
+  "Thoth": {
+    "name": "Thoth",
+    "level": 36,
+    "arcana": "Emperor",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Curse"
+    ],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Throne": {
+    "name": "Throne",
+    "level": 72,
+    "arcana": "Justice",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Thunderbird": {
+    "name": "Thunderbird",
+    "level": 34,
+    "arcana": "Sun",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Psychokinesis",
+      "Curse"
+    ]
+  },
+  "Titania": {
+    "name": "Titania",
+    "level": 56,
+    "arcana": "Empress",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Bless",
+      "Nuclear",
+      "Curse"
+    ],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Trumpeter": {
+    "name": "Trumpeter",
+    "level": 59,
+    "arcana": "Judgement",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": []
+  },
+  "Unicorn": {
+    "name": "Unicorn",
+    "level": 39,
+    "arcana": "Faith",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Psychokinesis"
+    ],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Uriel": {
+    "name": "Uriel",
+    "level": 81,
+    "arcana": "Justice",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": []
+  },
+  "Valkyrie": {
+    "name": "Valkyrie",
+    "level": 44,
+    "arcana": "Strength",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Gun"
+    ],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Vasuki": {
+    "name": "Vasuki",
+    "level": 68,
+    "arcana": "Star",
+    "highest_stat": "Magic",
+    "resistances": [],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Vishnu": {
+    "name": "Vishnu",
+    "level": 83,
+    "arcana": "Fool",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Fire"
+    ]
+  },
+  "Vohu Manah": {
+    "name": "Vohu Manah",
+    "level": 80,
+    "arcana": "Councillor",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Electric"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  },
+  "White Rider": {
+    "name": "White Rider",
+    "level": 38,
+    "arcana": "Chariot",
+    "highest_stat": "Agility",
+    "resistances": [],
+    "weaknesses": [
+      "Ice"
+    ]
+  },
+  "Yaksini": {
+    "name": "Yaksini",
+    "level": 20,
+    "arcana": "Empress",
+    "highest_stat": "Agility",
+    "resistances": [
+      "Ice"
+    ],
+    "weaknesses": [
+      "Nuclear"
+    ]
+  },
+  "Yamata-no-Orochi": {
+    "name": "Yamata-no-Orochi",
+    "level": 64,
+    "arcana": "Judgement",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Curse",
+      "Phys",
+      "Wind"
+    ],
+    "weaknesses": []
+  },
+  "Yatagarasu": {
+    "name": "Yatagarasu",
+    "level": 57,
+    "arcana": "Councillor",
+    "highest_stat": "Magic",
+    "resistances": [
+      "Wind"
+    ],
+    "weaknesses": [
+      "Curse"
+    ]
+  },
+  "Yoshitsune": {
+    "name": "Yoshitsune",
+    "level": 87,
+    "arcana": "Tower",
+    "highest_stat": "Strength",
+    "resistances": [
+      "Fire"
+    ],
+    "weaknesses": []
+  },
+  "Yurlungur": {
+    "name": "Yurlungur",
+    "level": 43,
+    "arcana": "Sun",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Bless"
+    ],
+    "weaknesses": [
+      "Psychokinesis"
+    ]
+  },
+  "Zaou-Gongen": {
+    "name": "Zaou-Gongen",
+    "level": 80,
+    "arcana": "Strength",
+    "highest_stat": "Strength",
+    "resistances": [],
+    "weaknesses": [
+      "Electric"
+    ]
+  },
+  "Zouchouten": {
+    "name": "Zouchouten",
+    "level": 31,
+    "arcana": "Strength",
+    "highest_stat": "Endurance",
+    "resistances": [
+      "Phys"
+    ],
+    "weaknesses": [
+      "Wind"
+    ]
+  }
+}
