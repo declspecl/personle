@@ -2,6 +2,7 @@ import { clsx } from "clsx";
 import { cn } from "~/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority"
+import React from "react";
 
 const buttonVariants = cva(
     clsx(
@@ -52,11 +53,13 @@ extends
     asChild?: boolean
 }
 
-export function Button({ palette, destructive, size, skewMagnitude, className, children, rotate = true, asChild = false, ...props }: ButtonProps) {
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+    ({ palette, destructive, size, skewMagnitude, className, children, rotate = true, asChild = false, ...props }: ButtonProps, ref) =>
+{
     const Comp = asChild ? Slot : "button";
 
     return (
-        <Comp
+        <Comp ref={ref}
             className={cn(
                 buttonVariants({ palette, destructive, size, skewMagnitude }),
                 rotate && "before:rotate-6",
@@ -67,4 +70,4 @@ export function Button({ palette, destructive, size, skewMagnitude, className, c
             {children}
         </Comp>
     );
-}
+});

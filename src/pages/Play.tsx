@@ -1,18 +1,48 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { Suspense, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DateWithDay } from "~/components/typography/DateWithDay";
 import { NewspaperText } from "~/components/typography/NewspaperText";
 import { Button } from "~/components/ui/Button";
-import { ComboboxDemo } from "~/components/ui/Combobox";
-import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from "~/components/ui/Command";
+import { PersonaCombobox } from "~/components/ui/PersonaCombobox";
 import { MessageBox } from "~/components/ui/MessageBox";
-import { Popover, PopoverContent, PopoverTrigger } from "~/components/ui/Popover";
 import { Skeleton } from "~/components/ui/Skeleton";
-import { getGuesses } from "~/lib/backend/api";
+import { addGuess, getGuesses } from "~/lib/backend/api";
 import { cn } from "~/lib/utils";
+import { PersonaData } from "~/lib/backend/model";
 
-function UserGuesses() {
+interface MakeGuessControllerProps {
+    onClick?: (guess: PersonaData) => void
+}
+
+function MakeGuessController({ onClick }: MakeGuessControllerProps) {
+    const [selectedGuess, setSelectedGuess] = useState<PersonaData | null>(null);
+
+    return (
+        <div className="w-full flex flex-col gap-4 sm:flex-row sm:items-center">
+            <MessageBox fromSide="left" className="text-white" deltaWidthRem={1}>
+                <PersonaCombobox selectedPersonaData={selectedGuess} setSelectedPersonaData={setSelectedGuess} onSelect={setSelectedGuess} />
+            </MessageBox>
+
+            <Button palette="whiteText" size="md" onClick={() => {
+                console.log("yo");
+                if (!selectedGuess) return;
+
+                if (onClick) {
+                    onClick(selectedGuess);
+                }
+
+                setSelectedGuess(null);
+            }}>
+                Submit guess
+            </Button>
+        </div>
+    );
+}
+
+function UserGuessManager() {
+    const queryClient = useQueryClient();
+
     const [todayPersona, setTodayPersona] = useState<string>(null!)
     const [guesses, setGuesses] = useState<string[]>([]);
 
@@ -29,15 +59,30 @@ function UserGuesses() {
     }, [data]);
 
     return (
-        <div className="text-white">
-            <h1>{todayPersona}</h1>
+        <>
+            <MakeGuessController onClick={async (guess: PersonaData) => {
+                setGuesses([...guesses, guess.name]);
 
-            <ul>
-                {guesses.map(guess => (
-                    <li key={guess}>{guess}</li>
-                ))}
-            </ul>
-        </div>
+                const response = await queryClient.fetchQuery({
+                    queryKey: ["addGuess", guess.name],
+                    queryFn: () => addGuess(guess.name)
+                });
+
+                console.log(response);
+            }} />
+
+            <Suspense fallback={<Skeleton deltaWidthRem={1} skewDirection="right" className="w-20 h-20" />}>
+                <div className="text-white">
+                    <h1>{todayPersona}</h1>
+
+                    <ul>
+                        {guesses.map(guess => (
+                            <li key={guess}>{guess}</li>
+                        ))}
+                    </ul>
+                </div>
+            </Suspense>
+        </>
     );
 }
 
@@ -64,13 +109,7 @@ export function PlayPage() {
                 </MessageBox>
             </div>
 
-            <MessageBox fromSide="left" className="text-white" deltaWidthRem={1}>
-                <ComboboxDemo />
-            </MessageBox>
-
-            <Suspense fallback={<Skeleton deltaWidthRem={1} skewDirection="right" className="w-20 h-20" />}>
-                <UserGuesses />
-            </Suspense>
+            <UserGuessManager />
         </div>
     );
 }

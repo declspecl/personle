@@ -77,7 +77,7 @@ html, body, #root {
 }
 
 ::-webkit-scrollbar {
-	width: 0.25rem;
+	width: 0.425rem;
 }
 
 ::-webkit-scrollbar-thumb {
