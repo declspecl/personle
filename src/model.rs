@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use anyhow::{anyhow, bail};
+use anyhow::bail;
 use serde::{Deserialize, Serialize};
 
 use crate::utils::{try_parse_megaten_fusion_tool_resistances_string, ResistanceLevel};
@@ -65,7 +65,7 @@ pub struct PersonaData
     pub name: String,
     pub level: i32,
     pub arcana: Arcana,
-    pub highest_stat: Stat,
+    pub highest_stats: Vec<Stat>,
     pub resistances: Vec<DamageType>,
     pub weaknesses: Vec<DamageType>
 }
@@ -76,7 +76,7 @@ impl PersonaData
         name: String,
         level: i32,
         arcana: Arcana,
-        highest_stat: Stat,
+        highest_stats: Vec<Stat>,
         resistances: Vec<DamageType>,
         weaknesses: Vec<DamageType>
     ) -> PersonaData
@@ -86,7 +86,7 @@ impl PersonaData
             name,
             level,
             arcana,
-            highest_stat,
+            highest_stats,
             resistances,
             weaknesses
         };
@@ -99,8 +99,9 @@ impl TryFrom<(String, MegatenFusionToolPersonaData)> for PersonaData
 
     fn try_from((name, data): (String, MegatenFusionToolPersonaData)) -> anyhow::Result<Self>
     {
-        let highest_stat = {
-            let mut highest_stat_and_value: Option<(Stat, i32)> = None;
+        let highest_stats = {
+            let mut highest_stats: Vec<Stat> = Vec::new();
+            let mut highest_stat_value = 0;
 
             let get_stat_from_index = |index: usize| -> anyhow::Result<Stat>
             {
@@ -119,21 +120,19 @@ impl TryFrom<(String, MegatenFusionToolPersonaData)> for PersonaData
 
             for (i, &stat_value) in data.stats.iter().enumerate()
             {
-                match highest_stat_and_value
+                if stat_value > highest_stat_value
                 {
-                    Some((_highest_stat_so_far, highest_value_so_far)) => {
-                        if stat_value > highest_value_so_far
-                        {
-                            highest_stat_and_value = Some((get_stat_from_index(i)?, stat_value));
-                        }
-                    },
-                    None => {
-                        highest_stat_and_value = Some((get_stat_from_index(i)?, stat_value));
-                    }
+                    highest_stats.clear();
+                    highest_stats.push(get_stat_from_index(i)?);
+                    highest_stat_value = stat_value;
+                }
+                else if stat_value == highest_stat_value
+                {
+                    highest_stats.push(get_stat_from_index(i)?);
                 }
             }
 
-            highest_stat_and_value.ok_or(anyhow!("No valid highest stat found for {}: {:#?}", name, data))?.0
+            highest_stats
         };
 
         let resistances_by_damage_type = try_parse_megaten_fusion_tool_resistances_string(&data.resists)?;
@@ -163,7 +162,7 @@ impl TryFrom<(String, MegatenFusionToolPersonaData)> for PersonaData
                 name,
                 data.lvl,
                 data.race,
-                highest_stat,
+                highest_stats,
                 resistances,
                 weaknesses
             )
