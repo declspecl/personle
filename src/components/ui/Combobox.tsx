@@ -63,8 +63,9 @@ export function ComboboxDemo() {
                 palette="whiteText"
                 role="combobox"
                 aria-expanded={open}
-                className="w-52 justify-between gap-2 hover:before:bg-opacity-0 group"
+                className="justify-between gap-2 hover:before:bg-opacity-0 group"
                 rotate={false}
+                skewMagnitude="xs"
                 asChild
             >
                 <PopoverTrigger>

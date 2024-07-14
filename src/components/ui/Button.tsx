@@ -28,6 +28,8 @@ const buttonVariants = cva(
             },
             skewMagnitude: {
                 none: "before:skew-x-0",
+                xxs: "before:-skew-x-[4deg]",
+                xs: "before:-skew-x-[8deg]",
                 sm: "before:-skew-x-[12deg]",
                 md: "before:-skew-x-[16deg]",
                 lg: "before:-skew-x-[20deg]"
