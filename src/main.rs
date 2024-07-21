@@ -11,7 +11,9 @@ pub mod collation;
 #[tokio::main]
 async fn main() -> anyhow::Result<()>
 {
-    let mut persona_data = try_collate_persona_data()
+    let p5r_persona_data_url = "https://raw.githubusercontent.com/aqiu384/megaten-fusion-tool/master/src/app/p5r/data/demon-data.json";
+
+    let mut persona_data = try_collate_persona_data(p5r_persona_data_url)
         .await?;
 
     persona_data.sort_by_key(|data| data.name.to_lowercase());
