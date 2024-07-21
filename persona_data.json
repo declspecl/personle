@@ -3,7 +3,8 @@
     "name": "Abaddon",
     "level": 75,
     "arcana": "Judgement",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
@@ -15,12 +16,13 @@
     "name": "Agathion",
     "level": 3,
     "arcana": "Chariot",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
-      "Electric",
-      "Gun"
+      "Gun",
+      "Electric"
     ],
     "weaknesses": [
       "Wind"
@@ -30,12 +32,13 @@
     "name": "Alice",
     "level": 83,
     "arcana": "Death",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
-      "Nuclear",
-      "Psychokinesis"
+      "Psychokinesis",
+      "Nuclear"
     ],
     "weaknesses": [
       "Bless"
@@ -45,7 +48,8 @@
     "name": "Alilat",
     "level": 81,
     "arcana": "Empress",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [],
@@ -58,7 +62,8 @@
     "name": "Ame-no-Uzume",
     "level": 13,
     "arcana": "Lovers",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -70,7 +75,8 @@
     "name": "Ananta",
     "level": 44,
     "arcana": "Councillor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [],
@@ -82,12 +88,13 @@
     "name": "Andras",
     "level": 27,
     "arcana": "Devil",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
-      "Psychokinesis",
-      "Ice"
+      "Ice",
+      "Psychokinesis"
     ],
     "weaknesses": [
       "Fire",
@@ -98,7 +105,8 @@
     "name": "Angel",
     "level": 9,
     "arcana": "Justice",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic",
       "Agility"
     ],
@@ -106,20 +114,21 @@
       "Electric"
     ],
     "weaknesses": [
-      "Gun",
-      "Curse"
+      "Curse",
+      "Gun"
     ]
   },
   "Anubis": {
     "name": "Anubis",
     "level": 34,
     "arcana": "Judgement",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
-      "Psychokinesis",
-      "Gun"
+      "Gun",
+      "Psychokinesis"
     ],
     "weaknesses": []
   },
@@ -127,37 +136,40 @@
     "name": "Anzu",
     "level": 25,
     "arcana": "Hierophant",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
       "Electric"
     ],
     "weaknesses": [
-      "Gun",
-      "Nuclear"
+      "Nuclear",
+      "Gun"
     ]
   },
   "Apsaras": {
     "name": "Apsaras",
     "level": 11,
     "arcana": "Priestess",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
       "Ice"
     ],
     "weaknesses": [
-      "Fire",
-      "Electric"
+      "Electric",
+      "Fire"
     ]
   },
   "Ara Mitama": {
     "name": "Ara Mitama",
     "level": 30,
     "arcana": "Chariot",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength",
       "Endurance",
       "Agility"
@@ -173,7 +185,8 @@
     "name": "Arahabaki",
     "level": 35,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -189,7 +202,8 @@
     "name": "Archangel",
     "level": 14,
     "arcana": "Justice",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -202,7 +216,8 @@
     "name": "Ardha",
     "level": 84,
     "arcana": "Temperance",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -214,22 +229,24 @@
     "name": "Arsene",
     "level": 1,
     "arcana": "Fool",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
       "Curse"
     ],
     "weaknesses": [
-      "Bless",
-      "Ice"
+      "Ice",
+      "Bless"
     ]
   },
   "Asura": {
     "name": "Asura",
     "level": 76,
     "arcana": "Sun",
-    "highest_stats": [
+    "fusionMethod": "Special",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [],
@@ -241,7 +258,8 @@
     "name": "Atavaka",
     "level": 65,
     "arcana": "Faith",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -254,7 +272,8 @@
     "name": "Atropos",
     "level": 39,
     "arcana": "Fortune",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -266,7 +285,8 @@
     "name": "Attis",
     "level": 82,
     "arcana": "Hanged",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -278,12 +298,13 @@
     "name": "Baal",
     "level": 82,
     "arcana": "Emperor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
-      "Fire",
-      "Bless"
+      "Bless",
+      "Fire"
     ],
     "weaknesses": []
   },
@@ -291,7 +312,8 @@
     "name": "Baphomet",
     "level": 58,
     "arcana": "Devil",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -305,12 +327,13 @@
     "name": "Barong",
     "level": 52,
     "arcana": "Emperor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
-      "Gun",
-      "Electric"
+      "Electric",
+      "Gun"
     ],
     "weaknesses": [
       "Curse",
@@ -321,7 +344,8 @@
     "name": "Beelzebub",
     "level": 87,
     "arcana": "Devil",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -333,7 +357,8 @@
     "name": "Belial",
     "level": 82,
     "arcana": "Devil",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -345,13 +370,14 @@
     "name": "Belphegor",
     "level": 37,
     "arcana": "Tower",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
-      "Nuclear",
+      "Electric",
       "Ice",
-      "Electric"
+      "Nuclear"
     ],
     "weaknesses": [
       "Fire"
@@ -361,7 +387,8 @@
     "name": "Berith",
     "level": 9,
     "arcana": "Hierophant",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -375,7 +402,8 @@
     "name": "Bicorn",
     "level": 4,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength",
       "Agility"
     ],
@@ -390,12 +418,13 @@
     "name": "Bishamonten",
     "level": 67,
     "arcana": "Hierophant",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
-      "Curse",
-      "Bless"
+      "Bless",
+      "Curse"
     ],
     "weaknesses": [
       "Ice"
@@ -405,7 +434,8 @@
     "name": "Black Frost",
     "level": 67,
     "arcana": "Fool",
-    "highest_stats": [
+    "fusionMethod": "Triad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -415,31 +445,33 @@
     "name": "Black Ooze",
     "level": 18,
     "arcana": "Moon",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
-      "Ice",
       "Gun",
-      "Phys"
+      "Phys",
+      "Ice"
     ],
     "weaknesses": [
       "Bless",
-      "Electric",
-      "Psychokinesis"
+      "Psychokinesis",
+      "Electric"
     ]
   },
   "Black Rider": {
     "name": "Black Rider",
     "level": 59,
     "arcana": "Tower",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic",
       "Agility"
     ],
     "resistances": [
-      "Bless",
-      "Curse"
+      "Curse",
+      "Bless"
     ],
     "weaknesses": [
       "Fire"
@@ -449,7 +481,8 @@
     "name": "Bugs",
     "level": 49,
     "arcana": "Fool",
-    "highest_stats": [
+    "fusionMethod": "Triad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -463,20 +496,22 @@
     "name": "Byakhee",
     "level": 70,
     "arcana": "Moon",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
     "weaknesses": [
-      "Nuclear",
-      "Ice"
+      "Ice",
+      "Nuclear"
     ]
   },
   "Byakko": {
     "name": "Byakko",
     "level": 45,
     "arcana": "Temperance",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -491,7 +526,8 @@
     "name": "Cait Sith",
     "level": 5,
     "arcana": "Magician",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -505,7 +541,8 @@
     "name": "Cerberus",
     "level": 55,
     "arcana": "Chariot",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength",
       "Agility"
     ],
@@ -520,27 +557,29 @@
     "name": "Chernobog",
     "level": 62,
     "arcana": "Death",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
       "Gun"
     ],
     "weaknesses": [
-      "Bless",
-      "Fire"
+      "Fire",
+      "Bless"
     ]
   },
   "Chi You": {
     "name": "Chi You",
     "level": 88,
     "arcana": "Chariot",
-    "highest_stats": [
+    "fusionMethod": "Special",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
-      "Phys",
-      "Gun"
+      "Gun",
+      "Phys"
     ],
     "weaknesses": [
       "Nuclear"
@@ -550,7 +589,8 @@
     "name": "Chimera",
     "level": 74,
     "arcana": "Strength",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [],
@@ -563,7 +603,8 @@
     "name": "Choronzon",
     "level": 28,
     "arcana": "Magician",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic",
       "Endurance",
       "Luck"
@@ -579,7 +620,8 @@
     "name": "Clotho",
     "level": 27,
     "arcana": "Fortune",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -592,7 +634,8 @@
     "name": "Crystal Skull",
     "level": 50,
     "arcana": "Fool",
-    "highest_stats": [
+    "fusionMethod": "Unfusable",
+    "highestStats": [
       "Strength",
       "Magic",
       "Endurance",
@@ -611,7 +654,8 @@
     "name": "Cu Chulainn",
     "level": 76,
     "arcana": "Faith",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -626,7 +670,8 @@
     "name": "Cybele",
     "level": 83,
     "arcana": "Priestess",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -640,7 +685,8 @@
     "name": "Daisoujou",
     "level": 40,
     "arcana": "Hierophant",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -654,7 +700,8 @@
     "name": "Dakini",
     "level": 50,
     "arcana": "Empress",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength",
       "Endurance"
     ],
@@ -667,12 +714,13 @@
     "name": "Decarabia",
     "level": 32,
     "arcana": "Councillor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
-      "Curse",
-      "Nuclear"
+      "Nuclear",
+      "Curse"
     ],
     "weaknesses": [
       "Phys"
@@ -682,7 +730,8 @@
     "name": "Dionysus",
     "level": 71,
     "arcana": "Councillor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -692,7 +741,8 @@
     "name": "Dominion",
     "level": 68,
     "arcana": "Justice",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -706,7 +756,8 @@
     "name": "Eligor",
     "level": 16,
     "arcana": "Emperor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
@@ -721,7 +772,8 @@
     "name": "Emperor's Amulet",
     "level": 35,
     "arcana": "Hanged",
-    "highest_stats": [
+    "fusionMethod": "Unfusable",
+    "highestStats": [
       "Strength",
       "Magic",
       "Endurance",
@@ -729,8 +781,8 @@
       "Luck"
     ],
     "resistances": [
-      "Phys",
-      "Gun"
+      "Gun",
+      "Phys"
     ],
     "weaknesses": [
       "Electric"
@@ -740,7 +792,8 @@
     "name": "Fafnir",
     "level": 86,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -752,7 +805,8 @@
     "name": "Flauros",
     "level": 19,
     "arcana": "Devil",
-    "highest_stats": [
+    "fusionMethod": "Triad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -767,7 +821,8 @@
     "name": "Forneus",
     "level": 63,
     "arcana": "Magician",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -779,7 +834,8 @@
     "name": "Fortuna",
     "level": 46,
     "arcana": "Fortune",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -791,7 +847,8 @@
     "name": "Futsunushi",
     "level": 86,
     "arcana": "Magician",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -805,7 +862,8 @@
     "name": "Fuu-Ki",
     "level": 23,
     "arcana": "Star",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -819,7 +877,8 @@
     "name": "Gabriel",
     "level": 77,
     "arcana": "Temperance",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -829,7 +888,8 @@
     "name": "Ganesha",
     "level": 53,
     "arcana": "Sun",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -844,7 +904,8 @@
     "name": "Garuda",
     "level": 52,
     "arcana": "Star",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -856,7 +917,8 @@
     "name": "Genbu",
     "level": 7,
     "arcana": "Temperance",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
@@ -870,7 +932,8 @@
     "name": "Girimehkala",
     "level": 43,
     "arcana": "Moon",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength",
       "Endurance"
     ],
@@ -885,13 +948,14 @@
     "name": "Hanuman",
     "level": 64,
     "arcana": "Strength",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
-      "Psychokinesis",
       "Bless",
-      "Gun"
+      "Gun",
+      "Psychokinesis"
     ],
     "weaknesses": [
       "Ice"
@@ -901,12 +965,13 @@
     "name": "Hariti",
     "level": 40,
     "arcana": "Empress",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
-      "Psychokinesis",
-      "Bless"
+      "Bless",
+      "Psychokinesis"
     ],
     "weaknesses": [
       "Wind"
@@ -916,7 +981,8 @@
     "name": "Hastur",
     "level": 84,
     "arcana": "Star",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -928,7 +994,8 @@
     "name": "Hecatoncheires",
     "level": 42,
     "arcana": "Hanged",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -942,7 +1009,8 @@
     "name": "Hell Biker",
     "level": 37,
     "arcana": "Death",
-    "highest_stats": [
+    "fusionMethod": "Triad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -956,7 +1024,8 @@
     "name": "High Pixie",
     "level": 16,
     "arcana": "Fool",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -972,7 +1041,8 @@
     "name": "Hope Diamond",
     "level": 40,
     "arcana": "Death",
-    "highest_stats": [
+    "fusionMethod": "Unfusable",
+    "highestStats": [
       "Strength",
       "Magic",
       "Endurance",
@@ -980,8 +1050,8 @@
       "Luck"
     ],
     "resistances": [
-      "Phys",
-      "Gun"
+      "Gun",
+      "Phys"
     ],
     "weaknesses": [
       "Ice"
@@ -991,7 +1061,8 @@
     "name": "Horus",
     "level": 47,
     "arcana": "Sun",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -1003,7 +1074,8 @@
     "name": "Hua Po",
     "level": 9,
     "arcana": "Hanged",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -1016,22 +1088,24 @@
     "name": "Incubus",
     "level": 5,
     "arcana": "Devil",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
       "Electric"
     ],
     "weaknesses": [
-      "Fire",
-      "Bless"
+      "Bless",
+      "Fire"
     ]
   },
   "Inugami": {
     "name": "Inugami",
     "level": 14,
     "arcana": "Hanged",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -1043,14 +1117,15 @@
     "name": "Ippon-Datara",
     "level": 13,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
+      "Bless",
       "Fire",
       "Curse",
-      "Gun",
-      "Bless"
+      "Gun"
     ],
     "weaknesses": [
       "Ice"
@@ -1060,7 +1135,8 @@
     "name": "Ishtar",
     "level": 85,
     "arcana": "Lovers",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -1072,7 +1148,8 @@
     "name": "Isis",
     "level": 26,
     "arcana": "Priestess",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -1084,7 +1161,8 @@
     "name": "Jack Frost",
     "level": 11,
     "arcana": "Magician",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic",
       "Agility"
     ],
@@ -1097,7 +1175,8 @@
     "name": "Jack-o'-Lantern",
     "level": 2,
     "arcana": "Magician",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic",
       "Endurance",
       "Agility"
@@ -1112,12 +1191,13 @@
     "name": "Jatayu",
     "level": 51,
     "arcana": "Hanged",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
-      "Ice",
-      "Bless"
+      "Bless",
+      "Ice"
     ],
     "weaknesses": [
       "Nuclear"
@@ -1127,7 +1207,8 @@
     "name": "Jikokuten",
     "level": 22,
     "arcana": "Temperance",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -1142,7 +1223,8 @@
     "name": "Kaiwan",
     "level": 36,
     "arcana": "Star",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -1154,7 +1236,8 @@
     "name": "Kali",
     "level": 63,
     "arcana": "Empress",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -1166,7 +1249,8 @@
     "name": "Kelpie",
     "level": 6,
     "arcana": "Strength",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -1180,7 +1264,8 @@
     "name": "Kikuri-Hime",
     "level": 40,
     "arcana": "Priestess",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1194,7 +1279,8 @@
     "name": "Kin-Ki",
     "level": 25,
     "arcana": "Chariot",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength",
       "Endurance"
     ],
@@ -1207,7 +1293,8 @@
     "name": "King Frost",
     "level": 61,
     "arcana": "Emperor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -1217,7 +1304,8 @@
     "name": "Kodama",
     "level": 11,
     "arcana": "Star",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1231,7 +1319,8 @@
     "name": "Koh-i-Noor",
     "level": 25,
     "arcana": "Priestess",
-    "highest_stats": [
+    "fusionMethod": "Unfusable",
+    "highestStats": [
       "Strength",
       "Magic",
       "Endurance",
@@ -1249,7 +1338,8 @@
     "name": "Kohryu",
     "level": 76,
     "arcana": "Hierophant",
-    "highest_stats": [
+    "fusionMethod": "Special",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -1261,7 +1351,8 @@
     "name": "Koppa Tengu",
     "level": 11,
     "arcana": "Temperance",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -1276,12 +1367,13 @@
     "name": "Koropokkuru",
     "level": 9,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
-      "Ice",
-      "Wind"
+      "Wind",
+      "Ice"
     ],
     "weaknesses": [
       "Fire"
@@ -1291,7 +1383,8 @@
     "name": "Koumokuten",
     "level": 49,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -1306,7 +1399,8 @@
     "name": "Kumbhanda",
     "level": 42,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1320,12 +1414,13 @@
     "name": "Kurama Tengu",
     "level": 31,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
-      "Curse",
-      "Bless"
+      "Bless",
+      "Curse"
     ],
     "weaknesses": []
   },
@@ -1333,20 +1428,22 @@
     "name": "Kushinada",
     "level": 42,
     "arcana": "Lovers",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
     "weaknesses": [
-      "Nuclear",
-      "Ice"
+      "Ice",
+      "Nuclear"
     ]
   },
   "Kusi Mitama": {
     "name": "Kusi Mitama",
     "level": 12,
     "arcana": "Councillor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1360,7 +1457,8 @@
     "name": "Lachesis",
     "level": 35,
     "arcana": "Fortune",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1374,12 +1472,13 @@
     "name": "Lakshmi",
     "level": 69,
     "arcana": "Fortune",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
-      "Bless",
-      "Ice"
+      "Ice",
+      "Bless"
     ],
     "weaknesses": [
       "Fire"
@@ -1389,27 +1488,29 @@
     "name": "Lamia",
     "level": 26,
     "arcana": "Empress",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
       "Electric"
     ],
     "weaknesses": [
-      "Nuclear",
-      "Ice"
+      "Ice",
+      "Nuclear"
     ]
   },
   "Leanan Sidhe": {
     "name": "Leanan Sidhe",
     "level": 19,
     "arcana": "Lovers",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
-      "Psychokinesis",
-      "Wind"
+      "Wind",
+      "Psychokinesis"
     ],
     "weaknesses": [
       "Fire"
@@ -1419,13 +1520,14 @@
     "name": "Legion",
     "level": 38,
     "arcana": "Fool",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
-      "Psychokinesis",
+      "Fire",
       "Phys",
-      "Fire"
+      "Psychokinesis"
     ],
     "weaknesses": [
       "Bless"
@@ -1435,22 +1537,24 @@
     "name": "Lilim",
     "level": 32,
     "arcana": "Devil",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
       "Ice"
     ],
     "weaknesses": [
-      "Wind",
-      "Bless"
+      "Bless",
+      "Wind"
     ]
   },
   "Lilith": {
     "name": "Lilith",
     "level": 60,
     "arcana": "Moon",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -1462,7 +1566,8 @@
     "name": "Loa",
     "level": 70,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1478,14 +1583,15 @@
     "name": "Lucifer",
     "level": 93,
     "arcana": "Star",
-    "highest_stats": [
+    "fusionMethod": "Special",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
+      "Ice",
       "Wind",
       "Fire",
-      "Electric",
-      "Ice"
+      "Electric"
     ],
     "weaknesses": [
       "Bless"
@@ -1495,7 +1601,8 @@
     "name": "Macabre",
     "level": 73,
     "arcana": "Hanged",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1509,7 +1616,8 @@
     "name": "Mada",
     "level": 90,
     "arcana": "Tower",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
@@ -1523,7 +1631,8 @@
     "name": "Makami",
     "level": 15,
     "arcana": "Temperance",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -1538,7 +1647,8 @@
     "name": "Mandrake",
     "level": 3,
     "arcana": "Death",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility",
       "Luck"
     ],
@@ -1553,7 +1663,8 @@
     "name": "Mara",
     "level": 73,
     "arcana": "Tower",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -1565,7 +1676,8 @@
     "name": "Maria",
     "level": 93,
     "arcana": "Faith",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1579,7 +1691,8 @@
     "name": "Matador",
     "level": 17,
     "arcana": "Death",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -1591,7 +1704,8 @@
     "name": "Melchizedek",
     "level": 58,
     "arcana": "Justice",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
@@ -1605,7 +1719,8 @@
     "name": "Metatron",
     "level": 89,
     "arcana": "Justice",
-    "highest_stats": [
+    "fusionMethod": "Special",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -1618,7 +1733,8 @@
     "name": "Michael",
     "level": 87,
     "arcana": "Judgement",
-    "highest_stats": [
+    "fusionMethod": "Triad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -1630,7 +1746,8 @@
     "name": "Mishaguji",
     "level": 52,
     "arcana": "Hierophant",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Luck"
     ],
     "resistances": [
@@ -1644,7 +1761,8 @@
     "name": "Mithra",
     "level": 33,
     "arcana": "Temperance",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -1656,7 +1774,8 @@
     "name": "Mithras",
     "level": 39,
     "arcana": "Sun",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength",
       "Endurance"
     ],
@@ -1672,7 +1791,8 @@
     "name": "Mokoi",
     "level": 9,
     "arcana": "Death",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -1686,12 +1806,13 @@
     "name": "Moloch",
     "level": 60,
     "arcana": "Hanged",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
-      "Electric",
-      "Wind"
+      "Wind",
+      "Electric"
     ],
     "weaknesses": [
       "Ice"
@@ -1701,7 +1822,8 @@
     "name": "Mot",
     "level": 72,
     "arcana": "Death",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1715,7 +1837,8 @@
     "name": "Mother Harlot",
     "level": 85,
     "arcana": "Empress",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength",
       "Luck"
     ],
@@ -1728,7 +1851,8 @@
     "name": "Mothman",
     "level": 33,
     "arcana": "Moon",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic",
       "Agility"
     ],
@@ -1743,7 +1867,8 @@
     "name": "Naga",
     "level": 24,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic",
       "Agility"
     ],
@@ -1758,12 +1883,13 @@
     "name": "Narcissus",
     "level": 48,
     "arcana": "Lovers",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
-      "Bless",
-      "Wind"
+      "Wind",
+      "Bless"
     ],
     "weaknesses": [
       "Fire"
@@ -1773,7 +1899,8 @@
     "name": "Nebiros",
     "level": 74,
     "arcana": "Devil",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1787,7 +1914,8 @@
     "name": "Neko Shogun",
     "level": 30,
     "arcana": "Star",
-    "highest_stats": [
+    "fusionMethod": "Triad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -1803,7 +1931,8 @@
     "name": "Nekomata",
     "level": 17,
     "arcana": "Magician",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -1817,12 +1946,13 @@
     "name": "Nigi Mitama",
     "level": 22,
     "arcana": "Councillor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
-      "Curse",
-      "Bless"
+      "Bless",
+      "Curse"
     ],
     "weaknesses": [
       "Electric"
@@ -1832,7 +1962,8 @@
     "name": "Norn",
     "level": 52,
     "arcana": "Fortune",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1844,7 +1975,8 @@
     "name": "Nue",
     "level": 20,
     "arcana": "Death",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
@@ -1858,7 +1990,8 @@
     "name": "Obariyon",
     "level": 8,
     "arcana": "Fool",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
@@ -1872,7 +2005,8 @@
     "name": "Oberon",
     "level": 66,
     "arcana": "Emperor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1886,7 +2020,8 @@
     "name": "Odin",
     "level": 84,
     "arcana": "Emperor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -1896,20 +2031,22 @@
     "name": "Okuninushi",
     "level": 54,
     "arcana": "Faith",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [],
     "weaknesses": [
-      "Wind",
-      "Nuclear"
+      "Nuclear",
+      "Wind"
     ]
   },
   "Ongyo-Ki": {
     "name": "Ongyo-Ki",
     "level": 89,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Triad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -1921,7 +2058,8 @@
     "name": "Oni",
     "level": 20,
     "arcana": "Strength",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -1934,7 +2072,8 @@
     "name": "Onmoraki",
     "level": 12,
     "arcana": "Moon",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -1949,7 +2088,8 @@
     "name": "Orichalcum",
     "level": 60,
     "arcana": "Faith",
-    "highest_stats": [
+    "fusionMethod": "Unfusable",
+    "highestStats": [
       "Strength",
       "Magic",
       "Endurance",
@@ -1957,8 +2097,8 @@
       "Luck"
     ],
     "resistances": [
-      "Phys",
-      "Gun"
+      "Gun",
+      "Phys"
     ],
     "weaknesses": [
       "Bless"
@@ -1968,7 +2108,8 @@
     "name": "Orlov",
     "level": 30,
     "arcana": "Strength",
-    "highest_stats": [
+    "fusionMethod": "Unfusable",
+    "highestStats": [
       "Strength",
       "Magic",
       "Endurance",
@@ -1976,8 +2117,8 @@
       "Luck"
     ],
     "resistances": [
-      "Phys",
-      "Gun"
+      "Gun",
+      "Phys"
     ],
     "weaknesses": [
       "Curse"
@@ -1987,7 +2128,8 @@
     "name": "Orobas",
     "level": 17,
     "arcana": "Hierophant",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
@@ -2002,7 +2144,8 @@
     "name": "Orthrus",
     "level": 21,
     "arcana": "Hanged",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -2016,7 +2159,8 @@
     "name": "Ose",
     "level": 42,
     "arcana": "Fool",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -2030,7 +2174,8 @@
     "name": "Pale Rider",
     "level": 54,
     "arcana": "Death",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -2044,7 +2189,8 @@
     "name": "Parvati",
     "level": 56,
     "arcana": "Lovers",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic",
       "Agility"
     ],
@@ -2060,7 +2206,8 @@
     "name": "Pazuzu",
     "level": 45,
     "arcana": "Devil",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -2074,7 +2221,8 @@
     "name": "Phoenix",
     "level": 21,
     "arcana": "Faith",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -2088,7 +2236,8 @@
     "name": "Pisaca",
     "level": 28,
     "arcana": "Death",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic",
       "Endurance"
     ],
@@ -2096,32 +2245,34 @@
       "Electric"
     ],
     "weaknesses": [
-      "Bless",
-      "Fire"
+      "Fire",
+      "Bless"
     ]
   },
   "Pixie": {
     "name": "Pixie",
     "level": 2,
     "arcana": "Lovers",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
-      "Electric",
-      "Bless"
+      "Bless",
+      "Electric"
     ],
     "weaknesses": [
       "Ice",
-      "Curse",
-      "Gun"
+      "Gun",
+      "Curse"
     ]
   },
   "Power": {
     "name": "Power",
     "level": 41,
     "arcana": "Justice",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -2135,7 +2286,8 @@
     "name": "Principality",
     "level": 29,
     "arcana": "Justice",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -2149,7 +2301,8 @@
     "name": "Queen Mab",
     "level": 43,
     "arcana": "Magician",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -2163,7 +2316,8 @@
     "name": "Queen's Necklace",
     "level": 15,
     "arcana": "Empress",
-    "highest_stats": [
+    "fusionMethod": "Unfusable",
+    "highestStats": [
       "Strength",
       "Magic",
       "Endurance",
@@ -2171,8 +2325,8 @@
       "Luck"
     ],
     "resistances": [
-      "Gun",
-      "Phys"
+      "Phys",
+      "Gun"
     ],
     "weaknesses": [
       "Psychokinesis"
@@ -2182,7 +2336,8 @@
     "name": "Quetzalcoatl",
     "level": 66,
     "arcana": "Sun",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -2196,7 +2351,8 @@
     "name": "Raja Naga",
     "level": 55,
     "arcana": "Temperance",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -2206,7 +2362,8 @@
     "name": "Rakshasa",
     "level": 24,
     "arcana": "Strength",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -2215,15 +2372,16 @@
       "Phys"
     ],
     "weaknesses": [
-      "Wind",
-      "Bless"
+      "Bless",
+      "Wind"
     ]
   },
   "Rangda": {
     "name": "Rangda",
     "level": 48,
     "arcana": "Magician",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -2236,7 +2394,8 @@
     "name": "Raphael",
     "level": 78,
     "arcana": "Lovers",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [],
@@ -2246,7 +2405,8 @@
     "name": "Red Rider",
     "level": 41,
     "arcana": "Tower",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -2258,7 +2418,8 @@
     "name": "Regent",
     "level": 10,
     "arcana": "Emperor",
-    "highest_stats": [
+    "fusionMethod": "Unfusable",
+    "highestStats": [
       "Strength",
       "Magic",
       "Endurance",
@@ -2277,7 +2438,8 @@
     "name": "Saki Mitama",
     "level": 6,
     "arcana": "Lovers",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic",
       "Agility"
     ],
@@ -2292,7 +2454,8 @@
     "name": "Sandalphon",
     "level": 75,
     "arcana": "Moon",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -2305,22 +2468,24 @@
     "name": "Sandman",
     "level": 23,
     "arcana": "Magician",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Luck"
     ],
     "resistances": [
       "Wind"
     ],
     "weaknesses": [
-      "Fire",
-      "Electric"
+      "Electric",
+      "Fire"
     ]
   },
   "Sarasvati": {
     "name": "Sarasvati",
     "level": 50,
     "arcana": "Priestess",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -2334,7 +2499,8 @@
     "name": "Satan",
     "level": 92,
     "arcana": "Judgement",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -2346,18 +2512,19 @@
     "name": "Satanael",
     "level": 95,
     "arcana": "Fool",
-    "highest_stats": [
+    "fusionMethod": "Special",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
       "Phys",
+      "Wind",
+      "Fire",
       "Ice",
       "Gun",
       "Electric",
-      "Fire",
-      "Psychokinesis",
       "Nuclear",
-      "Wind"
+      "Psychokinesis"
     ],
     "weaknesses": []
   },
@@ -2365,7 +2532,8 @@
     "name": "Scathach",
     "level": 77,
     "arcana": "Priestess",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -2375,7 +2543,8 @@
     "name": "Seiryu",
     "level": 62,
     "arcana": "Councillor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
@@ -2389,7 +2558,8 @@
     "name": "Setanta",
     "level": 25,
     "arcana": "Emperor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -2404,7 +2574,8 @@
     "name": "Seth",
     "level": 51,
     "arcana": "Tower",
-    "highest_stats": [
+    "fusionMethod": "Special",
+    "highestStats": [
       "Magic",
       "Agility"
     ],
@@ -2419,7 +2590,8 @@
     "name": "Shiisaa",
     "level": 15,
     "arcana": "Strength",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic",
       "Endurance",
       "Agility"
@@ -2436,7 +2608,8 @@
     "name": "Shiki-Ouji",
     "level": 18,
     "arcana": "Chariot",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [],
@@ -2448,7 +2621,8 @@
     "name": "Shiva",
     "level": 82,
     "arcana": "Judgement",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [],
@@ -2460,7 +2634,8 @@
     "name": "Siegfried",
     "level": 84,
     "arcana": "Faith",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -2475,7 +2650,8 @@
     "name": "Silky",
     "level": 6,
     "arcana": "Priestess",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -2490,7 +2666,8 @@
     "name": "Skadi",
     "level": 53,
     "arcana": "Priestess",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -2500,23 +2677,25 @@
     "name": "Slime",
     "level": 10,
     "arcana": "Chariot",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
-      "Gun",
-      "Phys"
+      "Phys",
+      "Gun"
     ],
     "weaknesses": [
-      "Fire",
-      "Wind"
+      "Wind",
+      "Fire"
     ]
   },
   "Sraosha": {
     "name": "Sraosha",
     "level": 80,
     "arcana": "Star",
-    "highest_stats": [
+    "fusionMethod": "Special",
+    "highestStats": [
       "Magic",
       "Agility"
     ],
@@ -2529,7 +2708,8 @@
     "name": "Stone of Scone",
     "level": 20,
     "arcana": "Fortune",
-    "highest_stats": [
+    "fusionMethod": "Unfusable",
+    "highestStats": [
       "Strength",
       "Magic",
       "Endurance",
@@ -2537,8 +2717,8 @@
       "Luck"
     ],
     "resistances": [
-      "Phys",
-      "Gun"
+      "Gun",
+      "Phys"
     ],
     "weaknesses": [
       "Fire"
@@ -2548,35 +2728,38 @@
     "name": "Succubus",
     "level": 7,
     "arcana": "Moon",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
       "Fire"
     ],
     "weaknesses": [
-      "Wind",
-      "Bless"
+      "Bless",
+      "Wind"
     ]
   },
   "Sudama": {
     "name": "Sudama",
     "level": 17,
     "arcana": "Hermit",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
     "weaknesses": [
-      "Nuclear",
-      "Ice"
+      "Ice",
+      "Nuclear"
     ]
   },
   "Sui-Ki": {
     "name": "Sui-Ki",
     "level": 24,
     "arcana": "Moon",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -2591,12 +2774,13 @@
     "name": "Surt",
     "level": 83,
     "arcana": "Magician",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
-      "Nuclear",
-      "Gun"
+      "Gun",
+      "Nuclear"
     ],
     "weaknesses": [
       "Ice"
@@ -2606,7 +2790,8 @@
     "name": "Suzaku",
     "level": 16,
     "arcana": "Sun",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -2620,7 +2805,8 @@
     "name": "Take-Minakata",
     "level": 26,
     "arcana": "Hanged",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -2635,12 +2821,13 @@
     "name": "Tam Lin",
     "level": 27,
     "arcana": "Faith",
-    "highest_stats": [
+    "fusionMethod": "Triad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
-      "Wind",
-      "Phys"
+      "Phys",
+      "Wind"
     ],
     "weaknesses": [
       "Curse"
@@ -2650,12 +2837,13 @@
     "name": "Thor",
     "level": 64,
     "arcana": "Chariot",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
-      "Curse",
       "Bless",
+      "Curse",
       "Phys"
     ],
     "weaknesses": []
@@ -2664,7 +2852,8 @@
     "name": "Thoth",
     "level": 36,
     "arcana": "Emperor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -2678,7 +2867,8 @@
     "name": "Throne",
     "level": 72,
     "arcana": "Justice",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -2690,7 +2880,8 @@
     "name": "Thunderbird",
     "level": 34,
     "arcana": "Sun",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -2703,13 +2894,14 @@
     "name": "Titania",
     "level": 56,
     "arcana": "Empress",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
-      "Nuclear",
       "Bless",
-      "Curse"
+      "Curse",
+      "Nuclear"
     ],
     "weaknesses": [
       "Psychokinesis"
@@ -2719,7 +2911,8 @@
     "name": "Trumpeter",
     "level": 59,
     "arcana": "Judgement",
-    "highest_stats": [
+    "fusionMethod": "Special",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -2729,7 +2922,8 @@
     "name": "Unicorn",
     "level": 39,
     "arcana": "Faith",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -2743,7 +2937,8 @@
     "name": "Uriel",
     "level": 81,
     "arcana": "Justice",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -2753,7 +2948,8 @@
     "name": "Valkyrie",
     "level": 44,
     "arcana": "Strength",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -2767,7 +2963,8 @@
     "name": "Vasuki",
     "level": 68,
     "arcana": "Star",
-    "highest_stats": [
+    "fusionMethod": "Triad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [],
@@ -2779,7 +2976,8 @@
     "name": "Vishnu",
     "level": 83,
     "arcana": "Fool",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -2791,7 +2989,8 @@
     "name": "Vohu Manah",
     "level": 80,
     "arcana": "Councillor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -2805,7 +3004,8 @@
     "name": "White Rider",
     "level": 38,
     "arcana": "Chariot",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [],
@@ -2817,7 +3017,8 @@
     "name": "Yaksini",
     "level": 20,
     "arcana": "Empress",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Agility"
     ],
     "resistances": [
@@ -2831,13 +3032,14 @@
     "name": "Yamata-no-Orochi",
     "level": 64,
     "arcana": "Judgement",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
-      "Wind",
+      "Curse",
       "Phys",
-      "Curse"
+      "Wind"
     ],
     "weaknesses": []
   },
@@ -2845,7 +3047,8 @@
     "name": "Yatagarasu",
     "level": 57,
     "arcana": "Councillor",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Magic"
     ],
     "resistances": [
@@ -2859,7 +3062,8 @@
     "name": "Yoshitsune",
     "level": 87,
     "arcana": "Tower",
-    "highest_stats": [
+    "fusionMethod": "Special",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [
@@ -2871,7 +3075,8 @@
     "name": "Yurlungur",
     "level": 43,
     "arcana": "Sun",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
@@ -2885,7 +3090,8 @@
     "name": "Zaou-Gongen",
     "level": 80,
     "arcana": "Strength",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Strength"
     ],
     "resistances": [],
@@ -2897,7 +3103,8 @@
     "name": "Zouchouten",
     "level": 31,
     "arcana": "Strength",
-    "highest_stats": [
+    "fusionMethod": "Dyad",
+    "highestStats": [
       "Endurance"
     ],
     "resistances": [
