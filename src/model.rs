@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
 use strum::EnumIter;
 
-#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
+#[derive(Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
 pub enum Arcana
 {
     Fool,
@@ -31,7 +31,17 @@ pub enum Arcana
     Councillor
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
+impl Serialize for Arcana
+{
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer
+    {
+        return serializer.serialize_str(&format!("Arcana.{:?}", self));
+    }
+}
+
+#[derive(Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
 pub enum Stat
 {
     Strength,
@@ -41,7 +51,17 @@ pub enum Stat
     Luck
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
+impl Serialize for Stat
+{
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer
+    {
+        return serializer.serialize_str(&format!("Stat.{:?}", self));
+    }
+}
+
+#[derive(Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
 pub enum DamageType
 {
     Phys,
@@ -57,13 +77,33 @@ pub enum DamageType
     Almighty
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
+impl Serialize for DamageType
+{
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer
+    {
+        return serializer.serialize_str(&format!("DamageType.{:?}", self));
+    }
+}
+
+#[derive(Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
 pub enum FusionMethod
 {
     Dyad,
     Triad,
     Special,
     Unfusable
+}
+
+impl Serialize for FusionMethod
+{
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer
+    {
+        return serializer.serialize_str(&format!("FusionMethod.{:?}", self));
+    }
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
