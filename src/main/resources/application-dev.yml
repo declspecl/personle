@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: personle-api
+
+dynamodb:
+    region: = us-east-1
+    endpoint: http://localhost:4566
+    userGameData:
+        tableName: UserGameData
