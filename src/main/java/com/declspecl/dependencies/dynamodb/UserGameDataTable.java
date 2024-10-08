@@ -10,6 +10,7 @@ import software.amazon.awssdk.enhanced.dynamodb.Key;
 import software.amazon.awssdk.enhanced.dynamodb.model.QueryConditional;
 import software.amazon.awssdk.enhanced.dynamodb.model.QueryEnhancedRequest;
 
+import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Set;
@@ -28,6 +29,10 @@ public class UserGameDataTable {
 	) {
 		this.ddbTable = ddbTable;
 		this.converter = converter;
+	}
+
+	public Optional<UserDailyGuess> getUserDailyGuessToday(UUID userSessionId) {
+		return getUserDailyGuess(userSessionId, LocalDateTime.now(Clock.systemUTC()));
 	}
 
 	public Optional<UserDailyGuess> getUserDailyGuess(UUID userSessionId, LocalDateTime date) {

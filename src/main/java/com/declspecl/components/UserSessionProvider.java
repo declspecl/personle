@@ -1,11 +1,11 @@
 package com.declspecl.components;
 
-import com.google.common.base.Supplier;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.UUID;
+import java.util.function.Supplier;
 
 @Component
 public class UserSessionProvider {
@@ -24,14 +24,16 @@ public class UserSessionProvider {
 	}
 
 	public String generateEncodedSession() {
-		UUID uuid = uuidSupplier.get();
+		return encodeUserSessionId(uuidSupplier.get());
+	}
 
-		return encoder.encodeToString(uuid.toString().getBytes());
+	public String encodeUserSessionId(UUID userSessionId) {
+		return encoder.encodeToString(userSessionId.toString().getBytes());
 	}
 
 	public UUID decodeSession(String encodedSession) {
-		String decodedUuid = Arrays.toString(decoder.decode(encodedSession.getBytes()));
+		String decodedUserSessionId = Arrays.toString(decoder.decode(encodedSession.getBytes()));
 
-		return UUID.fromString(decodedUuid);
+		return UUID.fromString(decodedUserSessionId);
 	}
 }
