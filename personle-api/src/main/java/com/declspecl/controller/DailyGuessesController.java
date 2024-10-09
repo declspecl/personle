@@ -9,6 +9,7 @@ import com.declspecl.controller.responses.ImmutableGetUserGuessesResponse;
 import com.declspecl.model.ImmutableDailyGuesses;
 import com.declspecl.repository.DailyGuessesRepository;
 import com.declspecl.model.DailyGuesses;
+import com.declspecl.repository.DailyPersonaRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,7 @@ public class DailyGuessesController {
 	private final Supplier<UUID> uuidSupplier;
 	private final ControllerUtils controllerUtils;
 	private final Supplier<LocalDate> todaySupplier;
+	private final DailyPersonaRepository dailyPersonaRepository;
 	private final DailyGuessesRepository dailyGuessesRepository;
 	private final UserSessionTransformer userSessionTransformer;
 
@@ -42,12 +44,14 @@ public class DailyGuessesController {
 			Supplier<UUID> uuidSupplier,
 			ControllerUtils controllerUtils,
 			Supplier<LocalDate> todaySupplier,
+			DailyPersonaRepository dailyPersonaRepository,
 			DailyGuessesRepository dailyGuessesRepository,
 			UserSessionTransformer userSessionTransformer
 	) {
 		this.uuidSupplier = uuidSupplier;
-		this.controllerUtils = controllerUtils;
 		this.todaySupplier = todaySupplier;
+		this.controllerUtils = controllerUtils;
+		this.dailyPersonaRepository = dailyPersonaRepository;
 		this.dailyGuessesRepository = dailyGuessesRepository;
 		this.userSessionTransformer = userSessionTransformer;
 	}
@@ -57,10 +61,19 @@ public class DailyGuessesController {
 		Map<String, String> cookies = controllerUtils.buildCookieMap(request);
 		Optional<String> userSessionCookie = controllerUtils.getUserSessionCookie(cookies);
 
+		Optional<String> todayPersona = dailyPersonaRepository.getPersonaForToday();
+		if (todayPersona.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		}
+
 		if (userSessionCookie.isEmpty()) {
 			log.info("Got request for user without session");
-			return controllerUtils.buildResponseWithUserSessionCookie(uuidSupplier.get())
-					.body(ImmutableGetUserGuessesResponse.of(Collections.emptyList()));
+			return controllerUtils.buildResponseWithUserSessionCookie(uuidSupplier.get()).body(
+					ImmutableGetUserGuessesResponse.builder()
+							.withGuesses(Collections.emptyList())
+							.withTodayPersona(todayPersona.get())
+							.build()
+			);
 		}
 
 		UUID userSessionId = userSessionTransformer.decodeSession(userSessionCookie.get());
@@ -69,7 +82,12 @@ public class DailyGuessesController {
 		Optional<DailyGuesses> todayGuesses = dailyGuessesRepository.getGuessesForToday(userSessionId);
 		List<String> personaGuesses = todayGuesses.map(DailyGuesses::guesses).orElse(Collections.emptyList());
 
-		return ResponseEntity.ok(ImmutableGetUserGuessesResponse.of(personaGuesses));
+		return ResponseEntity.ok(
+				ImmutableGetUserGuessesResponse.builder()
+						.withGuesses(personaGuesses)
+						.withTodayPersona(todayPersona.get())
+						.build()
+		);
 	}
 
 	@PostMapping("/api/guess")

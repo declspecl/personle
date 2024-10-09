@@ -3,7 +3,6 @@ package com.declspecl.repository;
 import com.declspecl.dependencies.dynamodb.converter.DailyGuessesConverter;
 import com.declspecl.dependencies.dynamodb.model.DailyGuessesItem;
 import com.declspecl.model.DailyGuesses;
-import com.declspecl.model.ImmutableDailyGuesses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
@@ -11,15 +10,12 @@ import software.amazon.awssdk.enhanced.dynamodb.Key;
 import software.amazon.awssdk.enhanced.dynamodb.model.QueryConditional;
 import software.amazon.awssdk.enhanced.dynamodb.model.QueryEnhancedRequest;
 
-import java.time.Clock;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Component
 public class DailyGuessesRepository {

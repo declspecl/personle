@@ -9,6 +9,6 @@ import java.util.List;
 @Value.Style(init = "with*", get = { "is*", "get*" })
 @JsonSerialize(as = ImmutableGetUserGuessesResponse.class)
 public abstract class GetUserGuessesResponse {
-	@Value.Parameter
+	public abstract String todayPersona();
 	public abstract List<String> guesses();
 }
