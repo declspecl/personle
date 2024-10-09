@@ -104,7 +104,7 @@ public class DailyGuessesController {
 
 		if (userSessionCookie.isEmpty()) {
 			log.info("Got request lacking session cookie");
-			return controllerUtils.buildResponseWithUserSessionCookie(uuidSupplier.get()).build();
+			return controllerUtils.buildResponseWithUserSessionCookie(userSessionId).build();
 		}
 		else {
 			return ResponseEntity.ok(null);
