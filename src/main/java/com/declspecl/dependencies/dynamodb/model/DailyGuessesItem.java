@@ -18,7 +18,7 @@ import java.util.List;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDailyGuessItem {
+public class DailyGuessesItem {
 	private String userSessionId;
 	private String sk;
 	private List<String> guesses;

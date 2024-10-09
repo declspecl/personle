@@ -1,12 +1,12 @@
 package com.declspecl.controller.requests;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.immutables.value.Value;
 
 @Value.Immutable
 @Value.Style(init = "with*", get = { "is*", "get*" })
-@JsonSerialize(as = ImmutablePostUserDailyGuessRequest.class)
-public abstract class PostUserDailyGuessRequest {
+@JsonDeserialize(as = ImmutablePostUserGuessRequest.class)
+public abstract class PostUserGuessRequest {
 	@Value.Parameter
 	public abstract String guess();
 }

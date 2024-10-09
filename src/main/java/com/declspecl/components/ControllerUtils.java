@@ -16,16 +16,16 @@ import java.util.stream.Collectors;
 
 @Component
 public class ControllerUtils {
-	private final UserSessionProvider userSessionProvider;
+	private final UserSessionTransformer userSessionTransformer;
 
-	public static final String PERSONLE_USER_SESSION_KEY = "personle.v1";
+	public static final String PERSONLE_USER_SESSION_COOKIE_NAME = "personle.v1";
 
 	@Autowired
-	public ControllerUtils(UserSessionProvider userSessionProvider) {
-		this.userSessionProvider = userSessionProvider;
+	public ControllerUtils(UserSessionTransformer userSessionTransformer) {
+		this.userSessionTransformer = userSessionTransformer;
 	}
 
-	public Map<String, String> readAllCookiesFromRequest(HttpServletRequest request) {
+	public Map<String, String> buildCookieMap(HttpServletRequest request) {
 		Optional<Cookie[]> maybeCookies = Optional.ofNullable(request.getCookies());
 
 		return maybeCookies.map(cookies -> Arrays.stream(cookies).collect(
@@ -36,18 +36,12 @@ public class ControllerUtils {
 		).orElse(Collections.emptyMap());
 	}
 
-	public Optional<String> getPersonleCookie(Map<String, String> cookies) {
-		return Optional.ofNullable(cookies.get(PERSONLE_USER_SESSION_KEY));
-	}
-
-	public ResponseEntity.BodyBuilder buildResponseWithUserSessionCookie() {
-		String cookie = PERSONLE_USER_SESSION_KEY + "=" + userSessionProvider.generateEncodedSession();
-
-		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie);
+	public Optional<String> getUserSessionCookie(Map<String, String> cookies) {
+		return Optional.ofNullable(cookies.get(PERSONLE_USER_SESSION_COOKIE_NAME));
 	}
 
 	public ResponseEntity.BodyBuilder buildResponseWithUserSessionCookie(UUID userSessionId) {
-		String cookie = PERSONLE_USER_SESSION_KEY + "=" + userSessionProvider.encodeUserSessionId(userSessionId);
+		String cookie = PERSONLE_USER_SESSION_COOKIE_NAME + "=" + userSessionTransformer.encodeSession(userSessionId);
 
 		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie);
 	}

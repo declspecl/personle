@@ -1,6 +1,6 @@
 package com.declspecl.configuration;
 
-import com.declspecl.dependencies.dynamodb.model.UserDailyGuessItem;
+import com.declspecl.dependencies.dynamodb.model.DailyGuessesItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -48,14 +48,14 @@ public class AwsConfiguration {
 	}
 
 	@Bean
-	public TableSchema<UserDailyGuessItem> userDailyGuessItemTableSchema() {
-		return TableSchema.fromBean(UserDailyGuessItem.class);
+	public TableSchema<DailyGuessesItem> userDailyGuessItemTableSchema() {
+		return TableSchema.fromBean(DailyGuessesItem.class);
 	}
 
 	@Bean
-	public DynamoDbTable<UserDailyGuessItem> userDailyGuessItemDynamoDbTable(
+	public DynamoDbTable<DailyGuessesItem> userDailyGuessItemDynamoDbTable(
 			DynamoDbEnhancedClient ddbClient,
-			TableSchema<UserDailyGuessItem> userDailyGuessItemTableSchema
+			TableSchema<DailyGuessesItem> userDailyGuessItemTableSchema
 	) {
 		return ddbClient.table(tableName, userDailyGuessItemTableSchema);
 	}
