@@ -1,38 +1,37 @@
-import { useQuery, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
-import { Suspense, useEffect, useState } from "react";
-import { Await, Link, useLoaderData, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { cn } from "~/lib/utils";
+import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { DateWithDay } from "~/components/typography/DateWithDay";
 import { NewspaperText } from "~/components/typography/NewspaperText";
 import { Button } from "~/components/ui/Button";
 import { PersonaCombobox } from "~/components/ui/PersonaCombobox";
 import { MessageBox } from "~/components/ui/MessageBox";
-import { Skeleton } from "~/components/ui/Skeleton";
-import { addGuess, getGuesses, GetGuessesResponse } from "~/lib/server/api";
-import { cn } from "~/lib/utils";
 import { PersonaData } from "~/lib/server/model";
+import { getGuesses, GetGuessesResponse, makeGuess } from "~/lib/server/api";
 
 interface MakeGuessControllerProps {
     onClick?: (guess: PersonaData) => void
 }
 
 function MakeGuessController({ onClick }: MakeGuessControllerProps) {
-    const [selectedGuess, setSelectedGuess] = useState<PersonaData | null>(null);
+    const [selectedPersona, setSelectedPersona] = useState<PersonaData | null>(null);
 
     return (
         <div className="w-full flex flex-col gap-4 sm:flex-row sm:items-center">
             <MessageBox fromSide="left" className="text-white" deltaWidthRem={1}>
-                <PersonaCombobox selectedPersonaData={selectedGuess} setSelectedPersonaData={setSelectedGuess} onSelect={setSelectedGuess} />
+                <PersonaCombobox selectedPersona={selectedPersona} setSelectedPersona={setSelectedPersona} onSelect={setSelectedPersona} />
             </MessageBox>
 
             <Button palette="whiteText" size="md" onClick={() => {
                 console.log("yo");
-                if (!selectedGuess) return;
+                if (!selectedPersona) return;
 
                 if (onClick) {
-                    onClick(selectedGuess);
+                    onClick(selectedPersona);
                 }
 
-                setSelectedGuess(null);
+                setSelectedPersona(null);
             }}>
                 Submit guess
             </Button>
@@ -40,58 +39,48 @@ function MakeGuessController({ onClick }: MakeGuessControllerProps) {
     );
 }
 
-function UserGuessManager() {
-    const navigate = useNavigate();
+interface UserGuessManagerProps {
+    getGuessesResponse: GetGuessesResponse
+}
 
-    const [todayPersona, setTodayPersona] = useState<string>(null!)
-    const [guesses, setGuesses] = useState<string[]>([]);
+function UserGuessManager({ getGuessesResponse }: UserGuessManagerProps) {
+    const [guesses, setGuesses] = useState<string[]>(getGuessesResponse.guesses);
 
     return (
-        <>
+        <div>
             <MakeGuessController onClick={async (guess: PersonaData) => {
-                setGuesses([...guesses, guess.name]);
-
-                console.log(document.cookie);
-
-                if (document.cookie.includes("session=")) {
-                    const response = await fetch("http://localhost:3345/guess", {
-                        method: "PUT",
-                        credentials: "include",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            persona_guess: guess.name
-                        })
-                    });
-
-                    response.headers.getSetCookie().forEach(cookie => {
-                        document.cookie = cookie;
-                    });
-
-                    console.log(response);
+                const res =  await makeGuess(guess.name);
+                if (res.status === 200 || res.status === 204) {
+                    setGuesses([...guesses, guess.name]);
+                }
+                else {
+                    console.error("You've made too many guesses today!");
                 }
             }} />
 
-            <Suspense fallback={<Skeleton deltaWidthRem={1} skewDirection="right" className="w-20 h-20" />}>
-                <div className="text-white">
-                    <h1>{todayPersona}</h1>
-
-                    <ul>
-                        {guesses.map(guess => (
-                            <li key={guess}>{guess}</li>
-                        ))}
-                    </ul>
-                </div>
-            </Suspense>
-        </>
+            <div className="text-white">
+                <ul>
+                    {guesses.map(guess => (
+                        <li key={guess}>{guess}</li>
+                    ))}
+                </ul>
+            </div>
+        </div>
     );
 }
 
 export function PlayPage() {
-    const data = useLoaderData();
+    const { isPending, error, data } = useQuery({
+        queryKey: ["guesses"],
+        queryFn: async () => {
+            const response = await getGuesses();
+            return await response.json() as GetGuessesResponse;
+        }
+    })
 
-    console.log(data);
+    if (error) {
+        throw error;
+    }
 
     return (
         <div className="w-full flex flex-col gap-4">
@@ -115,7 +104,9 @@ export function PlayPage() {
                 </MessageBox>
             </div>
 
-            <UserGuessManager />
+            {data && (
+                <UserGuessManager getGuessesResponse={data} />
+            )}
         </div>
     );
 }

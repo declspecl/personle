@@ -9,12 +9,12 @@ import { PersonaData } from "~/lib/server/model";
 import { usePersonaDataByName, usePersonaNames } from "~/context/PersonaDataContext";
 
 interface PersonaComboboxProps {
-    selectedPersonaData: PersonaData | null,
-    setSelectedPersonaData: (data: PersonaData) => void,
+    selectedPersona: PersonaData | null,
+    setSelectedPersona: (data: PersonaData) => void,
     onSelect?: (data: PersonaData) => void
 }
 
-export function PersonaCombobox({ selectedPersonaData, setSelectedPersonaData, onSelect }: PersonaComboboxProps) {
+export function PersonaCombobox({ selectedPersona, setSelectedPersona, onSelect }: PersonaComboboxProps) {
     const personaNames = usePersonaNames();
     const personaDataByName = usePersonaDataByName();
     const [open, setOpen] = useState(false);
@@ -29,7 +29,7 @@ export function PersonaCombobox({ selectedPersonaData, setSelectedPersonaData, o
 
                     if (!correspondingPersonaData) return;
 
-                    setSelectedPersonaData(correspondingPersonaData);
+                    setSelectedPersona(correspondingPersonaData);
                     setOpen(false);
 
                     if (onSelect) {
@@ -37,14 +37,14 @@ export function PersonaCombobox({ selectedPersonaData, setSelectedPersonaData, o
                     }
                 }}
             >
-                <IconContext.Provider value={{ className: cn("mr-2 h-4 w-4", selectedPersonaData?.name === personaName ? "opacity-100" : "opacity-0" )}}>
+                <IconContext.Provider value={{ className: cn("mr-2 h-4 w-4", selectedPersona?.name === personaName ? "opacity-100" : "opacity-0" )}}>
                     <LuCheck />
                 </IconContext.Provider>
 
                 <span>{personaName}</span>
             </CommandItem>
         ))
-    }, [onSelect, selectedPersonaData, setSelectedPersonaData]);
+    }, [onSelect, selectedPersona, setSelectedPersona]);
 
     return (
         <Popover open={open} onOpenChange={setOpen}>
@@ -57,7 +57,7 @@ export function PersonaCombobox({ selectedPersonaData, setSelectedPersonaData, o
                     rotate={false}
                     skewMagnitude="xs"
                 >
-                    <span>{selectedPersonaData ? selectedPersonaData.name : "Select a persona..."}</span>
+                    <span>{selectedPersona ? selectedPersona.name : "Select a persona..."}</span>
 
                     <IconContext.Provider value={{ className: "h-4 w-4 shrink-0 text-grey-light group-hover:text-grey-dark" }}>
                         <LuChevronsUpDown />

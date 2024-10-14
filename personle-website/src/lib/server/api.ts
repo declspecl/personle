@@ -1,24 +1,26 @@
+const BASE_URL = "/api";
+
 export interface GetGuessesResponse {
-    persona: string,
+    todayPersona: string,
     guesses: string[]
 }
 
 export async function getGuesses(): Promise<Response> {
-    return fetch("http://localhost:3345/guess", {
+    return fetch(`${BASE_URL}/guess`, {
         method: "GET",
         credentials: "include"
     })
 }
 
-export async function addGuess(persona: string): Promise<Response> {
-    return fetch("http://localhost:3345/guess", {
-        method: "PUT",
+export async function makeGuess(persona: string): Promise<Response> {
+    return fetch(`${BASE_URL}/guess`, {
+        method: "POST",
         credentials: "include",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            persona_guess: persona
+            guess: persona
         })
     });
 }
