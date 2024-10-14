@@ -4,13 +4,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { HomePage } from "./pages/Home.tsx";
 import { PlayPage } from "./pages/Play.tsx";
+import personaData from "./data/persona-data.json";
 import { RootLayout } from "./layouts/RootLayout.tsx";
-import { createBrowserRouter, defer, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { LeaderboardPage } from "./pages/Leaderboard.tsx";
 import { SettingsPage } from "./pages/Settings.tsx";
 import { ProfilePage } from "./pages/Profile.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { getGuesses } from "./lib/backend/api.ts";
+import { PersonaDataByNameProvider, PersonaNamesProvider } from "./context/PersonaDataContext.tsx";
+import { PersonaData } from "./lib/server/model.ts";
 
 const queryClient = new QueryClient();
 
@@ -24,23 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/play",
-                element: <PlayPage />,
-                loader: async () => {
-                    return getGuesses().then((response) => {
-                        if (!response.status.toString().startsWith("2")) {
-                            document.cookie = "";
-                            
-                            for (const cookie of response.headers.getSetCookie()) {
-                                console.log(cookie);
-                                document.cookie = cookie;
-                            }
-
-                            throw new Response(response.statusText, { status: 302, headers: { "Set-Cookie": "", "Location": "/profile" } });
-                        }
-
-                        return response.json();
-                    });
-                }
+                element: <PlayPage />
             },
             {
                 path: "/profile",
@@ -61,7 +47,11 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <QueryClientProvider client={queryClient}>
-            <RouterProvider router={router} />
+            <PersonaDataByNameProvider personaDataByName={personaData as Record<string, PersonaData>}>
+                <PersonaNamesProvider personaNames={Object.keys(personaData)}>
+                    <RouterProvider router={router} />
+                </PersonaNamesProvider>
+            </PersonaDataByNameProvider>
         </QueryClientProvider>
     </React.StrictMode>
 );

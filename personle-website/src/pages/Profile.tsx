@@ -1,7 +1,7 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Suspense } from "react";
 import { Skeleton } from "~/components/ui/Skeleton";
-import { getGuesses } from "~/lib/backend/api";
+import { getGuesses } from "~/lib/server/api";
 
 function Inner() {
     const { isPending, error, data } = useSuspenseQuery({

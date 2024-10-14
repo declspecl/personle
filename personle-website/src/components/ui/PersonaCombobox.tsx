@@ -1,12 +1,12 @@
 import { cn } from "~/lib/utils";
 import { useMemo, useState } from "react";
 import { IconContext } from "react-icons";
-import { personas } from "~/data/persona";
 import { Button } from "@/components/ui/Button";
 import { LuChevronsUpDown, LuCheck } from "react-icons/lu";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/Popover";
 import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from "@/components/ui/Command";
-import { PersonaData } from "~/lib/backend/model";
+import { PersonaData } from "~/lib/server/model";
+import { usePersonaDataByName, usePersonaNames } from "~/context/PersonaDataContext";
 
 interface PersonaComboboxProps {
     selectedPersonaData: PersonaData | null,
@@ -15,15 +15,17 @@ interface PersonaComboboxProps {
 }
 
 export function PersonaCombobox({ selectedPersonaData, setSelectedPersonaData, onSelect }: PersonaComboboxProps) {
+    const personaNames = usePersonaNames();
+    const personaDataByName = usePersonaDataByName();
     const [open, setOpen] = useState(false);
 
     const personasCommandList = useMemo(() => {
-        return personas.map((persona) => (
+        return personaNames.map((personaName) => (
             <CommandItem
-                key={persona.name}
-                value={persona.name}
+                key={personaName}
+                value={personaName}
                 onSelect={(currentValue) => {
-                    const correspondingPersonaData = personas.find((persona) => persona.name === currentValue);
+                    const correspondingPersonaData = personaDataByName[currentValue];
 
                     if (!correspondingPersonaData) return;
 
@@ -31,15 +33,15 @@ export function PersonaCombobox({ selectedPersonaData, setSelectedPersonaData, o
                     setOpen(false);
 
                     if (onSelect) {
-                        onSelect(persona);
+                        onSelect(correspondingPersonaData);
                     }
                 }}
             >
-                <IconContext.Provider value={{ className: cn("mr-2 h-4 w-4", selectedPersonaData?.name === persona.name ? "opacity-100" : "opacity-0" )}}>
+                <IconContext.Provider value={{ className: cn("mr-2 h-4 w-4", selectedPersonaData?.name === personaName ? "opacity-100" : "opacity-0" )}}>
                     <LuCheck />
                 </IconContext.Provider>
 
-                <span>{persona.name}</span>
+                <span>{personaName}</span>
             </CommandItem>
         ))
     }, [onSelect, selectedPersonaData, setSelectedPersonaData]);
@@ -55,7 +57,7 @@ export function PersonaCombobox({ selectedPersonaData, setSelectedPersonaData, o
                     rotate={false}
                     skewMagnitude="xs"
                 >
-                    <span>{selectedPersonaData ? personas.find((persona) => persona.name === selectedPersonaData.name)?.name : "Select a persona..."}</span>
+                    <span>{selectedPersonaData ? selectedPersonaData.name : "Select a persona..."}</span>
 
                     <IconContext.Provider value={{ className: "h-4 w-4 shrink-0 text-grey-light group-hover:text-grey-dark" }}>
                         <LuChevronsUpDown />

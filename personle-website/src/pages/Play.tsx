@@ -7,9 +7,9 @@ import { Button } from "~/components/ui/Button";
 import { PersonaCombobox } from "~/components/ui/PersonaCombobox";
 import { MessageBox } from "~/components/ui/MessageBox";
 import { Skeleton } from "~/components/ui/Skeleton";
-import { addGuess, getGuesses, GetGuessesResponse } from "~/lib/backend/api";
+import { addGuess, getGuesses, GetGuessesResponse } from "~/lib/server/api";
 import { cn } from "~/lib/utils";
-import { PersonaData } from "~/lib/backend/model";
+import { PersonaData } from "~/lib/server/model";
 
 interface MakeGuessControllerProps {
     onClick?: (guess: PersonaData) => void
