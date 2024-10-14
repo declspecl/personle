@@ -5,11 +5,11 @@ export interface GetGuessesResponse {
     guesses: string[]
 }
 
-export async function getGuesses(): Promise<Response> {
+export async function getGuesses(): Promise<GetGuessesResponse> {
     return fetch(`${BASE_URL}/guess`, {
         method: "GET",
         credentials: "include"
-    })
+    }).then(response => response.json());
 }
 
 export async function makeGuess(persona: string): Promise<Response> {

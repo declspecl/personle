@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { cn } from "~/lib/utils";
 import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { Button } from "~/components/ui/Button";
+import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
+import { PersonaData } from "~/lib/server/model";
+import { MessageBox } from "~/components/ui/MessageBox";
+import { PersonaCombobox } from "~/components/ui/PersonaCombobox";
 import { DateWithDay } from "~/components/typography/DateWithDay";
 import { NewspaperText } from "~/components/typography/NewspaperText";
-import { Button } from "~/components/ui/Button";
-import { PersonaCombobox } from "~/components/ui/PersonaCombobox";
-import { MessageBox } from "~/components/ui/MessageBox";
-import { PersonaData } from "~/lib/server/model";
 import { getGuesses, GetGuessesResponse, makeGuess } from "~/lib/server/api";
 
 interface MakeGuessControllerProps {
@@ -24,7 +24,6 @@ function MakeGuessController({ onClick }: MakeGuessControllerProps) {
             </MessageBox>
 
             <Button palette="whiteText" size="md" onClick={() => {
-                console.log("yo");
                 if (!selectedPersona) return;
 
                 if (onClick) {
@@ -44,14 +43,19 @@ interface UserGuessManagerProps {
 }
 
 function UserGuessManager({ getGuessesResponse }: UserGuessManagerProps) {
+    const queryClient = useQueryClient();
     const [guesses, setGuesses] = useState<string[]>(getGuessesResponse.guesses);
 
     return (
         <div>
             <MakeGuessController onClick={async (guess: PersonaData) => {
                 const res =  await makeGuess(guess.name);
+
                 if (res.status === 200 || res.status === 204) {
-                    setGuesses([...guesses, guess.name]);
+                    setGuesses((prev) => [...prev, guess.name]);
+                    queryClient.invalidateQueries({
+                        queryKey: ["getGuesses"]
+                    });
                 }
                 else {
                     console.error("You've made too many guesses today!");
@@ -71,16 +75,9 @@ function UserGuessManager({ getGuessesResponse }: UserGuessManagerProps) {
 
 export function PlayPage() {
     const { isPending, error, data } = useQuery({
-        queryKey: ["guesses"],
-        queryFn: async () => {
-            const response = await getGuesses();
-            return await response.json() as GetGuessesResponse;
-        }
+        queryKey: ["getGuesses"],
+        queryFn: getGuesses
     })
-
-    if (error) {
-        throw error;
-    }
 
     return (
         <div className="w-full flex flex-col gap-4">
@@ -104,7 +101,11 @@ export function PlayPage() {
                 </MessageBox>
             </div>
 
-            {data && (
+            {isPending ? (
+                <p>Loading...</p>
+            ) : error ? (
+                <p>{error.message}</p>
+            ) : data && (
                 <UserGuessManager getGuessesResponse={data} />
             )}
         </div>
