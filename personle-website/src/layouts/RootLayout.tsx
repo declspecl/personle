@@ -29,7 +29,7 @@ export function RootLayout({ className }: RootLayoutProps) {
                     )}
                 >
                     <main className={cn(
-                        "grow p-4 w-full flex flex-col gap-8 bg-black -z-10"
+                        "grow p-6 w-full flex flex-col gap-8 bg-black -z-10"
                     )}>
                         <Outlet />
                     </main>

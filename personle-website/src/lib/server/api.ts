@@ -1,4 +1,4 @@
-const BASE_URL = "/api";
+const API_BASE_URL = "/api";
 
 export interface GetGuessesResponse {
     todayPersona: string,
@@ -6,14 +6,14 @@ export interface GetGuessesResponse {
 }
 
 export async function getGuesses(): Promise<GetGuessesResponse> {
-    return fetch(`${BASE_URL}/guess`, {
+    return fetch(`${API_BASE_URL}/guess`, {
         method: "GET",
         credentials: "include"
     }).then(response => response.json());
 }
 
 export async function makeGuess(persona: string): Promise<Response> {
-    return fetch(`${BASE_URL}/guess`, {
+    return fetch(`${API_BASE_URL}/guess`, {
         method: "POST",
         credentials: "include",
         headers: {

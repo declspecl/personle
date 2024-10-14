@@ -128,14 +128,30 @@ const NewspaperTextVariants = cva(
 const LETTER_MIN_BOTTOM_OFFSET = 0.025, LETTER_MAX_BOTTOM_OFFSET = 0.125;
 
 interface NewspaperTextProps extends VariantProps<typeof NewspaperTextVariants> {
-    text: string,
-    redLetters?: string[],
-    element?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span" | "div",
-    className?: string
+    text: string;
+    redLetters?: string[];
+    hover?: boolean;
+    randomRedLetter?: boolean;
+    element?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span" | "div";
+    className?: string;
 }
 
-export function NewspaperText({ text, redLetters = [], element = "p", className, palette, ...props }: NewspaperTextProps) {
+export function NewspaperText({
+    text,
+    redLetters = [],
+    hover = true,
+    randomRedLetter = false,
+    element = "p",
+    className,
+    palette,
+    ...props
+}: NewspaperTextProps) {
     const Comp = element;
+
+    if (randomRedLetter) {
+        const randomIndex = Math.floor(Math.random() * text.length);
+        redLetters.push(text[randomIndex]);
+    }
 
     return (
         <Comp
@@ -152,9 +168,10 @@ export function NewspaperText({ text, redLetters = [], element = "p", className,
                     <NewspaperLetter
                         key={`${text}-char@${i}-${char}`}
                         letter={char}
-                        className={clsx(
-                            "transition-[font-size] duration-200 ease-in-out group-hover:[font-size:_115%]",
-                            { "text-red" : redLetters.includes(char)} 
+                        className={cn(
+                            "transition-[font-size] duration-200 ease-in-out",
+                            hover && "group-hover:[font-size:_115%]",
+                            redLetters.includes(char) && "text-red"
                         )}
                         style={{
                             "bottom": `${bottomOffset}em`
