@@ -1,4 +1,4 @@
-package com.declspecl.configuration;
+package com.declspecl.configuration.dev;
 
 import com.declspecl.dependencies.dynamodb.model.DailyGuessesItem;
 import org.springframework.beans.factory.annotation.Autowired;
