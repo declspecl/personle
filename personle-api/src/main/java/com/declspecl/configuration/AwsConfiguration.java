@@ -66,6 +66,7 @@ public class AwsConfiguration {
 		return S3Client.builder()
 				.region(region)
 				.endpointOverride(endpoint)
+				.forcePathStyle(true) // https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/examples-s3.html
 				.build();
 	}
 }

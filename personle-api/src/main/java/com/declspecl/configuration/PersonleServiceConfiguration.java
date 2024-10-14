@@ -39,8 +39,8 @@ public class PersonleServiceConfiguration {
 	}
 
 	@Bean
-	@Qualifier("PersonaNames")
-	public List<String> personaNames() throws IOException {
+	@Qualifier("PersonaNamePool")
+	public List<String> personaNamePool() throws IOException {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
 		List<String> personaNames = new ArrayList<>(700);

@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
@@ -57,21 +58,18 @@ public class DailyGuessesController {
 	}
 
 	@GetMapping("/api/guess")
-	public ResponseEntity<GetUserGuessesResponse> getUserGuessesToday(HttpServletRequest request) {
+	public ResponseEntity<GetUserGuessesResponse> getUserGuessesToday(HttpServletRequest request) throws ExecutionException {
 		Map<String, String> cookies = controllerUtils.buildCookieMap(request);
 		Optional<String> userSessionCookie = controllerUtils.getUserSessionCookie(cookies);
 
-		Optional<String> todayPersona = dailyPersonaRepository.getPersonaForToday();
-		if (todayPersona.isEmpty()) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-		}
+		String todayPersona = dailyPersonaRepository.getPersonaForToday();
 
 		if (userSessionCookie.isEmpty()) {
 			log.info("Got request for user without session");
 			return controllerUtils.buildResponseWithUserSessionCookie(uuidSupplier.get()).body(
 					ImmutableGetUserGuessesResponse.builder()
 							.withGuesses(Collections.emptyList())
-							.withTodayPersona(todayPersona.get())
+							.withTodayPersona(todayPersona)
 							.build()
 			);
 		}
@@ -85,7 +83,7 @@ public class DailyGuessesController {
 		return ResponseEntity.ok(
 				ImmutableGetUserGuessesResponse.builder()
 						.withGuesses(personaGuesses)
-						.withTodayPersona(todayPersona.get())
+						.withTodayPersona(todayPersona)
 						.build()
 		);
 	}

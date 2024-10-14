@@ -15,13 +15,14 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Supplier;
 
 @Log4j2
 @Component
 public class DailyPersonaRepository {
-	private final List<String> personaNames;
+	private final List<String> personaNamePool;
 	private final DailyPersonaS3Adapter s3Adapter;
 	private final Supplier<LocalDate> todaySupplier;
 	private final LocalDateConverter localDateConverter;
@@ -33,10 +34,10 @@ public class DailyPersonaRepository {
 			DailyPersonaS3Adapter s3Adapter,
 			Supplier<LocalDate> todaySupplier,
 			LocalDateConverter localDateConverter,
-			@Qualifier("PersonaNames") List<String> personaNames
+			@Qualifier("PersonaNamePool") List<String> personaNamePool
 	) {
 		this.s3Adapter = s3Adapter;
-		this.personaNames = personaNames;
+		this.personaNamePool = personaNamePool;
 		this.todaySupplier = todaySupplier;
 		this.localDateConverter = localDateConverter;
 
@@ -46,18 +47,26 @@ public class DailyPersonaRepository {
 				.build(
 						new CacheLoader<>() {
 							@Override
-							public String load(FormattedDate key) throws Exception {
-								Optional<String> personaName = s3Adapter.fetchPersonaFromS3(key);
+							public String load(FormattedDate date) {
+								Optional<String> personaName = s3Adapter.fetchPersonaFromS3(date);
+								if (personaName.isPresent()) {
+									return personaName.get();
+								}
+
+								String nextPersonaName = getRandomPersonaName();
+								s3Adapter.putPersonaObjectToS3(date, nextPersonaName);
+
+								return nextPersonaName;
 							}
 						}
 				);
 	}
 
-	public Optional<String> getPersonaForToday() {
-		return s3Adapter.fetchPersonaFromS3(localDateConverter.convertDateToString(todaySupplier.get()));
+	public String getPersonaForToday() throws ExecutionException {
+		return dailyPersonaCache.get(localDateConverter.convertDateToString(todaySupplier.get()));
 	}
 
 	private String getRandomPersonaName() {
-		return personaNames.get(ThreadLocalRandom.current().nextInt(0, personaNames.size()));
+		return personaNamePool.get(ThreadLocalRandom.current().nextInt(0, personaNamePool.size()));
 	}
 }
