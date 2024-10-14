@@ -4,8 +4,7 @@ use serde::{Deserialize, Serialize};
 use strum::EnumIter;
 
 #[derive(Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
-pub enum Arcana
-{
+pub enum Arcana {
     Fool,
     Magician,
     Priestess,
@@ -31,9 +30,11 @@ pub enum Arcana
     Councillor
 }
 
-impl Serialize for Arcana
-{
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+impl Serialize for Arcana {
+    fn serialize<S>(
+        &self,
+        serializer: S
+    ) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer
     {
@@ -42,8 +43,7 @@ impl Serialize for Arcana
 }
 
 #[derive(Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
-pub enum Stat
-{
+pub enum Stat {
     Strength,
     Magic,
     Endurance,
@@ -51,9 +51,11 @@ pub enum Stat
     Luck
 }
 
-impl Serialize for Stat
-{
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+impl Serialize for Stat {
+    fn serialize<S>(
+        &self,
+        serializer: S
+    ) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer
     {
@@ -62,8 +64,7 @@ impl Serialize for Stat
 }
 
 #[derive(Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
-pub enum DamageType
-{
+pub enum DamageType {
     Phys,
     Gun,
     Fire,
@@ -77,9 +78,11 @@ pub enum DamageType
     Almighty
 }
 
-impl Serialize for DamageType
-{
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+impl Serialize for DamageType {
+    fn serialize<S>(
+        &self,
+        serializer: S
+    ) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer
     {
@@ -88,17 +91,18 @@ impl Serialize for DamageType
 }
 
 #[derive(Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
-pub enum FusionMethod
-{
+pub enum FusionMethod {
     Dyad,
     Triad,
     Special,
     Unfusable
 }
 
-impl Serialize for FusionMethod
-{
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+impl Serialize for FusionMethod {
+    fn serialize<S>(
+        &self,
+        serializer: S
+    ) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer
     {
@@ -108,8 +112,7 @@ impl Serialize for FusionMethod
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "camelCase")]
-pub struct PersonaData
-{
+pub struct PersonaData {
     pub name: String,
     pub level: i32,
     pub arcana: Arcana,
@@ -119,8 +122,7 @@ pub struct PersonaData
     pub weaknesses: Vec<DamageType>
 }
 
-impl PersonaData
-{
+impl PersonaData {
     pub fn new(
         name: String,
         level: i32,
@@ -129,10 +131,8 @@ impl PersonaData
         highest_stats: Vec<Stat>,
         resistances: Vec<DamageType>,
         weaknesses: Vec<DamageType>
-    ) -> PersonaData
-    {
-        return PersonaData
-        {
+    ) -> PersonaData {
+        return PersonaData {
             name,
             level,
             arcana,
@@ -145,8 +145,7 @@ impl PersonaData
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct MegatenFusionToolPersonaData
-{
+pub struct MegatenFusionToolPersonaData {
     pub inherits: String,
     pub item: String,
     pub itemr: String,
