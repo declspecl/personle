@@ -26,6 +26,9 @@ async fn main() -> anyhow::Result<()> {
     };
 
     let persona_data_by_name: BTreeMap<String, PersonaData> = persona_data.into_iter().map(|data| (data.name.clone(), data)).collect();
+    let persona_names = persona_data_by_name.keys().cloned().collect::<Vec<String>>();
+
+    fs::write("out/persona-names.txt", persona_names.join("\n")).await?;
 
     let mut persona_data_json = serde_json::to_string_pretty(&persona_data_by_name)?;
 
@@ -45,7 +48,7 @@ async fn main() -> anyhow::Result<()> {
         persona_data_json = persona_data_json.replace(&format!("FusionMethod.{:?}", fusion_method), &format!("{:?}", fusion_method));
     }
 
-    fs::write("persona_data.json", &persona_data_json).await?;
+    fs::write("out/persona-data.json", &persona_data_json).await?;
 
     let persona_data_list: Vec<PersonaData> = persona_data_by_name.into_iter().map(|(_name, data)| data).collect();
 
@@ -68,20 +71,14 @@ async fn main() -> anyhow::Result<()> {
     }
 
     persona_data_ts_object = persona_data_ts_object.replace("\"name\"", "name");
-
     persona_data_ts_object = persona_data_ts_object.replace("\"level\"", "level");
-
     persona_data_ts_object = persona_data_ts_object.replace("\"arcana\"", "arcana");
-
     persona_data_ts_object = persona_data_ts_object.replace("\"fusionMethod\"", "fusionMethod");
-
     persona_data_ts_object = persona_data_ts_object.replace("\"highestStats\"", "highestStats");
-
     persona_data_ts_object = persona_data_ts_object.replace("\"resistances\"", "resistances");
-
     persona_data_ts_object = persona_data_ts_object.replace("\"weaknesses\"", "weaknesses");
 
-    fs::write("persona_data.ts", &persona_data_ts_object).await?;
+    fs::write("out/persona-data.ts", &persona_data_ts_object).await?;
 
     return Ok(());
 }
