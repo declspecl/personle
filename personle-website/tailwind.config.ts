@@ -1,4 +1,7 @@
+import defaultTheme from "tailwindcss/defaultTheme"
 import type { Config } from "tailwindcss";
+
+const { sans: defaultSans, serif: defaultSerif } = defaultTheme.fontFamily;
 
 export default {
     content: ["./src/**/*.tsx"],
@@ -34,11 +37,11 @@ export default {
         },
         extend: {
             fontFamily: {
-                cooper: ["Cooper", "sans-serif"],
-                earwig: ["Earwig Factory", "sans-serif"],
-                expose: ["Expose", "serif"],
-                times: ["Times New Roman", "serif"],
-                arsenal: ["Arsenal", "sans-serif"]
+                cooper: ["Cooper", ...defaultSans],
+                earwig: ["Earwig Factory", ...defaultSans],
+                expose: ["Expose", ...defaultSerif],
+                times: ["Times New Roman", ...defaultSerif],
+                arsenal: ["Arsenal", ...defaultSans]
             }
         }
     },

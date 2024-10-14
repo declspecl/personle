@@ -70,7 +70,7 @@ export function HomePage() {
             <div className="flex flex-row gap-4 justify-center items-center">
                 <IconContext.Provider value={{ className: "w-full aspect-square text-2xl md:text-3xl" }}>
                     <Button palette="whiteText" size="icon" asChild>
-                        <a href="https://github.com/declspecl/personle-website" target="_blank">
+                        <a href="https://github.com/declspecl/personle" target="_blank">
                             <FaGithub />
                         </a>
                     </Button>

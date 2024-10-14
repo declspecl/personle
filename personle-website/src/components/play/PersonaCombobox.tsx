@@ -65,7 +65,7 @@ export function PersonaCombobox({ selectedPersona, setSelectedPersona, onSelect 
                 </Button>
             </PopoverTrigger>
 
-            <PopoverContent className="w-52 p-0">
+            <PopoverContent className="w-52 sm:w-72 p-0">
                 <Command>
                     <CommandInput placeholder="Search personas..." />
 

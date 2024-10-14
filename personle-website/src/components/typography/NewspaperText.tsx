@@ -89,8 +89,7 @@ function getCorrespondingFontForLetter(letter: string): "font-times" | "font-coo
     }
 }
 
-interface NewspaperLetterProps extends React.HTMLAttributes<HTMLSpanElement>
-{
+interface NewspaperLetterProps extends React.HTMLAttributes<HTMLSpanElement> {
     letter: string,
     asChild?: boolean
 }
@@ -108,7 +107,7 @@ export function NewspaperLetter({ letter, className, asChild, ...props }: Newspa
 }
 
 const NewspaperTextVariants = cva(
-    "tracking-tight",
+    "tracking-tight group",
     {
         variants: {
             palette: {
@@ -128,8 +127,7 @@ const NewspaperTextVariants = cva(
 
 const LETTER_MIN_BOTTOM_OFFSET = 0.025, LETTER_MAX_BOTTOM_OFFSET = 0.125;
 
-interface NewspaperTextProps extends VariantProps<typeof NewspaperTextVariants>
-{
+interface NewspaperTextProps extends VariantProps<typeof NewspaperTextVariants> {
     text: string,
     redLetters?: string[],
     element?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span" | "div",
@@ -154,7 +152,10 @@ export function NewspaperText({ text, redLetters = [], element = "p", className,
                     <NewspaperLetter
                         key={`${text}-char@${i}-${char}`}
                         letter={char}
-                        className={clsx({ "text-red" : redLetters.includes(char) })}
+                        className={clsx(
+                            "transition-[font-size] duration-200 ease-in-out group-hover:[font-size:_115%]",
+                            { "text-red" : redLetters.includes(char)} 
+                        )}
                         style={{
                             "bottom": `${bottomOffset}em`
                         }}
