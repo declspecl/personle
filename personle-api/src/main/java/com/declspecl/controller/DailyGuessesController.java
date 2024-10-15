@@ -57,7 +57,7 @@ public class DailyGuessesController {
 		this.userSessionTransformer = userSessionTransformer;
 	}
 
-	@GetMapping("/api/guess")
+	@GetMapping("/api/daily/guess")
 	public ResponseEntity<GetUserGuessesResponse> getUserGuessesToday(HttpServletRequest request) throws ExecutionException {
 		Map<String, String> cookies = controllerUtils.buildCookieMap(request);
 		Optional<String> userSessionCookie = controllerUtils.getUserSessionCookie(cookies);
@@ -88,7 +88,7 @@ public class DailyGuessesController {
 		);
 	}
 
-	@PostMapping("/api/guess")
+	@PostMapping("/api/daily/guess")
 	public ResponseEntity<Void> postUserGuess(
 			HttpServletRequest rawRequest,
 			@RequestBody PostUserGuessRequest body

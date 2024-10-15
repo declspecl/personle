@@ -1,6 +1,6 @@
 import { PersonaData } from "~/lib/server/model";
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "../../ui/Table";
-import { GuessResultsRow } from "./GuessResultsRow";
+import { GuessesRow } from "./GuessesRow";
 import { cn } from "~/lib/utils";
 import { useMemo } from "react";
 
@@ -30,10 +30,10 @@ export function GuessesTable({ selectedPersona, todayPersona, guesses, className
 
             <TableBody>
                 {selectedPersona && (
-                    <GuessResultsRow key={`guess-result-row-${selectedPersona}@selected`} todayPersona={todayPersona} guess={selectedPersona} isSubmitted={false} />
+                    <GuessesRow key={`guess-result-row-${selectedPersona}@selected`} correctPersona={todayPersona} guessPersona={selectedPersona} isSubmitted={false} />
                 )}
                 {reversedGuesses.map((guess, i) => (
-                    <GuessResultsRow key={`guess-result-row-${guess}@${i}`} todayPersona={todayPersona} guess={guess} isSubmitted />
+                    <GuessesRow key={`guess-result-row-${guess}@${i}`} correctPersona={todayPersona} guessPersona={guess} isSubmitted />
                 ))}
             </TableBody>
         </Table>
