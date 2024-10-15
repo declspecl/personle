@@ -169,8 +169,8 @@ export function NewspaperText({
                         key={`${text}-char@${i}-${char}`}
                         letter={char}
                         className={cn(
-                            "transition-[font-size] duration-200 ease-in-out",
-                            hover && "group-hover:[font-size:_115%]",
+                            "transition-[font-size,letter-spacing] duration-200 ease-out",
+                            hover && "group-hover:[font-size:_115%] sm:group-hover:tracking-widest",
                             redLetters.includes(char) && "text-red"
                         )}
                         style={{
