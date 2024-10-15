@@ -71,7 +71,7 @@ export function PersonaCombobox({ selectedPersona, setSelectedPersona, onSelect 
 
                     <CommandEmpty>No persona found.</CommandEmpty>
 
-                    <CommandList className="max-h-48">
+                    <CommandList className="max-h-48 sm:max-h-80">
                         {personasCommandList}
                     </CommandList>
                 </Command>

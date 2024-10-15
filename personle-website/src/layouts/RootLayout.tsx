@@ -25,7 +25,8 @@ export function RootLayout({ className }: RootLayoutProps) {
                         "grow mx-auto p-6 w-full flex flex-col bg-white",
                         "sm:w-[36rem] sm:p-8",
                         "md:w-[44rem]",
-                        "lg:w-[60rem]"
+                        "lg:w-[60rem]",
+                        "xl:w-[72rem]"
                     )}
                 >
                     <main className={cn(

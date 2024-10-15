@@ -35,7 +35,7 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
             <TableCell>
                 <NewspaperText
                     hover={false}
-                    randomRedLetter
+                    randomRedLetter={isSubmitted}
                     className="text-3xl"
                     palette="whiteOnBlack"
                     text={guessPersona.name}
