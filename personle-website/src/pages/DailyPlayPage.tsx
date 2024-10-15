@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "~/components/ui/Button";
 import { PersonaData } from "~/lib/server/model";
 import { MessageBox } from "~/components/ui/MessageBox";
-import { getGuesses, makeGuess } from "~/lib/server/api";
+import { getDailyGuesses, makeDailyGuess } from "~/lib/server/api";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { DateWithDay } from "~/components/typography/DateWithDay";
 import { SkewedContainer } from "~/components/ui/SkewedContainer";
@@ -63,12 +63,12 @@ function UserGuessManager({ todayPersona, initialGuesses, selectedPersona, setSe
                 selectedPersona={selectedPersona}
                 setSelectedPersona={setSelectedPersona}
                 onClick={async (guess: PersonaData) => {
-                    const res =  await makeGuess(guess.name);
+                    const res =  await makeDailyGuess(guess.name);
 
                     if (res.status === 200 || res.status === 204) {
                         setGuesses((prev) => [...prev, personaDataByName[guess.name]]);
                         queryClient.invalidateQueries({
-                            queryKey: ["getGuesses"]
+                            queryKey: ["getDailyGuesses"]
                         });
                     }
                     else {
@@ -87,11 +87,11 @@ function UserGuessManager({ todayPersona, initialGuesses, selectedPersona, setSe
     );
 }
 
-export function PlayPage() {
+export function DailyPlayPage() {
     const personaDataByName = usePersonaDataByName();
     const { isPending, error, data } = useQuery({
-        queryKey: ["getGuesses"],
-        queryFn: getGuesses
+        queryKey: ["getDailyGuesses"],
+        queryFn: getDailyGuesses
     })
     const [selectedPersona, setSelectedPersona] = useState<PersonaData | null>(null);
 

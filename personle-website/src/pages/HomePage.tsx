@@ -22,13 +22,24 @@ export function HomePage() {
             </Link>
 
             <div className="grow flex flex-col justify-center items-center">
-                <Link to="/play">
+                <Link to="/daily">
                     <NewspaperText
-                        text="Play"
-                        redLetters={["P"]}
+                        text="Daily Play"
+                        redLetters={["a"]}
                         palette="whiteOnTransparent"
                         className={cn(
-                            "text-[min(12.5vw,4rem)]",
+                            "text-[min(11vw,4rem)]",
+                        )}
+                    />
+                </Link>
+
+                <Link to="/freeplay">
+                    <NewspaperText
+                        text="Free Play"
+                        redLetters={["e"]}
+                        palette="whiteOnTransparent"
+                        className={cn(
+                            "text-[min(11vw,4rem)]",
                         )}
                     />
                 </Link>

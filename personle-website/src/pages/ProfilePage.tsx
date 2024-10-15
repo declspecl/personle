@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { NewspaperText } from "~/components/typography/NewspaperText";
-import { getGuesses } from "~/lib/server/api";
+import { getDailyGuesses } from "~/lib/server/api";
 import { cn } from "~/lib/utils";
 
 export function ProfilePage() {
     const { isPending, error, data } = useQuery({
         queryKey: ["getGuesses"],
-        queryFn: getGuesses
+        queryFn: getDailyGuesses
     });
 
     return (
