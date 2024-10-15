@@ -5,16 +5,16 @@ import { PersonaData } from "~/lib/server/model";
 import { DateWithDay } from "~/components/typography/DateWithDay";
 import { NewspaperText } from "~/components/typography/NewspaperText";
 import { usePersonaDataByName, usePersonaNames } from "~/context/PersonaDataContext";
+import { Button } from "~/components/ui/Button";
+import { GuessesTable } from "~/components/play/table/GuessesTable";
 
 export function FreePlayPage() {
-    const personaNames = usePersonaNames();
+    const allPersonaNames = usePersonaNames();
     const personaDataByName = usePersonaDataByName();
-    const seenPersonas = useState<string[]>([])[0];
-    const [selectedPersona, setSelectedPersona] = useState<PersonaData | null>(null);
 
-    useEffect(() => {
-        setSelectedPersona(personaDataByName[personaNames[Math.random() * personaNames.length | 0]]);
-    }, [])
+    const [unseenPersonaNames, setUnseenPersonaNames] = useState<Set<string>>(new Set(allPersonaNames));
+    const [currentPersona, setCurrentPersona] = useState<PersonaData>(personaDataByName[unseenPersonaNames.keys().next().value!]);
+    const [currentPersonaGuesses, setCurrentPersonaGuesses] = useState<string[]>([]);
 
     return (
         <div className="w-full flex flex-col gap-4">
@@ -31,8 +31,6 @@ export function FreePlayPage() {
             </Link>
 
             <DateWithDay className="self-start text-[min(7.5vw,2.5rem)] -rotate-[24deg]" />
-
-            <p className="text-white">{selectedPersona?.name}</p>
         </div>
     );
 }

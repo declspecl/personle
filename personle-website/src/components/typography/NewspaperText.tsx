@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import React from "react";
 import { cn } from "~/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
@@ -170,7 +169,7 @@ export function NewspaperText({
                         letter={char}
                         className={cn(
                             "transition-[font-size,letter-spacing] duration-200 ease-out",
-                            hover && "group-hover:[font-size:_115%] sm:group-hover:tracking-widest",
+                            hover && "group-hover:[font-size:_115%] sm:group-hover:tracking-wide",
                             redLetters.includes(char) && "text-red"
                         )}
                         style={{

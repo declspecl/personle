@@ -51,15 +51,19 @@ extends
 {
     rotate?: boolean,
     asChild?: boolean
+    disabled?: boolean
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ palette, destructive, size, skewMagnitude, className, children, rotate = true, asChild = false, ...props }: ButtonProps, ref) =>
+    ({ palette, destructive, size, skewMagnitude, className, children, rotate = true, asChild = false, disabled, ...props }: ButtonProps, ref) =>
 {
     const Comp = asChild ? Slot : "button";
 
     return (
-        <Comp ref={ref}
+        <Comp
+            ref={ref}
+            disabled={disabled}
+            aria-disabled={disabled}
             className={cn(
                 buttonVariants({ palette, destructive, size, skewMagnitude }),
                 rotate && "before:rotate-6",

@@ -1,49 +1,15 @@
-import React, { useState } from "react";
 import { cn } from "~/lib/utils";
 import { Link } from "react-router-dom";
-import { Button } from "~/components/ui/Button";
+import React, { useState } from "react";
 import { PersonaData } from "~/lib/server/model";
 import { MessageBox } from "~/components/ui/MessageBox";
-import { getDailyGuesses, makeDailyGuess } from "~/lib/server/api";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { DateWithDay } from "~/components/typography/DateWithDay";
-import { SkewedContainer } from "~/components/ui/SkewedContainer";
-import { PersonaCombobox } from "~/components/play/PersonaCombobox";
-import { NewspaperText } from "~/components/typography/NewspaperText";
+import { getDailyGuesses, makeDailyGuess } from "~/lib/server/api";
 import { usePersonaDataByName } from "~/context/PersonaDataContext";
 import { GuessesTable } from "~/components/play/table/GuessesTable";
-
-interface MakeGuessControllerProps {
-    selectedPersona: PersonaData | null;
-    setSelectedPersona: React.Dispatch<React.SetStateAction<PersonaData | null>>;
-    onClick?: (guess: PersonaData) => void;
-}
-
-function MakeGuessController({ selectedPersona, setSelectedPersona, onClick }: MakeGuessControllerProps) {
-    return (
-        <div className="w-full flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">
-            <MessageBox fromSide="left" className="text-white" deltaWidthRem={1}>
-                <PersonaCombobox selectedPersona={selectedPersona} setSelectedPersona={setSelectedPersona} onSelect={setSelectedPersona} />
-            </MessageBox>
-
-            <SkewedContainer skewDirection="left" deltaWidthRem={0.5} className="mx-auto sm:mx-0 p-1 w-fit bg-white">
-                <SkewedContainer skewDirection="left" deltaWidthRem={0.5} className="w-fit bg-black">
-                    <Button rotate={false} skewMagnitude="none" palette="whiteText" size="md" onClick={() => {
-                        if (!selectedPersona) return;
-
-                        if (onClick) {
-                            onClick(selectedPersona);
-                        }
-
-                        setSelectedPersona(null);
-                    }}>
-                        Submit guess
-                    </Button>
-                </SkewedContainer>
-            </SkewedContainer>
-        </div>
-    );
-}
+import { NewspaperText } from "~/components/typography/NewspaperText";
+import { MakeGuessController } from "~/components/play/MakeGuessController";
 
 interface UserGuessManagerProps {
     todayPersona: PersonaData;
@@ -80,7 +46,7 @@ function UserGuessManager({ todayPersona, initialGuesses, selectedPersona, setSe
             <GuessesTable
                 className="my-8"
                 guesses={guesses}
-                todayPersona={todayPersona}
+                correctPersona={todayPersona}
                 selectedPersona={selectedPersona}
             />
         </div>

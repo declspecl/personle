@@ -1,8 +1,9 @@
 import { useMemo } from "react";
 import { GuessCell } from "./GuessCell";
+import { IconContext } from "react-icons";
 import { PersonaData } from "~/lib/server/model";
 import { TableCell, TableRow } from "../../ui/Table";
-import { LuArrowDown, LuArrowUp } from "react-icons/lu";
+import { LuArrowBigDown, LuArrowBigUp } from "react-icons/lu";
 import { NewspaperText } from "../../typography/NewspaperText";
 import { getEqualityRelation, getListEqualityRelation } from "~/lib/play";
 
@@ -13,30 +14,21 @@ interface GuessesRowProps {
 }
 
 export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: GuessesRowProps) {
-    const levelEqualityRelation = useMemo(
-        () => getEqualityRelation(correctPersona.level, guessPersona.level),
-        [correctPersona.level, guessPersona.level]
-    );
-    const arcanaEqualityRelation = useMemo(
-        () => getEqualityRelation(correctPersona.arcana, guessPersona.arcana),
-        [correctPersona.arcana, guessPersona.arcana]
-    );
-    const fusionMethodEqualityRelation = useMemo(
-        () => getEqualityRelation(correctPersona.fusionMethod, guessPersona.fusionMethod),
-        [correctPersona.fusionMethod, guessPersona.fusionMethod]
-    );
-    const highestStatsEqualityRelation = useMemo(
-        () => getListEqualityRelation(correctPersona.highestStats, guessPersona.highestStats),
-        [correctPersona.highestStats, guessPersona.highestStats]
-    );
-    const weaknessesEqualityRelation = useMemo(
-        () => getListEqualityRelation(correctPersona.weaknesses, guessPersona.weaknesses),
-        [correctPersona.weaknesses, guessPersona.weaknesses]
-    );
-    const resistancesEqualityRelation = useMemo(
-        () => getListEqualityRelation(correctPersona.resistances, guessPersona.resistances),
-        [correctPersona.resistances, guessPersona.resistances]
-    );
+    const {
+        levelEqualityRelation,
+        arcanaEqualityRelation,
+        fusionMethodEqualityRelation,
+        highestStatsEqualityRelation,
+        weaknessesEqualityRelation,
+        resistancesEqualityRelation
+    } = useMemo(() => ({
+        levelEqualityRelation: getEqualityRelation(correctPersona.level, guessPersona.level),
+        arcanaEqualityRelation: getEqualityRelation(correctPersona.arcana, guessPersona.arcana),
+        fusionMethodEqualityRelation: getEqualityRelation(correctPersona.fusionMethod, guessPersona.fusionMethod),
+        highestStatsEqualityRelation: getListEqualityRelation(correctPersona.highestStats, guessPersona.highestStats),
+        weaknessesEqualityRelation: getListEqualityRelation(correctPersona.weaknesses, guessPersona.weaknesses),
+        resistancesEqualityRelation: getListEqualityRelation(correctPersona.resistances, guessPersona.resistances),
+    }), [correctPersona, guessPersona]);
 
     return (
         <TableRow className="text-lg">
@@ -49,18 +41,17 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
                     text={guessPersona.name}
                 />
             </TableCell>
-            <GuessCell isSubmitted={isSubmitted} equalityRelation={levelEqualityRelation}>
-                {guessPersona.level}
+            <GuessCell isSubmitted={isSubmitted} equalityRelation={levelEqualityRelation} className="relative">
+                <IconContext.Provider value={{ className: "absolute top-0 left-0 w-full h-full text-red-dark fill-red-dark" }}>
+                    {isSubmitted && guessPersona.level > correctPersona.level && (
+                        <LuArrowBigDown />
+                    )}
+                    {isSubmitted && guessPersona.level < correctPersona.level && (
+                        <LuArrowBigUp />
+                    )}
+                </IconContext.Provider>
 
-                {isSubmitted && (
-                    <>
-                        {guessPersona.level > correctPersona.level ? (
-                            <LuArrowDown />
-                        ) : (
-                            <LuArrowUp />
-                        )}
-                    </>
-                )}
+                <span>{guessPersona.level}</span>
             </GuessCell>
             <GuessCell isSubmitted={isSubmitted} equalityRelation={arcanaEqualityRelation}>
                 {guessPersona.arcana}
