@@ -4,7 +4,7 @@ import { NewspaperText } from "~/components/typography/NewspaperText";
 import { getDailyGuesses } from "~/lib/server/api";
 import { cn } from "~/lib/utils";
 
-export function ProfilePage() {
+export function StatsPage() {
     const { isPending, error, data } = useQuery({
         queryKey: ["getGuesses"],
         queryFn: getDailyGuesses

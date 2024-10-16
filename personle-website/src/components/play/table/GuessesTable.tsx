@@ -17,7 +17,7 @@ export function GuessesTable({ selectedPersona, correctPersona, guesses, classNa
     return (
         <Table className={cn("text-white", className)}>
             <TableHeader>
-                <TableRow className="text-lg font-medium">
+                <TableRow className="text-lg">
                     <TableHead className="text-left">Persona</TableHead>
                     <TableHead className="text-center">Level</TableHead>
                     <TableHead className="text-center">Arcana</TableHead>

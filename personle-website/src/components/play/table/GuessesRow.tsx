@@ -5,7 +5,7 @@ import { PersonaData } from "~/lib/server/model";
 import { TableCell, TableRow } from "../../ui/Table";
 import { LuArrowBigDown, LuArrowBigUp } from "react-icons/lu";
 import { NewspaperText } from "../../typography/NewspaperText";
-import { getEqualityRelation, getListEqualityRelation } from "~/lib/play";
+import { getEqualityRelation, getListEqualityRelation, getNumericalEqualityRelationWithinRange } from "~/lib/play";
 
 interface GuessesRowProps {
     correctPersona: PersonaData;
@@ -22,7 +22,7 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
         weaknessesEqualityRelation,
         resistancesEqualityRelation
     } = useMemo(() => ({
-        levelEqualityRelation: getEqualityRelation(correctPersona.level, guessPersona.level),
+        levelEqualityRelation: getNumericalEqualityRelationWithinRange(correctPersona.level, guessPersona.level, 10),
         arcanaEqualityRelation: getEqualityRelation(correctPersona.arcana, guessPersona.arcana),
         fusionMethodEqualityRelation: getEqualityRelation(correctPersona.fusionMethod, guessPersona.fusionMethod),
         highestStatsEqualityRelation: getListEqualityRelation(correctPersona.highestStats, guessPersona.highestStats),
@@ -36,22 +36,30 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
                 <NewspaperText
                     hover={false}
                     randomRedLetter={isSubmitted}
-                    className="text-3xl"
+                    className="text-3xl text-left"
                     palette="whiteOnBlack"
                     text={guessPersona.name}
                 />
             </TableCell>
-            <GuessCell isSubmitted={isSubmitted} equalityRelation={levelEqualityRelation} className="relative">
-                <IconContext.Provider value={{ className: "absolute top-0 left-0 w-full h-full text-red-dark fill-red-dark" }}>
+            <GuessCell isSubmitted={isSubmitted} equalityRelation={levelEqualityRelation}>
+                <div className="w-auto h-full flex flex-col items-center justify-center">
                     {isSubmitted && guessPersona.level > correctPersona.level && (
-                        <LuArrowBigDown />
+                        <span>{guessPersona.level}</span>
                     )}
-                    {isSubmitted && guessPersona.level < correctPersona.level && (
-                        <LuArrowBigUp />
-                    )}
-                </IconContext.Provider>
 
-                <span>{guessPersona.level}</span>
+                    <IconContext.Provider value={{ className: "text-red-dark fill-red-dark" }}>
+                        {isSubmitted && guessPersona.level > correctPersona.level && (
+                            <LuArrowBigDown />
+                        )}
+                        {isSubmitted && guessPersona.level < correctPersona.level && (
+                            <LuArrowBigUp />
+                        )}
+                    </IconContext.Provider>
+
+                    {isSubmitted && guessPersona.level < correctPersona.level && (
+                        <span>{guessPersona.level}</span>
+                    )}
+                </div>
             </GuessCell>
             <GuessCell isSubmitted={isSubmitted} equalityRelation={arcanaEqualityRelation}>
                 {guessPersona.arcana}

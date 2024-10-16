@@ -8,6 +8,14 @@ export function getEqualityRelation<T>(lhs: T, rhs: T): EqualityRelation {
     return lhs === rhs ? EqualityRelation.Equal : EqualityRelation.Disjoint;
 }
 
+export function getNumericalEqualityRelationWithinRange(lhs: number, rhs: number, range: number): EqualityRelation {
+    return lhs === rhs
+        ? EqualityRelation.Equal
+        : Math.abs(lhs - rhs) <= range
+            ? EqualityRelation.Partial
+            : EqualityRelation.Disjoint;
+}
+
 function areListsEqual<T>(lhs: T[], rhs: T[]): boolean {
     if (lhs.length !== rhs.length) {
         return false;

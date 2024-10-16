@@ -47,9 +47,7 @@ public class PersonleServiceConfiguration {
 
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(classLoader.getResourceAsStream("persona-names.txt")))) {
 			while (bufferedReader.ready()) {
-				String a = bufferedReader.readLine();
-				System.out.println(a);
-				personaNames.add(a);
+				personaNames.add(bufferedReader.readLine());
 			}
 		}
 

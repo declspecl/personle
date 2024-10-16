@@ -44,10 +44,10 @@ export function HomePage() {
                     />
                 </Link>
 
-                <Link to="/profile">
+                <Link to="/stats">
                     <NewspaperText
-                        text="Profile"
-                        redLetters={["f"]}
+                        text="Daily Stats"
+                        redLetters={["y", "S", "s"]}
                         palette="whiteOnTransparent"
                         className={cn(
                             "text-[min(12.5vw,4rem)]",
@@ -55,24 +55,13 @@ export function HomePage() {
                     />
                 </Link>
 
-                <Link to="/leaderboard">
+                <Link to="/compendium">
                     <NewspaperText
-                        text="Leaderboard"
-                        redLetters={["L", "b"]}
+                        text="Compendium"
+                        redLetters={["o", "d"]}
                         palette="whiteOnTransparent"
                         className={cn(
                             "text-[min(10vw,4rem)]",
-                        )}
-                    />
-                </Link>
-
-                <Link to="/settings">
-                    <NewspaperText
-                        text="Settings"
-                        redLetters={["e", "i"]}
-                        palette="whiteOnTransparent"
-                        className={cn(
-                            "text-[min(12.5vw,4rem)]",
                         )}
                     />
                 </Link>

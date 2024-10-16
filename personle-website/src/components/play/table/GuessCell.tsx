@@ -24,7 +24,7 @@ function ComparisonCell({ equalityRelation, children, className }: ComparisonCel
         <TableCell className={cn(
             equalityRelation === EqualityRelation.Equal && "bg-blue-light text-black",
             equalityRelation === EqualityRelation.Partial && "bg-yellow text-black",
-            equalityRelation === EqualityRelation.Disjoint && "bg-red",
+            equalityRelation === EqualityRelation.Disjoint && "bg-red text-white",
             className
         )}>
             {children}
@@ -43,7 +43,7 @@ export function GuessCell({ isSubmitted = false, equalityRelation, children, cla
     const Comp = isSubmitted ? ComparisonCell : PreviewCell;
 
     return (
-        <Comp equalityRelation={equalityRelation} className={className}>
+        <Comp equalityRelation={equalityRelation} className={cn("text-center", className)}>
             {children}
         </Comp>
     );
