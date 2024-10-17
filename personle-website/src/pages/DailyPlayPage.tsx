@@ -58,7 +58,7 @@ export function DailyPlayPage() {
     const { isPending, error, data } = useQuery({
         queryKey: ["getDailyGuesses"],
         queryFn: getDailyGuesses
-    })
+    });
     const [selectedPersona, setSelectedPersona] = useState<PersonaData | null>(null);
 
     return (

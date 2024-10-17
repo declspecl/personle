@@ -30,6 +30,8 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
         resistancesEqualityRelation: getListEqualityRelation(correctPersona.resistances, guessPersona.resistances),
     }), [correctPersona, guessPersona]);
 
+    const animationDelays = [0.25, 1, 1.75, 2.5, 3.25, 4];
+
     return (
         <TableRow className="text-lg">
             <TableCell>
@@ -41,9 +43,9 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
                     text={guessPersona.name}
                 />
             </TableCell>
-            <GuessCell isSubmitted={isSubmitted} equalityRelation={levelEqualityRelation}>
+            <GuessCell isSubmitted={isSubmitted} equalityRelation={levelEqualityRelation} animationDelay={animationDelays[0]}>
                 <div className="w-auto h-full flex flex-col items-center justify-center">
-                    {isSubmitted && guessPersona.level > correctPersona.level && (
+                    {(!isSubmitted || guessPersona.level > correctPersona.level) && (
                         <span>{guessPersona.level}</span>
                     )}
 
@@ -61,20 +63,20 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
                     )}
                 </div>
             </GuessCell>
-            <GuessCell isSubmitted={isSubmitted} equalityRelation={arcanaEqualityRelation}>
+            <GuessCell isSubmitted={isSubmitted} equalityRelation={arcanaEqualityRelation} animationDelay={animationDelays[1]}>
                 {guessPersona.arcana}
             </GuessCell>
-            <GuessCell isSubmitted={isSubmitted} equalityRelation={fusionMethodEqualityRelation}>
+            <GuessCell isSubmitted={isSubmitted} equalityRelation={fusionMethodEqualityRelation} animationDelay={animationDelays[2]}>
                 {guessPersona.fusionMethod}
             </GuessCell>
-            <GuessCell isSubmitted={isSubmitted} equalityRelation={highestStatsEqualityRelation}>
+            <GuessCell isSubmitted={isSubmitted} equalityRelation={highestStatsEqualityRelation} animationDelay={animationDelays[3]}>
                 <ul>
                     {guessPersona.highestStats.map((stat, i) => (
                         <li key={`highest-stat-${stat}@${i}`}>{stat}</li>
                     ))}
                 </ul>
             </GuessCell>
-            <GuessCell isSubmitted={isSubmitted} equalityRelation={weaknessesEqualityRelation}>
+            <GuessCell isSubmitted={isSubmitted} equalityRelation={weaknessesEqualityRelation} animationDelay={animationDelays[4]}>
                 <ul>
                     {guessPersona.weaknesses.length > 0 ? guessPersona.weaknesses.map((weakness, i) => (
                         <li key={`weakness-${weakness}@${i}`}>{weakness}</li>
@@ -83,7 +85,7 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
                     )}
                 </ul>
             </GuessCell>
-            <GuessCell isSubmitted={isSubmitted} equalityRelation={resistancesEqualityRelation}>
+            <GuessCell isSubmitted={isSubmitted} equalityRelation={resistancesEqualityRelation} animationDelay={animationDelays[5]}>
                 <ul>
                     {guessPersona.resistances.length > 0 ? guessPersona.resistances.map((resistance, i) => (
                         <li key={`resistance-${resistance}@${i}`}>{resistance}</li>

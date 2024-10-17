@@ -1,6 +1,8 @@
 import "./index.css";
 
+import gsap from "gsap";
 import React from "react";
+import { useGSAP } from "@gsap/react";
 import ReactDOM from "react-dom/client";
 import { HomePage } from "./pages/HomePage.tsx";
 import personaData from "./data/persona-data.json";
@@ -13,6 +15,8 @@ import { CompendiumPage } from "./pages/CompendiumPage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PersonaDataByNameProvider, PersonaNamesProvider } from "./context/PersonaDataContext.tsx";
+
+gsap.registerPlugin(useGSAP);
 
 const queryClient = new QueryClient();
 

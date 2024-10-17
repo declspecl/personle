@@ -30,10 +30,10 @@ export function GuessesTable({ selectedPersona, correctPersona, guesses, classNa
 
             <TableBody>
                 {selectedPersona && (
-                    <GuessesRow correctPersona={correctPersona} guessPersona={selectedPersona} isSubmitted={false} />
+                    <GuessesRow key={`guess-result-row-unsubmitted-${selectedPersona.name}`} correctPersona={correctPersona} guessPersona={selectedPersona} isSubmitted={false} />
                 )}
-                {reversedGuesses.map((guess, i) => (
-                    <GuessesRow key={`guess-result-row-${guess.name}@${i}`} correctPersona={correctPersona} guessPersona={guess} isSubmitted />
+                {reversedGuesses.map(guess => (
+                    <GuessesRow key={`guess-result-row-${guess.name}`} correctPersona={correctPersona} guessPersona={guess} isSubmitted />
                 ))}
             </TableBody>
         </Table>
