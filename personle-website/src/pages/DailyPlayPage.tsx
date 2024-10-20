@@ -1,5 +1,3 @@
-import { cn } from "~/lib/utils";
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { PersonaData } from "~/lib/server/model";
 import { MessageBox } from "~/components/ui/MessageBox";
@@ -8,17 +6,16 @@ import { DateWithDay } from "~/components/typography/DateWithDay";
 import { getDailyGuesses, makeDailyGuess } from "~/lib/server/api";
 import { usePersonaDataByName } from "~/context/PersonaDataContext";
 import { GuessesTable } from "~/components/play/table/GuessesTable";
-import { NewspaperText } from "~/components/typography/NewspaperText";
 import { MakeGuessController } from "~/components/play/MakeGuessController";
 
 interface UserGuessManagerProps {
-    todayPersona: PersonaData;
+    correctPersona: PersonaData;
     initialGuesses: PersonaData[];
     selectedPersona: PersonaData | null;
     setSelectedPersona: React.Dispatch<React.SetStateAction<PersonaData | null>>
 }
 
-function UserGuessManager({ todayPersona, initialGuesses, selectedPersona, setSelectedPersona }: UserGuessManagerProps) {
+function UserGuessManager({ correctPersona, initialGuesses, selectedPersona, setSelectedPersona }: UserGuessManagerProps) {
     const queryClient = useQueryClient();
     const personaDataByName = usePersonaDataByName();
     const [guesses, setGuesses] = useState<PersonaData[]>(initialGuesses);
@@ -46,7 +43,7 @@ function UserGuessManager({ todayPersona, initialGuesses, selectedPersona, setSe
             <GuessesTable
                 className="my-8"
                 guesses={guesses}
-                correctPersona={todayPersona}
+                correctPersona={correctPersona}
                 selectedPersona={selectedPersona}
             />
         </div>
@@ -77,7 +74,7 @@ export function DailyPlayPage() {
                 <p>{error.message}</p>
             ) : data && (
                 <UserGuessManager
-                    todayPersona={personaDataByName[data.todayPersona]}
+                    correctPersona={personaDataByName[data.todayPersona]}
                     initialGuesses={data.guesses.map((guess) => personaDataByName[guess])}
                     selectedPersona={selectedPersona}
                     setSelectedPersona={setSelectedPersona}

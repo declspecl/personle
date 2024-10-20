@@ -46,7 +46,7 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
             </TableCell>
             <GuessCell isSubmitted={isSubmitted} equalityRelation={levelEqualityRelation} animationDelay={animationDelays[0]}>
                 <div className="w-auto h-full flex flex-col items-center justify-center">
-                    {(!isSubmitted || guessPersona.level > correctPersona.level) && (
+                    {(!isSubmitted || (isSubmitted && guessPersona.level >= correctPersona.level)) && (
                         <span>{guessPersona.level}</span>
                     )}
 

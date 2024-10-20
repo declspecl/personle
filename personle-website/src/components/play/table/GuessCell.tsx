@@ -71,8 +71,8 @@ function ComparisonCell({ equalityRelation, animationDelay, children, className 
         >
             <SkewedContainer
                 skewDirection="right"
-                deltaWidthRem={0.75}
-                className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 rotate-3 w-11/12 h-4/5 bg-[var(--relation-bg-color)] -z-[1]"
+                deltaWidthRem={0.5}
+                className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[2deg] w-11/12 h-[86.66%] bg-[var(--relation-bg-color)] -z-[1]"
             />
 
             {children}
