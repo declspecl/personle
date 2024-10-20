@@ -30,7 +30,7 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
         resistancesEqualityRelation: getListEqualityRelation(correctPersona.resistances, guessPersona.resistances),
     }), [correctPersona, guessPersona]);
 
-    const animationDelays = [0.25, 1, 1.75, 2.5, 3.25, 4];
+    const animationDelays = [0.25, 0.75, 1.25, 1.75, 2.25, 2.75];
 
     return (
         <TableRow className="text-lg">

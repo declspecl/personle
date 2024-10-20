@@ -15,6 +15,7 @@ import { CompendiumPage } from "./pages/CompendiumPage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PersonaDataByNameProvider, PersonaNamesProvider } from "./context/PersonaDataContext.tsx";
+import { SubPageLayout } from "./layouts/SubPageLayout.tsx";
 
 gsap.registerPlugin(useGSAP);
 
@@ -29,20 +30,25 @@ const router = createBrowserRouter([
                 element: <HomePage />
             },
             {
-                path: "/daily",
-                element: <DailyPlayPage />
-            },
-            {
-                path: "/freeplay",
-                element: <FreePlayPage />
-            },
-            {
-                path: "/stats",
-                element: <StatsPage />
-            },
-            {
-                path: "/compendium",
-                element: <CompendiumPage />
+                element: <SubPageLayout />,
+                children: [
+                    {
+                        path: "/daily",
+                        element: <DailyPlayPage />
+                    },
+                    {
+                        path: "/freeplay",
+                        element: <FreePlayPage />
+                    },
+                    {
+                        path: "/stats",
+                        element: <StatsPage />
+                    },
+                    {
+                        path: "/compendium",
+                        element: <CompendiumPage />
+                    }
+                ]
             }
         ]
     }

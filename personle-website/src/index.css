@@ -82,8 +82,8 @@ html, body, #root {
 }
 
 ::-webkit-scrollbar {
-	width: 0.425rem;
-	height: 0.425rem;
+	width: 0.475rem;
+	height: 0.475rem;
 }
 
 ::-webkit-scrollbar-thumb {

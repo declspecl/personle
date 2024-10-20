@@ -17,20 +17,8 @@ export function FreePlayPage() {
     const [currentPersonaGuesses, setCurrentPersonaGuesses] = useState<string[]>([]);
 
     return (
-        <div className="w-full flex flex-col gap-4">
-            <Link to="/">
-                <NewspaperText
-                    text="Personle!"
-                    redLetters={["o"]}
-                    element="h1"
-                    palette="whiteOnTransparent"
-                    className={cn(
-                        "mx-auto w-fit block text-[min(12.5vw,5rem)]"
-                    )}
-                />
-            </Link>
-
+        <>
             <DateWithDay className="self-start text-[min(7.5vw,2.5rem)] -rotate-[24deg]" />
-        </div>
+        </>
     );
 }

@@ -1,5 +1,5 @@
-import React from "react";
 import { cn } from "~/lib/utils";
+import React, { useMemo } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
 
@@ -152,6 +152,27 @@ export function NewspaperText({
         redLetters.push(text[randomIndex]);
     }
 
+    const newspaperLetters = useMemo(() => {
+        return text.split("").map((char, i) => {
+            const bottomOffset = Math.random() * (LETTER_MAX_BOTTOM_OFFSET - LETTER_MIN_BOTTOM_OFFSET) + LETTER_MIN_BOTTOM_OFFSET;
+            
+            return (
+                <NewspaperLetter
+                    key={`${text}-char@${i}-${char}`}
+                    letter={char}
+                    className={cn(
+                        "transition-[font-size,letter-spacing] duration-200 ease-out",
+                        hover && "group-hover:[font-size:_115%] sm:group-hover:tracking-wide",
+                        redLetters.includes(char) && "text-red"
+                    )}
+                    style={{
+                        "bottom": `${bottomOffset}em`
+                    }}
+                />
+            );
+        });
+    }, []);
+
     return (
         <Comp
             className={cn(
@@ -160,24 +181,7 @@ export function NewspaperText({
             )}
             {...props}
         >
-            {text.split("").map((char, i) => {
-                const bottomOffset = Math.random() * (LETTER_MAX_BOTTOM_OFFSET - LETTER_MIN_BOTTOM_OFFSET) + LETTER_MIN_BOTTOM_OFFSET;
-                
-                return (
-                    <NewspaperLetter
-                        key={`${text}-char@${i}-${char}`}
-                        letter={char}
-                        className={cn(
-                            "transition-[font-size,letter-spacing] duration-200 ease-out",
-                            hover && "group-hover:[font-size:_115%] sm:group-hover:tracking-wide",
-                            redLetters.includes(char) && "text-red"
-                        )}
-                        style={{
-                            "bottom": `${bottomOffset}em`
-                        }}
-                    />
-                );
-            })}
+            {newspaperLetters}
         </Comp>
     );
 }
