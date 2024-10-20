@@ -1,8 +1,8 @@
+import { useMemo, useState } from "react";
 import { Button } from "~/components/ui/Button";
 import { usePersonaDataByName } from "~/context/PersonaDataContext";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/Select";
 import { NewspaperText } from "~/components/typography/NewspaperText";
-import { useMemo, useState } from "react";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/Select";
 
 export function CompendiumPage() {
     const personaDataByName = usePersonaDataByName();

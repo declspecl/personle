@@ -5,7 +5,8 @@ import { PersonaData } from "~/lib/server/model";
 import { TableCell, TableRow } from "../../ui/Table";
 import { LuArrowBigDown, LuArrowBigUp } from "react-icons/lu";
 import { NewspaperText } from "../../typography/NewspaperText";
-import { getEqualityRelation, getListEqualityRelation, getNumericalEqualityRelationWithinRange } from "~/lib/play";
+import { EqualityRelation, getEqualityRelation, getListEqualityRelation, getNumericalEqualityRelationWithinRange } from "~/lib/play";
+import { cn } from "~/lib/utils";
 
 interface GuessesRowProps {
     correctPersona: PersonaData;
@@ -49,7 +50,7 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
                         <span>{guessPersona.level}</span>
                     )}
 
-                    <IconContext.Provider value={{ className: "text-red-dark fill-red-dark" }}>
+                    <IconContext.Provider value={{ className: cn(levelEqualityRelation === EqualityRelation.Disjoint ? "text-white fill-white" : "text-black fill-black") }}>
                         {isSubmitted && guessPersona.level > correctPersona.level && (
                             <LuArrowBigDown />
                         )}
