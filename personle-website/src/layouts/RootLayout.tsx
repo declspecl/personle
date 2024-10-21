@@ -5,13 +5,13 @@ import { RepsonsiveViewportContainer } from "./ResponsiveViewportContainer";
 import { PersonleBackground } from "~/components/graphics/PersonleBackground";
 
 interface RootLayoutProps {
-    className?: string
+    className?: string;
 }
 
 export function RootLayout({ className }: RootLayoutProps) {
     return (
         <div className={cn("relative w-full h-full overflow-hidden font-arsenal", className)}>
-            <PersonleBackground stripThickness={2} />
+            <PersonleBackground stripThickness={1.75} />
 
             <RepsonsiveViewportContainer className={cn(
                 "p-4 flex flex-col items-center overflow-auto",

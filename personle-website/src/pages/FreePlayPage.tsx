@@ -4,6 +4,7 @@ import { DateWithDay } from "~/components/typography/DateWithDay";
 import { usePersonaDataByName, usePersonaNames } from "~/context/PersonaDataContext";
 import { MakeGuessController } from "~/components/play/MakeGuessController";
 import { GuessesTable } from "~/components/play/table/GuessesTable";
+import { MessageBox } from "~/components/ui/MessageBox";
 
 interface UserGuessManagerProps {
     correctPersona: PersonaData;
@@ -48,9 +49,17 @@ export function FreePlayPage() {
     const [correctPersona, setCorrectPersona] = useState<PersonaData>(personaDataByName[unseenPersonaNames[Math.floor(Math.random() * unseenPersonaNames.length)]]);
     const [selectedPersona, setSelectedPersona] = useState<PersonaData | null>(null);
 
+    console.log(correctPersona);
+
     return (
         <>
             <DateWithDay className="self-start text-[min(7.5vw,2.5rem)] -rotate-[24deg]" />
+
+            <div className="w-full flex flex-row justify-end">
+                <MessageBox fromSide="right" className="text-white text-center" deltaWidthRem={1}>
+                    <p>You have unlimited attempts to guess a <br/> randomly selected persona. Good luck!</p>
+                </MessageBox>
+            </div>
 
             <div>
                 <UserGuessManager

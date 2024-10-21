@@ -50,7 +50,7 @@ export function HomePage() {
                         redLetters={["y", "S", "s"]}
                         palette="whiteOnTransparent"
                         className={cn(
-                            "text-[min(12.5vw,4rem)]",
+                            "text-[min(11vw,4rem)]",
                         )}
                     />
                 </Link>

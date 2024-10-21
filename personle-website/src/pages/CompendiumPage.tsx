@@ -90,7 +90,7 @@ export function CompendiumPage() {
                 </Select>
             </div>
 
-            <div className="text-white grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+            <div className="text-white grid grid-cols-1 gap-y-4 gap-x-2 sm:grid-cols-2 sm:gap-x-4 md:grid-cols-3">
                 {sortedPersonas.map(persona => (
                     <div key={`persona-${persona.name}`} className="col-auto row-auto">
                         <NewspaperText

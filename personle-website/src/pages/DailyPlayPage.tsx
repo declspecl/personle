@@ -30,6 +30,7 @@ function UserGuessManager({ correctPersona, initialGuesses, selectedPersona, set
 
                     if (res.status === 200 || res.status === 204) {
                         setGuesses((prev) => [...prev, personaDataByName[guess.name]]);
+
                         queryClient.invalidateQueries({
                             queryKey: ["getDailyGuesses"]
                         });
@@ -54,7 +55,8 @@ export function DailyPlayPage() {
     const personaDataByName = usePersonaDataByName();
     const { isPending, error, data } = useQuery({
         queryKey: ["getDailyGuesses"],
-        queryFn: getDailyGuesses
+        queryFn: getDailyGuesses,
+        staleTime: Infinity
     });
     const [selectedPersona, setSelectedPersona] = useState<PersonaData | null>(null);
 
