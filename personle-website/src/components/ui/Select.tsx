@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib/utils";
 import { IconContext } from "react-icons";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { LuCheck, LuChevronDown, LuChevronUp } from "react-icons/lu";

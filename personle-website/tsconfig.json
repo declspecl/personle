@@ -22,9 +22,12 @@
 
         "baseUrl": ".",
         "paths": {
-            "~/*": ["src/*"],
             "@/*": ["src/*"],
-            "@components/*": ["src/components/*"]
+            "@lib/*": ["src/lib/*"],
+            "@hooks/*": ["src/hooks/*"],
+            "@context/*": ["src/context/*"],
+            "@components/*": ["src/components/*"],
+            "@ui/*": ["src/components/ui/*"]
         }
     },
     "include": ["src"],

@@ -1,4 +1,4 @@
-import { cn } from "~/lib/utils";
+import { cn } from "@lib/utils";
 import React, { useMemo } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";

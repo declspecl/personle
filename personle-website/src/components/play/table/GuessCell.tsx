@@ -1,11 +1,11 @@
 import gsap from "gsap";
 import { useRef } from "react";
-import { cn } from "~/lib/utils";
+import { cn } from "@lib/utils";
 import { useGSAP } from "@gsap/react";
-import { EqualityRelation } from "~/lib/play";
-import { TableCell } from "~/components/ui/Table";
-import { SkewedContainer } from "~/components/ui/SkewedContainer";
-import { COLOR_BLACK, COLOR_BLUE_LIGHT, COLOR_RED, COLOR_WHITE, COLOR_YELLOW } from "~/lib/constants";
+import { EqualityRelation } from "@lib/play";
+import { TableCell } from "@ui/Table";
+import { SkewedContainer } from "@ui/SkewedContainer";
+import { COLOR_BLACK, COLOR_BLUE_LIGHT, COLOR_RED, COLOR_WHITE, COLOR_YELLOW } from "@lib/constants";
 
 interface PreviewCellProps {
     children: React.ReactNode;

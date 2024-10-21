@@ -1,12 +1,12 @@
 import { useMemo } from "react";
 import { GuessCell } from "./GuessCell";
 import { IconContext } from "react-icons";
-import { PersonaData } from "~/lib/server/model";
+import { PersonaData } from "@lib/server/model";
 import { TableCell, TableRow } from "../../ui/Table";
 import { LuArrowBigDown, LuArrowBigUp } from "react-icons/lu";
 import { NewspaperText } from "../../typography/NewspaperText";
-import { EqualityRelation, getEqualityRelation, getListEqualityRelation, getNumericalEqualityRelationWithinRange } from "~/lib/play";
-import { cn } from "~/lib/utils";
+import { EqualityRelation, getEqualityRelation, getListEqualityRelation, getNumericalEqualityRelationWithinRange } from "@lib/play";
+import { cn } from "@lib/utils";
 
 interface GuessesRowProps {
     correctPersona: PersonaData;

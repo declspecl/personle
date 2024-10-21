@@ -1,4 +1,4 @@
-import { PersonaData } from "~/lib/server/model";
+import { PersonaData } from "@lib/server/model";
 import { createContext, useContext } from "react";
 
 const PersonaNamesContext = createContext<string[] | undefined>(undefined);

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { PersonaData } from "~/lib/server/model";
-import { DateWithDay } from "~/components/typography/DateWithDay";
-import { usePersonaDataByName, usePersonaNames } from "~/context/PersonaDataContext";
-import { MakeGuessController } from "~/components/play/MakeGuessController";
-import { GuessesTable } from "~/components/play/table/GuessesTable";
-import { MessageBox } from "~/components/ui/MessageBox";
+import { PersonaData } from "@lib/server/model";
+import { DateWithDay } from "@components/typography/DateWithDay";
+import { usePersonaDataByName, usePersonaNames } from "@context/PersonaDataContext";
+import { MakeGuessController } from "@components/play/MakeGuessController";
+import { GuessesTable } from "@components/play/table/GuessesTable";
+import { MessageBox } from "@ui/MessageBox";
 
 interface UserGuessManagerProps {
     correctPersona: PersonaData;

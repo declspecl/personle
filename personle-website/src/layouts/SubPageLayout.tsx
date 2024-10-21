@@ -1,6 +1,6 @@
-import { cn } from "~/lib/utils";
+import { cn } from "@lib/utils";
 import { Link, Outlet } from "react-router-dom";
-import { NewspaperText } from "~/components/typography/NewspaperText";
+import { NewspaperText } from "@components/typography/NewspaperText";
 
 interface SubPageLayoutProps {
     className?: string

@@ -1,6 +1,6 @@
 import PoissonDiskSampling from "poisson-disk-sampling";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useWindowDimensions } from "~/hooks/useWindowDimensions";
+import { useWindowDimensions } from "@hooks/useWindowDimensions";
 
 const STAR_BACKGROUND_COLOR = "#ffffff";
 const STAR_PRIMARY_COLOR = "#000000", STAR_SECONDARY_COLOR = "#666666";

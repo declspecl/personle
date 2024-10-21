@@ -1,5 +1,5 @@
 import React from "react";
-import { PersonaData } from "~/lib/server/model";
+import { PersonaData } from "@lib/server/model";
 import { MessageBox } from "../ui/MessageBox";
 import { PersonaCombobox } from "./PersonaCombobox";
 import { SkewedContainer } from "../ui/SkewedContainer";

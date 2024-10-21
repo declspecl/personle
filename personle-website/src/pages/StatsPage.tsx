@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getDailyGuesses } from "~/lib/server/api";
+import { getDailyGuesses } from "@lib/server/api";
 
 export function StatsPage() {
     const { isPending, error, data } = useQuery({

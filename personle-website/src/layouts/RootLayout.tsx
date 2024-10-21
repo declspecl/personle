@@ -1,8 +1,8 @@
-import { cn } from "~/lib/utils";
+import { cn } from "@lib/utils";
 import { Outlet } from "react-router-dom";
-import { SkewedContainer } from "~/components/ui/SkewedContainer";
+import { SkewedContainer } from "@ui/SkewedContainer";
 import { RepsonsiveViewportContainer } from "./ResponsiveViewportContainer";
-import { PersonleBackground } from "~/components/graphics/PersonleBackground";
+import { PersonleBackground } from "@components/graphics/PersonleBackground";
 
 interface RootLayoutProps {
     className?: string;

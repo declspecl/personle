@@ -1,10 +1,10 @@
-import { cn } from "~/lib/utils";
+import { cn } from "@lib/utils";
 import { SiKofi } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { FaGithub } from "react-icons/fa6";
-import { Button } from "~/components/ui/Button";
-import { NewspaperText } from "~/components/typography/NewspaperText";
+import { Button } from "@ui/Button";
+import { NewspaperText } from "@components/typography/NewspaperText";
 
 export function HomePage() {
     return (

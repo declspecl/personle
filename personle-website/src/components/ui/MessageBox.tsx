@@ -1,4 +1,4 @@
-import { cn } from "~/lib/utils";
+import { cn } from "@lib/utils";
 import { SkewedContainer } from "./SkewedContainer";
 import { MessageBoxTail } from "../graphics/MessageBoxTail";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib/utils";
 import { IconContext } from "react-icons";
 import { CiSearch } from "react-icons/ci";
 import { Command as CommandPrimitive } from "cmdk";
