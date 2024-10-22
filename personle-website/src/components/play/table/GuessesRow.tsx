@@ -34,7 +34,9 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
 		[correctPersona, guessPersona]
 	);
 
-	const animationDelays = [0.25, 0.75, 1.25, 1.75, 2.25, 2.75];
+	const initialDelay = 0.25;
+	const delayMultiplier = 0.65;
+	const animationDelays = [0, 1, 2, 3, 4, 5].map(delayMultiple => initialDelay + (delayMultiplier * delayMultiple));
 
 	return (
 		<TableRow className="text-lg">
