@@ -6,7 +6,7 @@ import { LuChevronsUpDown, LuCheck } from "react-icons/lu";
 import { Popover, PopoverContent, PopoverTrigger } from "@ui/Popover";
 import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from "@ui/Command";
 import { PersonaData } from "@lib/server/model";
-import { usePersonaDataByName, usePersonaNames } from "@context/PersonaDataContext";
+import { usePersonaDataByName, usePersonaNames } from "@hooks/usePersonaDataContext";
 
 interface PersonaComboboxProps {
     selectedPersona: PersonaData | null,
@@ -44,7 +44,7 @@ export function PersonaCombobox({ selectedPersona, setSelectedPersona, onSelect 
                 <span>{personaName}</span>
             </CommandItem>
         ))
-    }, [onSelect, selectedPersona, setSelectedPersona]);
+    }, [onSelect, selectedPersona, setSelectedPersona, personaDataByName, personaNames]);
 
     return (
         <Popover open={open} onOpenChange={setOpen}>

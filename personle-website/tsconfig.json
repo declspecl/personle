@@ -24,8 +24,11 @@
         "paths": {
             "@/*": ["src/*"],
             "@lib/*": ["src/lib/*"],
+            "@data/*": ["src/data/*"],
             "@hooks/*": ["src/hooks/*"],
+            "@pages/*": ["src/pages/*"],
             "@context/*": ["src/context/*"],
+            "@layouts/*": ["src/layouts/*"],
             "@components/*": ["src/components/*"],
             "@ui/*": ["src/components/ui/*"]
         }

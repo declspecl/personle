@@ -1,6 +1,6 @@
 import { cn } from "@lib/utils";
-import { SkewedContainer } from "./SkewedContainer";
-import { MessageBoxTail } from "../graphics/MessageBoxTail";
+import { SkewedContainer } from "@ui/SkewedContainer";
+import { MessageBoxTail } from "@components/graphics/MessageBoxTail";
 
 interface MessageBoxProps {
     fromSide: "left" | "right",

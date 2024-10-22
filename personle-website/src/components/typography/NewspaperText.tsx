@@ -3,7 +3,9 @@ import React, { useMemo } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
 
-function getCorrespondingFontForLetter(letter: string): "font-times" | "font-cooper" | "font-earwig" | "font-expose" {
+type FontChoices = "font-times" | "font-cooper" | "font-earwig" | "font-expose";
+
+function getCorrespondingFontForLetter(letter: string): FontChoices {
     switch (letter) {
         case "A":
         case "I":
@@ -171,7 +173,7 @@ export function NewspaperText({
                 />
             );
         });
-    }, []);
+    }, [text, hover, redLetters]);
 
     return (
         <Comp

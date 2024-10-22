@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { cn } from "@lib/utils";
 import { GuessesRow } from "./GuessesRow";
 import { PersonaData } from "@lib/server/model";
-import { Table, TableBody, TableHead, TableHeader, TableRow } from "../../ui/Table";
+import { Table, TableBody, TableHead, TableHeader, TableRow } from "@ui/Table";
 
 interface GuessesTableProps {
     selectedPersona: PersonaData | null;

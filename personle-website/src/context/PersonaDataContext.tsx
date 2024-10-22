@@ -1,28 +1,8 @@
+import { createContext } from "react";
 import { PersonaData } from "@lib/server/model";
-import { createContext, useContext } from "react";
 
-const PersonaNamesContext = createContext<string[] | undefined>(undefined);
-const PersonaDataByNameContext = createContext<Record<string, PersonaData> | undefined>(undefined);
-
-export function usePersonaNames() {
-    const context = useContext(PersonaNamesContext);
-
-    if (context === undefined) {
-        throw new Error("usePersonaNames must be used within a PersonaNamesProvider");
-    }
-
-    return context;
-}
-
-export function usePersonaDataByName() {
-    const context = useContext(PersonaDataByNameContext);
-
-    if (context === undefined) {
-        throw new Error("usePersonaDataByName must be used within a PersonaDataByNameProvider");
-    }
-
-    return context;
-}
+export const PersonaNamesContext = createContext<string[] | undefined>(undefined);
+export const PersonaDataByNameContext = createContext<Record<string, PersonaData> | undefined>(undefined);
 
 interface PersonaNamesProviderProps {
     personaNames: string[];

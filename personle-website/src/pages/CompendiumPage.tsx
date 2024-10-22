@@ -1,14 +1,14 @@
-import { useMemo, useState } from "react";
 import { Button } from "@ui/Button";
-import { usePersonaDataByName } from "@context/PersonaDataContext";
+import { useMemo, useState } from "react";
+import { usePersonaDataByName } from "@hooks/usePersonaDataContext";
 import { NewspaperText } from "@components/typography/NewspaperText";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@ui/Select";
 
 export function CompendiumPage() {
     const personaDataByName = usePersonaDataByName();
 
-    const [sortMethod, setSortMethod] = useState<"alphabet" | "level" | "arcana">("alphabet");
-    const [sortOrder, setSortOrder] = useState<"ascending" | "descending">("ascending");
+    const [sortMethod, setSortMethod] = useState("alphabet");
+    const [sortOrder, setSortOrder] = useState("ascending");
 
     const sortedPersonas = useMemo(() => {
         return Object.values(personaDataByName).sort((a, b) => {

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { PersonaData } from "@lib/server/model";
 import { MessageBox } from "@ui/MessageBox";
+import { PersonaData } from "@lib/server/model";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { DateWithDay } from "@components/typography/DateWithDay";
 import { getDailyGuesses, makeDailyGuess } from "@lib/server/api";
-import { usePersonaDataByName } from "@context/PersonaDataContext";
+import { usePersonaDataByName } from "@hooks/usePersonaDataContext";
 import { GuessesTable } from "@components/play/table/GuessesTable";
 import { MakeGuessController } from "@components/play/MakeGuessController";
 

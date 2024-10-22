@@ -7,8 +7,6 @@ export function StatsPage() {
         queryFn: getDailyGuesses
     });
 
-    return <p className="text-white">todo</p>;
-
     return (
         <>
             {isPending ? (

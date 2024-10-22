@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { MessageBox } from "@ui/MessageBox";
 import { PersonaData } from "@lib/server/model";
 import { DateWithDay } from "@components/typography/DateWithDay";
-import { usePersonaDataByName, usePersonaNames } from "@context/PersonaDataContext";
-import { MakeGuessController } from "@components/play/MakeGuessController";
 import { GuessesTable } from "@components/play/table/GuessesTable";
-import { MessageBox } from "@ui/MessageBox";
+import { MakeGuessController } from "@components/play/MakeGuessController";
+import { usePersonaDataByName, usePersonaNames } from "@hooks/usePersonaDataContext";
 
 interface UserGuessManagerProps {
     correctPersona: PersonaData;
@@ -45,8 +45,8 @@ export function FreePlayPage() {
     const allPersonaNames = usePersonaNames();
     const personaDataByName = usePersonaDataByName();
 
-    const [unseenPersonaNames, setUnseenPersonaNames] = useState<string[]>(allPersonaNames);
-    const [correctPersona, setCorrectPersona] = useState<PersonaData>(personaDataByName[unseenPersonaNames[Math.floor(Math.random() * unseenPersonaNames.length)]]);
+    const [unseenPersonaNames,] = useState<string[]>(allPersonaNames);
+    const [correctPersona,] = useState<PersonaData>(personaDataByName[unseenPersonaNames[Math.floor(Math.random() * unseenPersonaNames.length)]]);
     const [selectedPersona, setSelectedPersona] = useState<PersonaData | null>(null);
 
     console.log(correctPersona);

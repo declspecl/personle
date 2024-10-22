@@ -1,9 +1,9 @@
 import React from "react";
 import { PersonaData } from "@lib/server/model";
-import { MessageBox } from "../ui/MessageBox";
+import { MessageBox } from "@ui/MessageBox";
 import { PersonaCombobox } from "./PersonaCombobox";
-import { SkewedContainer } from "../ui/SkewedContainer";
-import { Button } from "../ui/Button";
+import { SkewedContainer } from "@ui/SkewedContainer";
+import { Button } from "@ui/Button";
 
 interface MakeGuessControllerProps {
     selectedPersona: PersonaData | null;
