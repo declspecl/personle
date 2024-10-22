@@ -1,13 +1,12 @@
 import "./index.css";
 
-import gsap from "gsap";
+import { gsap } from "gsap";
 import React from "react";
 import { useGSAP } from "@gsap/react";
 import ReactDOM from "react-dom/client";
 import { HomePage } from "@pages/HomePage.tsx";
 import { StatsPage } from "@pages/StatsPage.tsx";
-import personaData from "@data/persona-data.json";
-import { PersonaData } from "@lib/server/model.ts";
+import { personaData } from "@/data/personaData";
 import { RootLayout } from "@layouts/RootLayout.tsx";
 import { FreePlayPage } from "@pages/FreePlayPage.tsx";
 import { DailyPlayPage } from "@pages/DailyPlayPage.tsx";
@@ -57,7 +56,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
 		<QueryClientProvider client={queryClient}>
-			<PersonaDataByNameProvider personaDataByName={personaData as Record<string, PersonaData>}>
+			<PersonaDataByNameProvider personaDataByName={personaData}>
 				<PersonaNamesProvider personaNames={Object.keys(personaData)}>
 					<RouterProvider router={router} />
 				</PersonaNamesProvider>

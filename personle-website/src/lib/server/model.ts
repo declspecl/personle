@@ -49,7 +49,8 @@ export enum DamageType {
 export enum FusionMethod {
 	Dyad = "Dyad",
 	Triad = "Triad",
-	Special = "Special"
+	Special = "Special",
+	Unfusable = "Unfusable"
 }
 
 export interface PersonaData {
