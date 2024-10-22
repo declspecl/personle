@@ -22,46 +22,46 @@ gsap.registerPlugin(useGSAP);
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
-    {
-        element: <RootLayout />,
-        children: [
-            {
-                path: "/",
-                element: <HomePage />
-            },
-            {
-                element: <SubPageLayout />,
-                children: [
-                    {
-                        path: "/daily",
-                        element: <DailyPlayPage />
-                    },
-                    {
-                        path: "/freeplay",
-                        element: <FreePlayPage />
-                    },
-                    {
-                        path: "/stats",
-                        element: <StatsPage />
-                    },
-                    {
-                        path: "/compendium",
-                        element: <CompendiumPage />
-                    }
-                ]
-            }
-        ]
-    }
+	{
+		element: <RootLayout />,
+		children: [
+			{
+				path: "/",
+				element: <HomePage />
+			},
+			{
+				element: <SubPageLayout />,
+				children: [
+					{
+						path: "/daily",
+						element: <DailyPlayPage />
+					},
+					{
+						path: "/freeplay",
+						element: <FreePlayPage />
+					},
+					{
+						path: "/stats",
+						element: <StatsPage />
+					},
+					{
+						path: "/compendium",
+						element: <CompendiumPage />
+					}
+				]
+			}
+		]
+	}
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-    <React.StrictMode>
-        <QueryClientProvider client={queryClient}>
-            <PersonaDataByNameProvider personaDataByName={personaData as Record<string, PersonaData>}>
-                <PersonaNamesProvider personaNames={Object.keys(personaData)}>
-                    <RouterProvider router={router} />
-                </PersonaNamesProvider>
-            </PersonaDataByNameProvider>
-        </QueryClientProvider>
-    </React.StrictMode>
+	<React.StrictMode>
+		<QueryClientProvider client={queryClient}>
+			<PersonaDataByNameProvider personaDataByName={personaData as Record<string, PersonaData>}>
+				<PersonaNamesProvider personaNames={Object.keys(personaData)}>
+					<RouterProvider router={router} />
+				</PersonaNamesProvider>
+			</PersonaDataByNameProvider>
+		</QueryClientProvider>
+	</React.StrictMode>
 );

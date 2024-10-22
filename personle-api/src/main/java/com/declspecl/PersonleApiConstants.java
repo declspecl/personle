@@ -1,5 +1,5 @@
 package com.declspecl;
 
 public class PersonleApiConstants {
-	public static final int MAX_DAILY_GUESSES = 10;
+	public static final int MAX_DAILY_GUESSES = 9999;
 }

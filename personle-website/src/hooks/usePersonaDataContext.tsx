@@ -2,21 +2,21 @@ import { PersonaDataByNameContext, PersonaNamesContext } from "@/context/Persona
 import { useContext } from "react";
 
 export function usePersonaNames() {
-    const context = useContext(PersonaNamesContext);
+	const context = useContext(PersonaNamesContext);
 
-    if (context === undefined) {
-        throw new Error("usePersonaNames must be used within a PersonaNamesProvider");
-    }
+	if (context === undefined) {
+		throw new Error("usePersonaNames must be used within a PersonaNamesProvider");
+	}
 
-    return context;
+	return context;
 }
 
 export function usePersonaDataByName() {
-    const context = useContext(PersonaDataByNameContext);
+	const context = useContext(PersonaDataByNameContext);
 
-    if (context === undefined) {
-        throw new Error("usePersonaDataByName must be used within a PersonaDataByNameProvider");
-    }
+	if (context === undefined) {
+		throw new Error("usePersonaDataByName must be used within a PersonaDataByNameProvider");
+	}
 
-    return context;
+	return context;
 }

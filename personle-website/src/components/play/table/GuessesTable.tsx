@@ -5,37 +5,42 @@ import { PersonaData } from "@lib/server/model";
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@ui/Table";
 
 interface GuessesTableProps {
-    selectedPersona: PersonaData | null;
-    correctPersona: PersonaData;
-    guesses: PersonaData[];
-    className?: string;
+	selectedPersona: PersonaData | null;
+	correctPersona: PersonaData;
+	guesses: PersonaData[];
+	className?: string;
 }
 
 export function GuessesTable({ selectedPersona, correctPersona, guesses, className }: GuessesTableProps) {
-    const reversedGuesses = useMemo(() => [...guesses].reverse(), [guesses]);
+	const reversedGuesses = useMemo(() => [...guesses].reverse(), [guesses]);
 
-    return (
-        <Table className={cn("text-white", className)}>
-            <TableHeader>
-                <TableRow className="text-lg">
-                    <TableHead className="text-left">Persona</TableHead>
-                    <TableHead className="text-center">Level</TableHead>
-                    <TableHead className="text-center">Arcana</TableHead>
-                    <TableHead className="text-center">Fusion Method</TableHead>
-                    <TableHead className="text-center">Highest Stat(s)</TableHead>
-                    <TableHead className="text-center">Weaknesses</TableHead>
-                    <TableHead className="text-center">Resistances</TableHead>
-                </TableRow>
-            </TableHeader>
+	return (
+		<Table className={cn("text-white", className)}>
+			<TableHeader>
+				<TableRow className="text-lg">
+					<TableHead className="text-left">Persona</TableHead>
+					<TableHead className="text-center">Level</TableHead>
+					<TableHead className="text-center">Arcana</TableHead>
+					<TableHead className="text-center">Fusion Method</TableHead>
+					<TableHead className="text-center">Highest Stat(s)</TableHead>
+					<TableHead className="text-center">Weaknesses</TableHead>
+					<TableHead className="text-center">Resistances</TableHead>
+				</TableRow>
+			</TableHeader>
 
-            <TableBody>
-                {selectedPersona && (
-                    <GuessesRow key={`guess-result-row-unsubmitted-${selectedPersona.name}`} correctPersona={correctPersona} guessPersona={selectedPersona} isSubmitted={false} />
-                )}
-                {reversedGuesses.map(guess => (
-                    <GuessesRow key={`guess-result-row-${guess.name}`} correctPersona={correctPersona} guessPersona={guess} isSubmitted />
-                ))}
-            </TableBody>
-        </Table>
-    );
+			<TableBody>
+				{selectedPersona && (
+					<GuessesRow
+						key={`guess-result-row-unsubmitted-${selectedPersona.name}`}
+						correctPersona={correctPersona}
+						guessPersona={selectedPersona}
+						isSubmitted={false}
+					/>
+				)}
+				{reversedGuesses.map((guess) => (
+					<GuessesRow key={`guess-result-row-${guess.name}`} correctPersona={correctPersona} guessPersona={guess} isSubmitted />
+				))}
+			</TableBody>
+		</Table>
+	);
 }
