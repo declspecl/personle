@@ -1,7 +1,7 @@
 import { Button } from "@ui/Button";
 import { useMemo, useState } from "react";
 import { usePersonaDataByName } from "@hooks/usePersonaDataContext";
-import { NewspaperText } from "@components/typography/NewspaperText";
+import { PersonaInformation } from "@components/compendium/PersonaInformation";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@ui/Select";
 
 export function CompendiumPage() {
@@ -87,19 +87,7 @@ export function CompendiumPage() {
 
 			<div className="text-white grid grid-cols-1 gap-y-4 gap-x-2 sm:grid-cols-2 sm:gap-x-4 md:grid-cols-3">
 				{sortedPersonas.map((persona) => (
-					<div key={`persona-${persona.name}`} className="col-auto row-auto">
-						<NewspaperText hover={false} randomRedLetter className="text-3xl" palette="whiteOnBlack" text={persona.name} />
-
-						<ul>
-							<li>Name: {persona.name}</li>
-							<li>Level: {persona.level}</li>
-							<li>Arcana: {persona.arcana}</li>
-							<li>Fusion Method: {persona.fusionMethod}</li>
-							<li>Highest Stats: {persona.highestStats.join(", ")}</li>
-							<li>Weaknesses: {persona.weaknesses.length ? persona.weaknesses.join(", ") : "None"}</li>
-							<li>Resistances: {persona.resistances.length ? persona.resistances.join(", ") : "None"}</li>
-						</ul>
-					</div>
+					<PersonaInformation persona={persona} key={`persona-information-${persona.name}`} />
 				))}
 			</div>
 		</>

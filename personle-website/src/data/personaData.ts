@@ -1,4 +1,4 @@
-import { PersonaData, Arcana, DamageType, FusionMethod, Stat } from "@/lib/server/model";
+import { PersonaData, Arcana, DamageType, FusionMethod, Stat } from "@lib/server/model";
 
 export const personaData: Record<string, PersonaData> = {
 	Abaddon: {

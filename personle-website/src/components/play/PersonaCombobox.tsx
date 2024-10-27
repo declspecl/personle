@@ -1,21 +1,21 @@
 import { cn } from "@lib/utils";
+import { Button } from "@ui/Button";
 import { useMemo, useState } from "react";
 import { IconContext } from "react-icons";
-import { Button } from "@ui/Button";
+import { PersonaData } from "@lib/server/model";
 import { LuChevronsUpDown, LuCheck } from "react-icons/lu";
+import { usePersonaDataByName } from "@hooks/usePersonaDataContext";
 import { Popover, PopoverContent, PopoverTrigger } from "@ui/Popover";
 import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from "@ui/Command";
-import { PersonaData } from "@lib/server/model";
-import { usePersonaDataByName, usePersonaNames } from "@hooks/usePersonaDataContext";
 
 interface PersonaComboboxProps {
 	selectedPersona: PersonaData | null;
 	setSelectedPersona: (data: PersonaData) => void;
 	onSelect?: (data: PersonaData) => void;
+	personaNames: string[];
 }
 
-export function PersonaCombobox({ selectedPersona, setSelectedPersona, onSelect }: PersonaComboboxProps) {
-	const personaNames = usePersonaNames();
+export function PersonaCombobox({ selectedPersona, setSelectedPersona, onSelect, personaNames }: PersonaComboboxProps) {
 	const personaDataByName = usePersonaDataByName();
 	const [open, setOpen] = useState(false);
 

@@ -1,5 +1,5 @@
-import { PersonaDataByNameContext, PersonaNamesContext } from "@/context/PersonaDataContext";
 import { useContext } from "react";
+import { PersonaDataByNameContext, PersonaNamesContext } from "@context/PersonaDataContext";
 
 export function usePersonaNames() {
 	const context = useContext(PersonaNamesContext);

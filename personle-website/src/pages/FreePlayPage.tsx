@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { MessageBox } from "@ui/MessageBox";
 import { PersonaData } from "@lib/server/model";
 import { DateWithDay } from "@components/typography/DateWithDay";
@@ -14,15 +14,23 @@ interface UserGuessManagerProps {
 }
 
 function UserGuessManager({ correctPersona, selectedPersona, setSelectedPersona, onCorrectGuess }: UserGuessManagerProps) {
+	const allPersonaNames = usePersonaNames();
 	const personaDataByName = usePersonaDataByName();
 	const [guesses, setGuesses] = useState<PersonaData[]>([]);
+
+	const possiblePersonaNames = useMemo(() => {
+		return allPersonaNames.filter((name) => !guesses.find((guess) => guess.name === name));
+	}, [allPersonaNames, guesses]);
 
 	return (
 		<div>
 			<MakeGuessController
+				personaNames={possiblePersonaNames}
 				selectedPersona={selectedPersona}
 				setSelectedPersona={setSelectedPersona}
 				onClick={(guess: PersonaData) => {
+					if (guesses.includes(personaDataByName[guess.name])) return;
+
 					setGuesses((prev) => [...prev, personaDataByName[guess.name]]);
 
 					if (guess.name === correctPersona.name) {
