@@ -4,7 +4,7 @@ export enum TutorialStage {
 	RedResult = "Red Results",
 	YellowResult = "Yellow Results",
 	BlueResult = "Blue Results",
-	End = "End"
+	End = "The End"
 }
 
 export function getFirstTutorialStage() {

@@ -84,8 +84,10 @@ body,
 }
 
 ::-webkit-scrollbar {
-	width: 0.475rem;
-	height: 0.475rem;
+	width: 0.5rem;
+	height: 0.5rem;
+	background-color: #000000;
+	border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb {
