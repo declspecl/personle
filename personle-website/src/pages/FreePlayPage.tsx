@@ -59,11 +59,15 @@ export function FreePlayPage() {
 			<DateWithDay className="self-start text-[min(7.5vw,2.5rem)] -rotate-[24deg]" />
 
 			<div className="w-full flex flex-row justify-end">
-				<MessageBox fromSide="right" className="text-white text-center" deltaWidthRem={1}>
-					<p>
-						You have unlimited attempts to guess a <br /> randomly selected persona. Good luck!
-					</p>
-				</MessageBox>
+				<div className="flex flex-col gap-4">
+					<MessageBox fromSide="right" className="text-white" deltaWidthRem={1}>
+						<p>Guess a randomly selected persona!</p>
+					</MessageBox>
+
+					<MessageBox fromSide="right" className="text-white" deltaWidthRem={1}>
+						<p>You have unlimited guesses. Good luck!</p>
+					</MessageBox>
+				</div>
 			</div>
 
 			<div>

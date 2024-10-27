@@ -8,7 +8,7 @@ interface PersonaInformationProps {
 export function PersonaInformation({ persona }: PersonaInformationProps) {
 	return (
 		<div className="col-auto row-auto text-lg">
-			<NewspaperText hover={false} randomRedLetter text={persona.name} palette="whiteOnBlack" className="text-2xl sm:text-3xl md:text-4xl" />
+			<NewspaperText hover={false} randomRedLetter text={persona.name} palette="whiteOnBlack" className="text-4xl" />
 
 			<ul>
 				<li>Name: {persona.name}</li>
