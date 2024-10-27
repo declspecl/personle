@@ -1,9 +1,10 @@
 import "./index.css";
 
-import { gsap } from "gsap";
 import React from "react";
+import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import ReactDOM from "react-dom/client";
+import { ErrorPage } from "@pages/ErrorPage";
 import { HomePage } from "@pages/HomePage.tsx";
 import { personaData } from "@data/personaData";
 import { StatsPage } from "@pages/StatsPage.tsx";
@@ -23,6 +24,7 @@ const queryClient = new QueryClient();
 const router = createBrowserRouter([
 	{
 		element: <RootLayout />,
+		errorElement: <ErrorPage />,
 		children: [
 			{
 				path: "/",
