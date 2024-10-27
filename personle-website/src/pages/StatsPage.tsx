@@ -1,21 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
-import { getDailyGuesses } from "@lib/server/api";
+import { NewspaperText } from "@/components/typography/NewspaperText";
 
 export function StatsPage() {
-	const { isPending, error, data } = useQuery({
-		queryKey: ["getGuesses"],
-		queryFn: getDailyGuesses
-	});
-
 	return (
-		<>
-			{isPending ? (
-				<p className="text-white">Loading...</p>
-			) : error ? (
-				<p className="text-white">An error occurred: {error.message}</p>
-			) : (
-				<p className="text-white">{JSON.stringify(data)}</p>
-			)}
-		</>
+		<div className="text-lg text-white">
+			<NewspaperText
+				text="Work In Progress"
+				redLetters={["o", "n"]}
+				palette="whiteOnTransparent"
+				className="text-5xl"
+			/>
+
+			<div className="my-2" />
+
+			<p>Come back later!</p>
+		</div>
 	);
 }
