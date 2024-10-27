@@ -9,13 +9,14 @@ import { Popover, PopoverContent, PopoverTrigger } from "@ui/Popover";
 import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from "@ui/Command";
 
 interface PersonaComboboxProps {
+	disabled?: boolean;
 	selectedPersona: PersonaData | null;
 	setSelectedPersona: (data: PersonaData) => void;
 	onSelect?: (data: PersonaData) => void;
 	personaNames: string[];
 }
 
-export function PersonaCombobox({ selectedPersona, setSelectedPersona, onSelect, personaNames }: PersonaComboboxProps) {
+export function PersonaCombobox({ disabled = false, selectedPersona, setSelectedPersona, onSelect, personaNames }: PersonaComboboxProps) {
 	const personaDataByName = usePersonaDataByName();
 	const [open, setOpen] = useState(false);
 
@@ -50,6 +51,7 @@ export function PersonaCombobox({ selectedPersona, setSelectedPersona, onSelect,
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
 				<Button
+					disabled={disabled}
 					role="combobox"
 					palette="whiteText"
 					aria-expanded={open}

@@ -8,16 +8,17 @@ import { SkewedContainer } from "@ui/SkewedContainer";
 interface MakeGuessControllerProps {
 	selectedPersona: PersonaData | null;
 	setSelectedPersona: React.Dispatch<React.SetStateAction<PersonaData | null>>;
-	onClick?: (guess: PersonaData) => void;
+	onSubmit?: (guess: PersonaData) => void;
 	personaNames: string[];
 	disabled?: boolean;
 }
 
-export function MakeGuessController({ selectedPersona, setSelectedPersona, onClick, personaNames, disabled }: MakeGuessControllerProps) {
+export function MakeGuessController({ selectedPersona, setSelectedPersona, onSubmit, personaNames, disabled }: MakeGuessControllerProps) {
 	return (
 		<div className="w-full flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">
 			<MessageBox fromSide="left" className="text-white" deltaWidthRem={1}>
 				<PersonaCombobox
+					disabled={disabled}
 					selectedPersona={selectedPersona}
 					setSelectedPersona={setSelectedPersona}
 					onSelect={setSelectedPersona}
@@ -36,8 +37,8 @@ export function MakeGuessController({ selectedPersona, setSelectedPersona, onCli
 						onClick={() => {
 							if (!selectedPersona) return;
 
-							if (onClick) {
-								onClick(selectedPersona);
+							if (onSubmit) {
+								onSubmit(selectedPersona);
 							}
 
 							setSelectedPersona(null);

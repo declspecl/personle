@@ -1,57 +1,48 @@
+import { useState } from "react";
 import { IconContext } from "react-icons";
 import { LuLoader2 } from "react-icons/lu";
 import { MessageBox } from "@ui/MessageBox";
 import { PersonaData } from "@lib/server/model";
-import React, { useMemo, useState } from "react";
 import { MAX_DAILY_GUESSES } from "@data/constants";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { DateWithDay } from "@components/typography/DateWithDay";
 import { getDailyGuesses, makeDailyGuess } from "@lib/server/api";
-import { GuessesTable } from "@components/play/table/GuessesTable";
-import { MakeGuessController } from "@components/play/MakeGuessController";
-import { usePersonaDataByName, usePersonaNames } from "@hooks/usePersonaDataContext";
+import { usePersonaDataByName } from "@hooks/usePersonaDataContext";
+import { UserGuessManager } from "@components/play/UserGuessManager";
 
-interface UserGuessManagerProps {
-	correctPersona: PersonaData;
+interface DailyPlayGuessManagerProps {
 	initialGuesses: PersonaData[];
+	correctPersona: PersonaData;
 	selectedPersona: PersonaData | null;
 	setSelectedPersona: React.Dispatch<React.SetStateAction<PersonaData | null>>;
 }
 
-function UserGuessManager({ correctPersona, initialGuesses, selectedPersona, setSelectedPersona }: UserGuessManagerProps) {
+function DailyPlayGuessManager({ initialGuesses, correctPersona, selectedPersona, setSelectedPersona }: DailyPlayGuessManagerProps) {
 	const queryClient = useQueryClient();
-	const allPersonaNames = usePersonaNames();
 	const personaDataByName = usePersonaDataByName();
-
-	const possiblePersonaNames = useMemo(() => {
-		return allPersonaNames.filter((name) => !initialGuesses.find((guess) => guess.name === name));
-	}, [allPersonaNames, initialGuesses]);
 
 	const [guesses, setGuesses] = useState<PersonaData[]>(initialGuesses);
 
 	return (
-		<div>
-			<MakeGuessController
-				disabled={guesses.length >= MAX_DAILY_GUESSES}
-				personaNames={possiblePersonaNames}
-				selectedPersona={selectedPersona}
-				setSelectedPersona={setSelectedPersona}
-				onClick={async (guess: PersonaData) => {
-					if (guesses.includes(personaDataByName[guess.name])) return;
+		<UserGuessManager
+			disabled={guesses.length >= MAX_DAILY_GUESSES || guesses.includes(correctPersona)}
+			guesses={guesses}
+			correctPersona={correctPersona}
+			selectedPersona={selectedPersona}
+			setSelectedPersona={setSelectedPersona}
+			onSubmitGuess={async (guess: PersonaData) => {
+				if (guesses.includes(personaDataByName[guess.name])) return;
 
-					const res = await makeDailyGuess(guess.name);
-					if (res.status !== 200 && res.status !== 204) return;
+				const res = await makeDailyGuess(guess.name);
+				if (res.status !== 200 && res.status !== 204) return;
 
-					setGuesses((prev) => [...prev, personaDataByName[guess.name]]);
+				setGuesses((prev) => [...prev, personaDataByName[guess.name]]);
 
-					queryClient.invalidateQueries({
-						queryKey: ["getDailyGuesses"]
-					});
-				}}
-			/>
-
-			<GuessesTable className="my-8" guesses={guesses} correctPersona={correctPersona} selectedPersona={selectedPersona} />
-		</div>
+				queryClient.invalidateQueries({
+					queryKey: ["getDailyGuesses"]
+				});
+			}}
+		/>
 	);
 }
 
@@ -91,7 +82,7 @@ export function DailyPlayPage() {
 				</div>
 			) : (
 				data && (
-					<UserGuessManager
+					<DailyPlayGuessManager
 						correctPersona={personaDataByName[data.todayPersona]}
 						initialGuesses={data.guesses.map((guess) => personaDataByName[guess])}
 						selectedPersona={selectedPersona}
