@@ -50,7 +50,7 @@ function UserGuessManager({ correctPersona, initialGuesses, selectedPersona, set
 				}}
 			/>
 
-			<GuessesTable className="my-8" guesses={Array.from(guesses)} correctPersona={correctPersona} selectedPersona={selectedPersona} />
+			<GuessesTable className="my-8" guesses={guesses} correctPersona={correctPersona} selectedPersona={selectedPersona} />
 		</div>
 	);
 }
