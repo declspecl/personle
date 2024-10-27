@@ -1,20 +1,20 @@
 import { useState } from "react";
-import { getFirstTutorialStage, getNextTutorialStage, getPreviousTutorialStage, TutorialStage } from "@lib/tutorial";
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@ui/Dialog";
-import { NewspaperText } from "../typography/NewspaperText";
 import { Button } from "@ui/Button";
-import { SkewedContainer } from "../ui/SkewedContainer";
+import { SkewedContainer } from "@ui/SkewedContainer";
 import { DialogDescription } from "@radix-ui/react-dialog";
+import { NewspaperText } from "@components/typography/NewspaperText";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@ui/Dialog";
+import { getFirstTutorialStage, getNextTutorialStage, getPreviousTutorialStage, TutorialStage } from "@lib/tutorial";
 
 interface TutorialPopoverProps {
-    open: boolean;
-    setOpen: (open: boolean) => void;
+	open: boolean;
+	setOpen: (open: boolean) => void;
 }
 
 export function TutorialPopover({ open, setOpen }: TutorialPopoverProps) {
-    const [stage, setStage] = useState<TutorialStage>(getFirstTutorialStage());
+	const [stage, setStage] = useState<TutorialStage>(getFirstTutorialStage());
 
-    return (
+	return (
 		<Dialog open={open} onOpenChange={setOpen}>
 			<DialogContent className="text-white">
 				<DialogHeader>
@@ -22,7 +22,7 @@ export function TutorialPopover({ open, setOpen }: TutorialPopoverProps) {
 						<NewspaperText hover={false} text="Tutorial" redLetters={["T", "t"]} palette="whiteOnTransparent" className="text-5xl" />
 					</DialogTitle>
 
-                    <DialogDescription className="text-xl">{stage}</DialogDescription>
+					<DialogDescription className="text-xl">{stage}</DialogDescription>
 				</DialogHeader>
 
 				<DialogFooter className="gap-2">
@@ -56,7 +56,7 @@ export function TutorialPopover({ open, setOpen }: TutorialPopoverProps) {
 								</Button>
 							</SkewedContainer>
 						</SkewedContainer>
-                    )}
+					)}
 				</DialogFooter>
 			</DialogContent>
 		</Dialog>

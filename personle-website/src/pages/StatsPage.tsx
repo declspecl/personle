@@ -7,12 +7,7 @@ export function StatsPage() {
 
 	return (
 		<div className="text-lg text-white">
-			<NewspaperText
-				text="Work In Progress"
-				redLetters={["o", "n"]}
-				palette="whiteOnTransparent"
-				className="text-5xl"
-			/>
+			<NewspaperText text="Work In Progress" redLetters={["o", "n"]} palette="whiteOnTransparent" className="text-5xl" />
 
 			<div className="my-2" />
 
