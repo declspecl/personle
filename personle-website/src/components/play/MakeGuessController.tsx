@@ -1,10 +1,11 @@
 import { Button } from "@ui/Button";
-import React, { useState } from "react";
 import { MessageBox } from "@ui/MessageBox";
 import { PersonaData } from "@lib/server/model";
 import { PersonaCombobox } from "./PersonaCombobox";
 import { SkewedContainer } from "@ui/SkewedContainer";
+import React, { useLayoutEffect, useState } from "react";
 import { TutorialPopover } from "@components/tutorial/TutorialPopover";
+import { hasUserSeenTutorial, setUserHasSeenTutorial } from "@/lib/tutorial";
 
 interface MakeGuessControllerProps {
 	selectedPersona: PersonaData | null;
@@ -16,6 +17,13 @@ interface MakeGuessControllerProps {
 
 export function MakeGuessController({ selectedPersona, setSelectedPersona, onSubmit, personaNames, disabled }: MakeGuessControllerProps) {
 	const [isTutorialOpen, setIsTutorialOpen] = useState(false);
+
+	useLayoutEffect(() => {
+		if (!hasUserSeenTutorial()) {
+			setIsTutorialOpen(true);
+			setUserHasSeenTutorial();
+		}
+	}, [])
 
 	return (
 		<div className="w-full flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">

@@ -22,11 +22,7 @@ export function FreePlayPage() {
 			<div className="w-full flex flex-row justify-end">
 				<div className="flex flex-col gap-4">
 					<MessageBox fromSide="right" className="text-white" deltaWidthRem={1}>
-						<p>Guess a randomly selected persona!</p>
-					</MessageBox>
-
-					<MessageBox fromSide="right" className="text-white" deltaWidthRem={1}>
-						<p>You have unlimited guesses. Good luck!</p>
+						<p>You have unlimited attempts to guess a randomly selected Persona. Good luck!</p>
 					</MessageBox>
 				</div>
 			</div>

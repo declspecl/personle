@@ -62,11 +62,7 @@ export function DailyPlayPage() {
 			<div className="w-full flex flex-row justify-end">
 				<div className="flex flex-col gap-4">
 					<MessageBox fromSide="right" className="text-white" deltaWidthRem={1}>
-						<p>Guess today's Persona!</p>
-					</MessageBox>
-
-					<MessageBox fromSide="right" className="text-white" deltaWidthRem={1}>
-						<p>You have 8 total guesses. Good luck!</p>
+						<p>You have 8 attempts to guess today's Persona. Good luck!</p>
 					</MessageBox>
 				</div>
 			</div>

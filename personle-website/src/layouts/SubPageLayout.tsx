@@ -8,7 +8,7 @@ interface SubPageLayoutProps {
 
 export function SubPageLayout({ className }: SubPageLayoutProps) {
 	return (
-		<div className={cn("w-full flex flex-col gap-4", className)}>
+		<div className={cn("w-full flex flex-col gap-6", className)}>
 			<Link to="/">
 				<NewspaperText
 					text="Personle!"

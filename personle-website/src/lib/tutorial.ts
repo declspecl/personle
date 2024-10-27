@@ -64,3 +64,11 @@ export function getNextTutorialStage(stage: TutorialStage): TutorialStage | null
 export function getLastTutorialStage() {
 	return TutorialStage.End;
 }
+
+export function hasUserSeenTutorial() {
+	return localStorage.getItem("skipTutorial") === "true";
+}
+
+export function setUserHasSeenTutorial() {
+	localStorage.setItem("skipTutorial", "true");
+}
