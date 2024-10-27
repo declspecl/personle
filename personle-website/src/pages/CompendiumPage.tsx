@@ -18,6 +18,10 @@ export function CompendiumPage() {
 				return sortOrder === "ascending" ? a.level - b.level : b.level - a.level;
 			} else if (sortMethod === "arcana") {
 				return sortOrder === "ascending" ? a.arcana.localeCompare(b.arcana) : b.arcana.localeCompare(a.arcana);
+			} else if (sortMethod === "weaknessCount") {
+				return sortOrder === "ascending" ? a.weaknesses.length - b.weaknesses.length : b.weaknesses.length - a.weaknesses.length;
+			} else if (sortMethod === "resistanceCount") {
+				return sortOrder === "ascending" ? a.resistances.length - b.resistances.length : b.resistances.length - a.resistances.length;
 			}
 
 			return 0;

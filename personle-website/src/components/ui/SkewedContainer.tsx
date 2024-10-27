@@ -14,11 +14,8 @@ export function SkewedContainer({ deltaWidthRem, skewDirection, asChild = false,
 	const elementRef = useRef<HTMLDivElement>(null!);
 
 	const tlXPos = skewDirection === "left" ? "0%" : `calc(0% + ${deltaWidthRem / 2}rem)`;
-
 	const trXPos = skewDirection === "right" ? "100%" : `calc(100% - ${deltaWidthRem / 2}rem)`;
-
 	const blXPos = skewDirection === "right" ? "0%" : `calc(0% + ${deltaWidthRem / 2}rem)`;
-
 	const brXPos = skewDirection === "left" ? "100%" : `calc(100% - ${deltaWidthRem / 2}rem)`;
 
 	const clipPathPolygon = `polygon(${tlXPos} 0%, ${blXPos} 100%, ${brXPos} 100%, ${trXPos} 0%)`;
