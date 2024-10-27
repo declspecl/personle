@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { IconContext } from "react-icons";
+import { LuLoader2 } from "react-icons/lu";
 import { MessageBox } from "@ui/MessageBox";
 import { PersonaData } from "@lib/server/model";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -65,9 +67,14 @@ export function DailyPlayPage() {
 			</div>
 
 			{isPending ? (
-				<p>Loading...</p>
+				<IconContext.Provider value={{ size: "2em", className: "text-white animate-spin" }}>
+					<LuLoader2 />
+				</IconContext.Provider>
 			) : error ? (
-				<p>{error.message}</p>
+				<div className="text-white">
+					<p>ERROR: "{error.message}"</p>
+					<p>Please refresh the page and try again.</p>
+				</div>
 			) : (
 				data && (
 					<UserGuessManager
