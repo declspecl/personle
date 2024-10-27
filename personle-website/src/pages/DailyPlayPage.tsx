@@ -33,7 +33,7 @@ function UserGuessManager({ correctPersona, initialGuesses, selectedPersona, set
 		<div>
 			<MakeGuessController
 				disabled={guesses.length >= MAX_DAILY_GUESSES}
-			 	personaNames={possiblePersonaNames}
+				personaNames={possiblePersonaNames}
 				selectedPersona={selectedPersona}
 				setSelectedPersona={setSelectedPersona}
 				onClick={async (guess: PersonaData) => {
@@ -42,7 +42,7 @@ function UserGuessManager({ correctPersona, initialGuesses, selectedPersona, set
 					const res = await makeDailyGuess(guess.name);
 					if (res.status !== 200 && res.status !== 204) return;
 
-					setGuesses(prev => [...prev, personaDataByName[guess.name]]);
+					setGuesses((prev) => [...prev, personaDataByName[guess.name]]);
 
 					queryClient.invalidateQueries({
 						queryKey: ["getDailyGuesses"]

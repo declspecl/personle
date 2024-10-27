@@ -15,13 +15,7 @@ interface GuessesRowProps {
 }
 
 export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: GuessesRowProps) {
-	const {
-		levelEqualityRelation,
-		arcanaEqualityRelation,
-		highestStatsEqualityRelation,
-		weaknessesEqualityRelation,
-		resistancesEqualityRelation
-	} = useMemo(
+	const { levelEqualityRelation, arcanaEqualityRelation, highestStatsEqualityRelation, weaknessesEqualityRelation, resistancesEqualityRelation } = useMemo(
 		() => ({
 			levelEqualityRelation: getNumericalEqualityRelationWithinRange(correctPersona.level, guessPersona.level, 10),
 			arcanaEqualityRelation: getEqualityRelation(correctPersona.arcana, guessPersona.arcana),
@@ -34,7 +28,7 @@ export function GuessesRow({ correctPersona, guessPersona, isSubmitted }: Guesse
 
 	const initialDelay = 0.25;
 	const delayMultiplier = 0.65;
-	const animationDelays = [0, 1, 2, 3, 4].map(delayMultiple => initialDelay + (delayMultiplier * delayMultiple));
+	const animationDelays = [0, 1, 2, 3, 4].map((delayMultiple) => initialDelay + delayMultiplier * delayMultiple);
 
 	return (
 		<TableRow className="text-lg">
