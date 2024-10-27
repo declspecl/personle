@@ -25,7 +25,7 @@ export function MakeGuessController({ selectedPersona, setSelectedPersona, onCli
 				/>
 			</MessageBox>
 
-			<SkewedContainer skewDirection="left" deltaWidthRem={0.5} className="mx-auto sm:mx-0 p-1 w-fit bg-white">
+			<SkewedContainer skewDirection="left" deltaWidthRem={0.5} className="self-end sm:mx-0 p-1 w-fit bg-white">
 				<SkewedContainer skewDirection="left" deltaWidthRem={0.5} className="w-fit bg-black">
 					<Button
 						size="md"

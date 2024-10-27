@@ -21,7 +21,6 @@ export function GuessesTable({ selectedPersona, correctPersona, guesses, classNa
 					<TableHead className="text-left">Persona</TableHead>
 					<TableHead className="text-center">Level</TableHead>
 					<TableHead className="text-center">Arcana</TableHead>
-					<TableHead className="text-center">Fusion Method</TableHead>
 					<TableHead className="text-center">Highest Stat(s)</TableHead>
 					<TableHead className="text-center">Weaknesses</TableHead>
 					<TableHead className="text-center">Resistances</TableHead>
