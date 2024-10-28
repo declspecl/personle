@@ -11,7 +11,7 @@ interface RootLayoutProps {
 export function RootLayout({ className }: RootLayoutProps) {
 	return (
 		<div className={cn("relative w-full h-full overflow-hidden font-arsenal", className)}>
-			<PersonleBackground stripThickness={1.75} />
+			<PersonleBackground stripThickness={1.5} />
 
 			<RepsonsiveViewportContainer className={cn("p-4 flex flex-col items-center overflow-auto", "sm:px-6", "md:px-8 md:py-8")}>
 				<SkewedContainer
