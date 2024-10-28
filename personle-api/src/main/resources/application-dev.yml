@@ -1,13 +1,2 @@
-spring:
-    application:
-        name: personle-api
-
 aws:
-    region: us-east-1
     endpoint: http://localhost:4566
-    s3:
-        dailyPersonas:
-            bucketName: daily-personas
-    dynamodb:
-        userGameData:
-            tableName: UserGameData
