@@ -23,7 +23,7 @@ export function MakeGuessController({ selectedPersona, setSelectedPersona, onSub
 			setIsTutorialOpen(true);
 			setUserHasSeenTutorial();
 		}
-	}, [])
+	}, []);
 
 	return (
 		<div className="w-full flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">

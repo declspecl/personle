@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { MessageBox } from "@ui/MessageBox";
+import { Button } from "@components/ui/Button";
 import { PersonaData } from "@lib/server/model";
 import { DateWithDay } from "@components/typography/DateWithDay";
+import { SkewedContainer } from "@components/ui/SkewedContainer";
 import { UserGuessManager } from "@components/play/UserGuessManager";
+import { CorrectGuessDialog } from "@components/play/CorrectGuessDialog";
 import { usePersonaDataByName, usePersonaNames } from "@hooks/usePersonaDataContext";
 
 export function FreePlayPage() {
@@ -10,10 +13,14 @@ export function FreePlayPage() {
 	const personaDataByName = usePersonaDataByName();
 
 	const [unseenPersonaNames] = useState<string[]>(allPersonaNames);
-	const [correctPersona] = useState<PersonaData>(personaDataByName[unseenPersonaNames[Math.floor(Math.random() * unseenPersonaNames.length)]]);
+	const [correctPersona, setCorrectPersona] = useState<PersonaData>(
+		personaDataByName[unseenPersonaNames[Math.floor(Math.random() * unseenPersonaNames.length)]]
+	);
 	const [selectedPersona, setSelectedPersona] = useState<PersonaData | null>(null);
 
 	const [guesses, setGuesses] = useState<PersonaData[]>([]);
+
+	const [isCorrectGuessDialogOpen, setIsCorrectGuessDialogOpen] = useState(false);
 
 	return (
 		<>
@@ -40,11 +47,32 @@ export function FreePlayPage() {
 
 					if (guess.name === correctPersona.name) {
 						setTimeout(() => {
-							alert("Correct! Go back to the home page and come back for a new persona (:skull:)");
-						}, 3000);
+							setIsCorrectGuessDialogOpen(true);
+						}, 3500);
 					}
 				}}
 			/>
+
+			<CorrectGuessDialog open={isCorrectGuessDialogOpen} setOpen={setIsCorrectGuessDialogOpen} numberOfGuesses={guesses.length} isDailyPlay={false}>
+				<SkewedContainer skewDirection="right" deltaWidthRem={0.5} className="p-1 w-fit bg-white">
+					<SkewedContainer skewDirection="right" deltaWidthRem={0.5} className="w-fit bg-black">
+						<Button
+							size="md"
+							rotate={false}
+							skewMagnitude="none"
+							palette="whiteText"
+							onClick={() => {
+								setGuesses([]);
+								setCorrectPersona(personaDataByName[unseenPersonaNames[Math.floor(Math.random() * unseenPersonaNames.length)]]);
+
+								setIsCorrectGuessDialogOpen(false);
+							}}
+						>
+							Next Persona
+						</Button>
+					</SkewedContainer>
+				</SkewedContainer>
+			</CorrectGuessDialog>
 		</>
 	);
 }

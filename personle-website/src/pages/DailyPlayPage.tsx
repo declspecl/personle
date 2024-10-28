@@ -9,6 +9,9 @@ import { DateWithDay } from "@components/typography/DateWithDay";
 import { getDailyGuesses, makeDailyGuess } from "@lib/server/api";
 import { usePersonaDataByName } from "@hooks/usePersonaDataContext";
 import { UserGuessManager } from "@components/play/UserGuessManager";
+import { CorrectGuessDialog } from "@/components/play/CorrectGuessDialog";
+import { SkewedContainer } from "@/components/ui/SkewedContainer";
+import { Button } from "@/components/ui/Button";
 
 interface DailyPlayGuessManagerProps {
 	initialGuesses: PersonaData[];
@@ -22,27 +25,44 @@ function DailyPlayGuessManager({ initialGuesses, correctPersona, selectedPersona
 	const personaDataByName = usePersonaDataByName();
 
 	const [guesses, setGuesses] = useState<PersonaData[]>(initialGuesses);
+	const [isCorrectGuessDialogOpen, setIsCorrectGuessDialogOpen] = useState(false);
 
 	return (
-		<UserGuessManager
-			disabled={guesses.length >= MAX_DAILY_GUESSES || guesses.includes(correctPersona)}
-			guesses={guesses}
-			correctPersona={correctPersona}
-			selectedPersona={selectedPersona}
-			setSelectedPersona={setSelectedPersona}
-			onSubmitGuess={async (guess: PersonaData) => {
-				if (guesses.includes(personaDataByName[guess.name])) return;
+		<>
+			<UserGuessManager
+				disabled={guesses.length >= MAX_DAILY_GUESSES || guesses.includes(correctPersona)}
+				guesses={guesses}
+				correctPersona={correctPersona}
+				selectedPersona={selectedPersona}
+				setSelectedPersona={setSelectedPersona}
+				onSubmitGuess={async (guess: PersonaData) => {
+					if (guesses.includes(personaDataByName[guess.name])) return;
 
-				const res = await makeDailyGuess(guess.name);
-				if (res.status !== 200 && res.status !== 204) return;
+					const res = await makeDailyGuess(guess.name);
+					if (res.status !== 200 && res.status !== 204) return;
 
-				setGuesses((prev) => [...prev, personaDataByName[guess.name]]);
+					setGuesses((prev) => [...prev, personaDataByName[guess.name]]);
 
-				queryClient.invalidateQueries({
-					queryKey: ["getDailyGuesses"]
-				});
-			}}
-		/>
+					queryClient.invalidateQueries({
+						queryKey: ["getDailyGuesses"]
+					});
+
+					if (guess.name === correctPersona.name) {
+						setTimeout(() => setIsCorrectGuessDialogOpen(true), 3500);
+					}
+				}}
+			/>
+
+			<CorrectGuessDialog open={isCorrectGuessDialogOpen} setOpen={setIsCorrectGuessDialogOpen} numberOfGuesses={guesses.length} isDailyPlay={true}>
+				<SkewedContainer skewDirection="right" deltaWidthRem={0.5} className="p-1 w-fit bg-white">
+					<SkewedContainer skewDirection="right" deltaWidthRem={0.5} className="w-fit bg-black">
+						<Button size="md" rotate={false} skewMagnitude="none" palette="whiteText" onClick={() => setIsCorrectGuessDialogOpen(false)}>
+							Close
+						</Button>
+					</SkewedContainer>
+				</SkewedContainer>
+			</CorrectGuessDialog>
+		</>
 	);
 }
 

@@ -71,9 +71,7 @@ const SelectContent = React.forwardRef<React.ElementRef<typeof SelectPrimitive.C
 			>
 				<SelectScrollUpButton />
 
-				<SelectPrimitive.Viewport
-					className={cn("p-1", position === "popper" && "h-fit w-full min-w-[var(--radix-select-trigger-width)]")}
-				>
+				<SelectPrimitive.Viewport className={cn("p-1", position === "popper" && "h-fit w-full min-w-[var(--radix-select-trigger-width)]")}>
 					<SkewedContainer deltaWidthRem={1.5} skewDirection="right" className="p-1 w-full h-full bg-white">
 						<SkewedContainer deltaWidthRem={1.5} skewDirection="right" className="p-4 w-full h-full bg-black text-white">
 							{children}
