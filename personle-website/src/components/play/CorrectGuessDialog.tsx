@@ -27,7 +27,7 @@ export function CorrectGuessDialog({ isDailyPlay, numberOfGuesses, open, setOpen
 			<DialogContent className="text-white">
 				<DialogHeader>
 					<DialogTitle>
-						<NewspaperText hover={false} text="Correct!" redLetters={["C"]} palette="whiteOnBlack" className="text-5xl" />
+						<NewspaperText hover={false} text="That's CorreCt!" redLetters={["h", "C"]} palette="whiteOnBlack" className="text-5xl" />
 					</DialogTitle>
 
 					<DialogDescription className="text-xl">
