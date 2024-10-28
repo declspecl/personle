@@ -20,7 +20,7 @@ export function CorrectGuessDialog({ isDailyPlay, numberOfGuesses, open, setOpen
 					? "Nice guesses!"
 					: numberOfGuesses === 8
 						? "Phew, that was a close call!"
-						: "That was a tough one!";
+						: "That was a tough one, but you still made it!";
 
 	return (
 		<Dialog open={open} onOpenChange={setOpen}>
