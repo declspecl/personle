@@ -19,7 +19,7 @@ export function ErrorStatus() {
 		);
 	}
 
-	return <p className="text-center">Something went wrong. Please try again.</p>
+	return <p className="text-center">Something went wrong. Please try again.</p>;
 }
 
 export function ErrorPage() {
