@@ -1,5 +1,6 @@
 package com.declspecl.configuration;
 
+import com.declspecl.model.PersonaName;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,14 +40,14 @@ public class PersonleServiceConfiguration {
 
 	@Bean
 	@Qualifier("PersonaNamePool")
-	public List<String> personaNamePool() throws IOException {
+	public List<PersonaName> personaNamePool() throws IOException {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
-		List<String> personaNames = new ArrayList<>(700);
+		List<PersonaName> personaNames = new ArrayList<>(250);
 
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(classLoader.getResourceAsStream("persona-names.txt")))) {
 			while (bufferedReader.ready()) {
-				personaNames.add(bufferedReader.readLine());
+				personaNames.add(new PersonaName(bufferedReader.readLine()));
 			}
 		}
 

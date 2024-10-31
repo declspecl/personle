@@ -19,20 +19,26 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DailyGuessesItem {
-	private String userSessionId;
+	private String pk;
 	private String sk;
+	private String userSessionId;
 	private List<String> guesses;
 
 	@DynamoDbPartitionKey
-	@DynamoDbAttribute("userSessionId")
-	public String getUserSessionId() {
-		return userSessionId;
+	@DynamoDbAttribute("pk")
+	public String getPk() {
+		return pk;
 	}
 
 	@DynamoDbSortKey
 	@DynamoDbAttribute("sk")
 	public String getSk() {
 		return sk;
+	}
+
+	@DynamoDbAttribute("userSessionId")
+	public String getUserSessionId() {
+		return userSessionId;
 	}
 
 	@DynamoDbAttribute("guesses")

@@ -2,4 +2,4 @@
 
 python3 -m venv .venv
 source ./.venv/bin/activate
-pip install awscli-local
+pip install awscli awscli-local

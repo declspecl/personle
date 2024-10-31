@@ -11,7 +11,7 @@ export class PersonleCdkStack extends Stack {
 		const userGameDataTable = new ddb.Table(this, "UserGameData", {
 			tableName: "UserGameData",
 			partitionKey: {
-				name: "userSessionId",
+				name: "pk",
 				type: ddb.AttributeType.STRING
 			},
 			sortKey: {

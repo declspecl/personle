@@ -1,6 +1,7 @@
 package com.declspecl.dependencies.s3;
 
 import com.declspecl.converter.FormattedDate;
+import com.declspecl.model.PersonaName;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -31,37 +32,37 @@ public class DailyPersonaS3Adapter {
         this.bucketName = bucketName;
     }
 
-    public Optional<String> fetchPersonaFromS3(FormattedDate formattedDate) {
+    public Optional<PersonaName> fetchPersonaForDay(FormattedDate formattedDate) {
         ResponseInputStream<GetObjectResponse> response;
         try {
-            response = s3Client.getObject(buildGetObjectRequest(formattedDate.value()));
+            response = s3Client.getObject(buildGetObjectRequest(formattedDate.date()));
         }
         catch (NoSuchKeyException e) {
             return Optional.empty();
         }
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(response))) {
-            return Optional.of(reader.readLine());
+            return Optional.of(reader.readLine()).map(PersonaName::new);
         }
         catch (IOException e) {
-            log.error("Failed to fetch persona object from s3 for date {}", formattedDate.value(), e);
+            log.error("Failed to fetch persona object from s3 for date {}", formattedDate.date(), e);
             return Optional.empty();
         }
     }
 
-    public void putPersonaObjectToS3(FormattedDate formattedDate, String personaName) {
-        s3Client.putObject(buildPutObjectRequestForDate(formattedDate), RequestBody.fromString(personaName));
+    public void putPersonaObjectToS3(FormattedDate formattedDate, PersonaName personaName) {
+        s3Client.putObject(buildPutObjectRequestForDate(formattedDate), RequestBody.fromString(personaName.persona()));
     }
 
     private PutObjectRequest buildPutObjectRequestForDate(FormattedDate formattedDate) {
         return PutObjectRequest.builder()
                 .bucket(bucketName)
-                .key(formattedDate.value())
+                .key(formattedDate.date())
                 .build();
     }
 
     private GetObjectRequest buildGetObjectRequestForDate(FormattedDate formattedDate) {
-        return buildGetObjectRequest(formattedDate.value());
+        return buildGetObjectRequest(formattedDate.date());
     }
 
     private GetObjectRequest buildGetObjectRequest(String key) {

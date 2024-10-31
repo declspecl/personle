@@ -7,6 +7,7 @@ import com.declspecl.controller.requests.PostUserGuessRequest;
 import com.declspecl.controller.responses.GetUserGuessesResponse;
 import com.declspecl.controller.responses.ImmutableGetUserGuessesResponse;
 import com.declspecl.model.ImmutableDailyGuesses;
+import com.declspecl.model.PersonaName;
 import com.declspecl.repository.DailyGuessesRepository;
 import com.declspecl.model.DailyGuesses;
 import com.declspecl.repository.DailyPersonaRepository;
@@ -62,7 +63,7 @@ public class DailyGuessesController {
 		Map<String, String> cookies = controllerUtils.buildCookieMap(request);
 		Optional<String> userSessionCookie = controllerUtils.getUserSessionCookie(cookies);
 
-		String todayPersona = dailyPersonaRepository.getPersonaForToday();
+		PersonaName todayPersona = dailyPersonaRepository.getPersonaForToday();
 
 		if (userSessionCookie.isEmpty()) {
 			log.info("Got request for user without session");
@@ -77,7 +78,7 @@ public class DailyGuessesController {
 		UUID userSessionId = userSessionTransformer.decodeSession(userSessionCookie.get());
 		log.info("Got request for user session {}", userSessionId);
 
-		Optional<DailyGuesses> todayGuesses = dailyGuessesRepository.getGuessesForToday(userSessionId);
+		Optional<DailyGuesses> todayGuesses = dailyGuessesRepository.getUserGuessesToday(userSessionId);
 		List<String> personaGuesses = todayGuesses.map(DailyGuesses::guesses).orElse(Collections.emptyList());
 
 		return ResponseEntity.ok(
@@ -97,7 +98,7 @@ public class DailyGuessesController {
 		Optional<String> userSessionCookie = controllerUtils.getUserSessionCookie(cookies);
 
 		UUID userSessionId = userSessionCookie.map(userSessionTransformer::decodeSession).orElse(uuidSupplier.get());
-		Optional<DailyGuesses> maybeDailyGuesses = dailyGuessesRepository.getGuessesForToday(userSessionId);
+		Optional<DailyGuesses> maybeDailyGuesses = dailyGuessesRepository.getUserGuessesToday(userSessionId);
 		DailyGuesses updatedDailyGuesses = maybeDailyGuesses.map(
 				existingGuesses -> ImmutableDailyGuesses.copyOf(existingGuesses).withGuesses(
 						Stream.concat(existingGuesses.guesses().stream(), Stream.of(body.guess()))

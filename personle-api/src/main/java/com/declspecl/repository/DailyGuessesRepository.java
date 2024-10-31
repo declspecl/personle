@@ -34,11 +34,11 @@ public class DailyGuessesRepository {
 		this.todaySupplier = todaySupplier;
 	}
 
-	public Optional<DailyGuesses> getGuessesForToday(UUID userSessionId) {
-		return getGuessesForDay(userSessionId, todaySupplier.get());
+	public Optional<DailyGuesses> getUserGuessesToday(UUID userSessionId) {
+		return getUserGuessesForDay(userSessionId, todaySupplier.get());
 	}
 
-	public Optional<DailyGuesses> getGuessesForDay(UUID userSessionId, LocalDate date) {
+	public Optional<DailyGuesses> getUserGuessesForDay(UUID userSessionId, LocalDate date) {
 		DailyGuessesItem item = ddbTable.getItem(
 				Key.builder()
 						.partitionValue(converter.serializePartitionKey(userSessionId))

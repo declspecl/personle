@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 @Component
@@ -21,15 +20,15 @@ public class DailyGuessesConverter {
 	}
 
 	public String serializePartitionKey(UUID userSessionId) {
-		return userSessionId.toString();
+		return "USER#" + userSessionId.toString();
 	}
 
-	public UUID deserializePartitionKey(String partitionKey) {
-		return UUID.fromString(partitionKey);
+	public UUID deserializeUserSessionIdFromPartitionKey(String partitionKey) {
+		return UUID.fromString(partitionKey.split("#")[1]);
 	}
 
 	public String serializeSortKey(LocalDate date) {
-		return "GUESS#" + localDateConverter.convertDateToString(date).value();
+		return "GUESS#" + localDateConverter.convertDateToString(date).date();
 	}
 
 	public LocalDate deserializeDateFromSortKey(String sortKey) {
@@ -41,13 +40,14 @@ public class DailyGuessesConverter {
 		return new DailyGuessesItem(
 				serializePartitionKey(dailyGuesses.userSessionId()),
 				serializeSortKey(dailyGuesses.date()),
+				dailyGuesses.userSessionId().toString(),
 				dailyGuesses.guesses()
 		);
 	}
 
 	public DailyGuesses fromItem(DailyGuessesItem item) {
 		return ImmutableDailyGuesses.builder()
-				.withUserSessionId(deserializePartitionKey(item.getUserSessionId()))
+				.withUserSessionId(deserializeUserSessionIdFromPartitionKey(item.getUserSessionId()))
 				.withDate(deserializeDateFromSortKey(item.getSk()))
 				.withGuesses(item.getGuesses())
 				.build();
