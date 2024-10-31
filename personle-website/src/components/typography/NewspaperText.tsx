@@ -8,6 +8,7 @@ type FontChoices = "font-times" | "font-cooper" | "font-earwig" | "font-expose";
 function getCorrespondingFontForLetter(letter: string): FontChoices {
 	switch (letter) {
 		case "A":
+		case "E":
 		case "I":
 		case "L":
 		case "M":
@@ -56,7 +57,6 @@ function getCorrespondingFontForLetter(letter: string): FontChoices {
 			return "font-earwig";
 
 		case "B":
-		case "E":
 		case "G":
 		case "H":
 		case "O":

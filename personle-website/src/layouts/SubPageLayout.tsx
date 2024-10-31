@@ -1,12 +1,14 @@
+import React from "react";
 import { cn } from "@lib/utils";
 import { Link, Outlet } from "react-router-dom";
 import { NewspaperText } from "@components/typography/NewspaperText";
 
 interface SubPageLayoutProps {
 	className?: string;
+	children?: React.ReactNode;
 }
 
-export function SubPageLayout({ className }: SubPageLayoutProps) {
+export function SubPageLayout({ className, children }: SubPageLayoutProps) {
 	return (
 		<div className={cn("w-full flex flex-col gap-6", className)}>
 			<Link to="/">
@@ -19,6 +21,7 @@ export function SubPageLayout({ className }: SubPageLayoutProps) {
 				/>
 			</Link>
 
+			{children}
 			<Outlet />
 		</div>
 	);

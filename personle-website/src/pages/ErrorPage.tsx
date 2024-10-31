@@ -1,22 +1,33 @@
+import { RootLayout } from "@layouts/RootLayout";
+import { SubPageLayout } from "@layouts/SubPageLayout";
+import { NewspaperText } from "@components/typography/NewspaperText";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 
-export function ErrorPage() {
+export function ErrorStatus() {
 	const error = useRouteError();
 
-	console.error(error);
-
 	if (isRouteErrorResponse(error)) {
-		switch (error.status) {
-			case 404:
-				return <h1>This page does not exist</h1>;
-			case 500:
-				return <h1>Internal server error</h1>;
-			case 503:
-				return <h1>Service unavailable</h1>;
-			default:
-				return <h1>Something went wrong</h1>;
-		}
+		return (
+			<div className="flex flex-col items-center">
+				<NewspaperText
+					text={"Error: " + error.status.toString() + "!"}
+					palette="whiteOnTransparent"
+					redLetters={["E", "4", "5"]}
+					className="text-[min(12.5vw,5rem)]"
+				/>
+			</div>
+		);
 	}
 
-	return <div>Something went wrong. Please try again.</div>;
+	return <p className="text-center">Something went wrong. Please try again.</p>
+}
+
+export function ErrorPage() {
+	return (
+		<RootLayout>
+			<SubPageLayout>
+				<ErrorStatus />
+			</SubPageLayout>
+		</RootLayout>
+	);
 }
