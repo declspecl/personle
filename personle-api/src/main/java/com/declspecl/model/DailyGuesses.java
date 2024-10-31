@@ -9,7 +9,7 @@ import java.util.UUID;
 @Value.Immutable
 @Value.Style(init = "with*", get = { "is*", "get*" })
 public abstract class DailyGuesses {
-	public abstract UUID userSessionId();
+	public abstract HashedUserSessionId hashedUserSessionId();
 	public abstract LocalDate date();
 	public abstract List<String> guesses();
 }

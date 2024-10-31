@@ -17,8 +17,8 @@ public class DailyPersonaCacheInitializer {
 
     @Autowired
     public DailyPersonaCacheInitializer(
-            final LocalDateConverter localDateConverter,
-            final DailyPersonaRepository dailyPersonaRepository
+            LocalDateConverter localDateConverter,
+            DailyPersonaRepository dailyPersonaRepository
     ) {
         this.localDateConverter = localDateConverter;
         this.dailyPersonaRepository = dailyPersonaRepository;

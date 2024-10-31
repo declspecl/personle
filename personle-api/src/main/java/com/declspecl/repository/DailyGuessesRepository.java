@@ -3,6 +3,7 @@ package com.declspecl.repository;
 import com.declspecl.dependencies.dynamodb.converter.DailyGuessesConverter;
 import com.declspecl.dependencies.dynamodb.model.DailyGuessesItem;
 import com.declspecl.model.DailyGuesses;
+import com.declspecl.model.HashedUserSessionId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
@@ -13,7 +14,6 @@ import software.amazon.awssdk.enhanced.dynamodb.model.QueryEnhancedRequest;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.Set;
-import java.util.UUID;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -34,14 +34,14 @@ public class DailyGuessesRepository {
 		this.todaySupplier = todaySupplier;
 	}
 
-	public Optional<DailyGuesses> getUserGuessesToday(UUID userSessionId) {
-		return getUserGuessesForDay(userSessionId, todaySupplier.get());
+	public Optional<DailyGuesses> getUserGuessesToday(HashedUserSessionId hashedUserSessionId) {
+		return getUserGuessesForDay(hashedUserSessionId, todaySupplier.get());
 	}
 
-	public Optional<DailyGuesses> getUserGuessesForDay(UUID userSessionId, LocalDate date) {
+	public Optional<DailyGuesses> getUserGuessesForDay(HashedUserSessionId hashedUserSessionId, LocalDate date) {
 		DailyGuessesItem item = ddbTable.getItem(
 				Key.builder()
-						.partitionValue(converter.serializePartitionKey(userSessionId))
+						.partitionValue(converter.serializePartitionKey(hashedUserSessionId))
 						.sortValue(converter.serializeSortKey(date))
 						.build()
 		);
@@ -49,9 +49,9 @@ public class DailyGuessesRepository {
 		return Optional.ofNullable(item).map(converter::fromItem);
 	}
 
-	public Set<DailyGuesses> getAllDailyGuesses(UUID userSessionId) {
+	public Set<DailyGuesses> getAllDailyGuesses(HashedUserSessionId hashedUserSessionId) {
 		Key queryKey = Key.builder()
-				.partitionValue(converter.serializePartitionKey(userSessionId))
+				.partitionValue(converter.serializePartitionKey(hashedUserSessionId))
 				.sortValue("GUESS#")
 				.build();
 

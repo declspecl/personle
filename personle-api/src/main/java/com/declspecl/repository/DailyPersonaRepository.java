@@ -16,7 +16,6 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ExecutionException;
@@ -82,7 +81,7 @@ public class DailyPersonaRepository {
 		do {
 			randomPersonaName = personaNamePool.get(ThreadLocalRandom.current().nextInt(0, personaNamePool.size()));
 		} while (values.contains(randomPersonaName));
-		// cache holds persona names for last 30 days, aim to get persona that hasn't been used in 30 days
+		// cache holds persona names for 30 days, aim to get persona that hasn't been used in 30 days
 
 		return randomPersonaName;
 	}
