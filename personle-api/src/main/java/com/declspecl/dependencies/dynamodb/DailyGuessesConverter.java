@@ -1,7 +1,6 @@
-package com.declspecl.dependencies.dynamodb.converter;
+package com.declspecl.dependencies.dynamodb;
 
 import com.declspecl.converter.LocalDateConverter;
-import com.declspecl.dependencies.dynamodb.model.DailyGuessesItem;
 import com.declspecl.model.DailyGuesses;
 import com.declspecl.model.HashedUserSessionId;
 import com.declspecl.model.ImmutableDailyGuesses;

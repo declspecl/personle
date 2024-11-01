@@ -1,6 +1,6 @@
 package com.declspecl.configuration.prod;
 
-import com.declspecl.dependencies.dynamodb.model.DailyGuessesItem;
+import com.declspecl.dependencies.dynamodb.DailyGuessesItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

@@ -1,7 +1,7 @@
 package com.declspecl.repository;
 
-import com.declspecl.dependencies.dynamodb.converter.DailyGuessesConverter;
-import com.declspecl.dependencies.dynamodb.model.DailyGuessesItem;
+import com.declspecl.dependencies.dynamodb.DailyGuessesConverter;
+import com.declspecl.dependencies.dynamodb.DailyGuessesItem;
 import com.declspecl.model.DailyGuesses;
 import com.declspecl.model.HashedUserSessionId;
 import org.springframework.beans.factory.annotation.Autowired;

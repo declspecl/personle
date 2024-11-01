@@ -17,6 +17,7 @@ import com.declspecl.repository.DailyPersonaRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -26,9 +27,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Supplier;
@@ -38,6 +41,7 @@ import java.util.stream.Stream;
 @Controller
 public class DailyGuessesController {
 	private final ControllerUtils controllerUtils;
+	private final Set<PersonaName> personaNamePool;
 	private final Supplier<LocalDate> todaySupplier;
 	private final UserSessionGenerator userSessionGenerator;
 	private final DailyPersonaRepository dailyPersonaRepository;
@@ -51,7 +55,8 @@ public class DailyGuessesController {
 			UserSessionGenerator userSessionGenerator,
 			DailyPersonaRepository dailyPersonaRepository,
 			DailyGuessesRepository dailyGuessesRepository,
-			UserSessionTransformer userSessionTransformer
+			UserSessionTransformer userSessionTransformer,
+			@Qualifier("PersonaNamePool") List<PersonaName> personaNamePool
 	) {
 		this.todaySupplier = todaySupplier;
 		this.controllerUtils = controllerUtils;
@@ -59,6 +64,8 @@ public class DailyGuessesController {
 		this.dailyPersonaRepository = dailyPersonaRepository;
 		this.dailyGuessesRepository = dailyGuessesRepository;
 		this.userSessionTransformer = userSessionTransformer;
+		System.out.println(personaNamePool);
+		this.personaNamePool = new HashSet<>(personaNamePool);
 	}
 
 	@GetMapping("/api/daily/guess")
@@ -101,6 +108,11 @@ public class DailyGuessesController {
 			HttpServletRequest rawRequest,
 			@RequestBody PostUserGuessRequest body
 	) {
+		if (!personaNamePool.contains(new PersonaName(body.guess()))) {
+			log.warn("Invalid guess: {}", body.guess());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+
 		Map<String, String> cookies = controllerUtils.buildCookieMap(rawRequest);
 		Optional<EncodedHashedUserSessionId> userSessionCookie = controllerUtils.getUserSessionCookie(cookies);
 

@@ -1,4 +1,4 @@
-package com.declspecl.dependencies.dynamodb.model;
+package com.declspecl.dependencies.dynamodb;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -21,7 +21,7 @@ import java.util.List;
 public class DailyGuessesItem {
 	private String pk;
 	private String sk;
-	private String hashedUserSessionId;
+	private String userSessionId;
 	private List<String> guesses;
 
 	@DynamoDbPartitionKey
@@ -36,9 +36,9 @@ public class DailyGuessesItem {
 		return sk;
 	}
 
-	@DynamoDbAttribute("value")
-	public String getHashedUserSessionId() {
-		return hashedUserSessionId;
+	@DynamoDbAttribute("userSessionId")
+	public String getUserSessionId() {
+		return userSessionId;
 	}
 
 	@DynamoDbAttribute("guesses")

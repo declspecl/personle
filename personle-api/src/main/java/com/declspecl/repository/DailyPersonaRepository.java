@@ -31,7 +31,6 @@ public class DailyPersonaRepository {
 	private final LocalDateConverter localDateConverter;
 	private final LoadingCache<FormattedDate, PersonaName> dailyPersonaCache;
 
-
 	@Autowired
 	public DailyPersonaRepository(
 			DailyPersonaS3Adapter s3Adapter,
