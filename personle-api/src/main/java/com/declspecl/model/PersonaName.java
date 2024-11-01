@@ -1,3 +1,3 @@
 package com.declspecl.model;
 
-public record PersonaName(String persona) {}
+public record PersonaName(String value) {}

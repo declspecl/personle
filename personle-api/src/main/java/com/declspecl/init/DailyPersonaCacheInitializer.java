@@ -1,6 +1,5 @@
 package com.declspecl.init;
 
-import com.declspecl.converter.LocalDateConverter;
 import com.declspecl.repository.DailyPersonaRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +11,10 @@ import java.util.concurrent.ExecutionException;
 @Log4j2
 @Component
 public class DailyPersonaCacheInitializer {
-    private final LocalDateConverter localDateConverter;
     private final DailyPersonaRepository dailyPersonaRepository;
 
     @Autowired
-    public DailyPersonaCacheInitializer(
-            LocalDateConverter localDateConverter,
-            DailyPersonaRepository dailyPersonaRepository
-    ) {
-        this.localDateConverter = localDateConverter;
+    public DailyPersonaCacheInitializer(DailyPersonaRepository dailyPersonaRepository) {
         this.dailyPersonaRepository = dailyPersonaRepository;
     }
 

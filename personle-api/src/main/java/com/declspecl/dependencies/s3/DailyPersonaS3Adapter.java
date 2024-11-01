@@ -45,13 +45,13 @@ public class DailyPersonaS3Adapter {
             return Optional.of(reader.readLine()).map(PersonaName::new);
         }
         catch (IOException e) {
-            log.error("Failed to fetch persona object from s3 for date {}", formattedDate.date(), e);
+            log.error("Failed to fetch persona name from s3 for date {}", formattedDate.date(), e);
             return Optional.empty();
         }
     }
 
     public void putPersonaObjectToS3(FormattedDate formattedDate, PersonaName personaName) {
-        s3Client.putObject(buildPutObjectRequestForDate(formattedDate), RequestBody.fromString(personaName.persona()));
+        s3Client.putObject(buildPutObjectRequestForDate(formattedDate), RequestBody.fromString(personaName.value()));
     }
 
     private PutObjectRequest buildPutObjectRequestForDate(FormattedDate formattedDate) {
