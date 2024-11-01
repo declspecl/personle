@@ -24,6 +24,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
 import java.util.Collections;
@@ -32,13 +33,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
+import static com.declspecl.PersonleApiConstants.DAILY_GUESSES_ENDPOINT;
+
 @Log4j2
 @Controller
+@RequestMapping(DAILY_GUESSES_ENDPOINT)
 public class DailyGuessesController {
 	private final ControllerUtils controllerUtils;
 	private final Set<PersonaName> personaNamePool;
@@ -64,15 +67,12 @@ public class DailyGuessesController {
 		this.dailyPersonaRepository = dailyPersonaRepository;
 		this.dailyGuessesRepository = dailyGuessesRepository;
 		this.userSessionTransformer = userSessionTransformer;
-		System.out.println(personaNamePool);
 		this.personaNamePool = new HashSet<>(personaNamePool);
 	}
 
-	@GetMapping("/api/daily/guess")
+	@GetMapping
 	public ResponseEntity<GetUserGuessesResponse> getUserGuessesToday(HttpServletRequest request) throws ExecutionException {
-		Map<String, String> cookies = controllerUtils.buildCookieMap(request);
-		Optional<EncodedHashedUserSessionId> userSessionCookie = controllerUtils.getUserSessionCookie(cookies);
-
+		Optional<EncodedHashedUserSessionId> userSessionCookie = getUserSessionCookie(request);
 		PersonaName todayPersona = dailyPersonaRepository.getPersonaForToday();
 
 		if (userSessionCookie.isEmpty()) {
@@ -103,26 +103,30 @@ public class DailyGuessesController {
 		);
 	}
 
-	@PostMapping("/api/daily/guess")
+	@PostMapping
 	public ResponseEntity<Void> postUserGuess(
-			HttpServletRequest rawRequest,
-			@RequestBody PostUserGuessRequest body
+			HttpServletRequest request,
+			@RequestBody PostUserGuessRequest payload
 	) {
-		if (!personaNamePool.contains(new PersonaName(body.guess()))) {
-			log.warn("Invalid guess: {}", body.guess());
+		if (!personaNamePool.contains(new PersonaName(payload.guess()))) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 
-		Map<String, String> cookies = controllerUtils.buildCookieMap(rawRequest);
-		Optional<EncodedHashedUserSessionId> userSessionCookie = controllerUtils.getUserSessionCookie(cookies);
-
+		Optional<EncodedHashedUserSessionId> userSessionCookie = getUserSessionCookie(request);
 		HashedUserSessionId hashedUserSessionId = userSessionCookie.map(userSessionTransformer::decodeEncodedHashedUserSessionId)
 				.orElse(userSessionGenerator.generateNewHashedUserSessionId());
 
-		Optional<DailyGuesses> maybeDailyGuesses = dailyGuessesRepository.getUserGuessesToday(hashedUserSessionId);
-		DailyGuesses updatedDailyGuesses = maybeDailyGuesses.map(
-				existingGuesses -> ImmutableDailyGuesses.copyOf(existingGuesses).withGuesses(
-						Stream.concat(existingGuesses.guesses().stream(), Stream.of(body.guess()))
+		if (userSessionCookie.isEmpty()) {
+			log.info("Request with no session, giving {}", hashedUserSessionId.value());
+
+			EncodedHashedUserSessionId encodedHashedUserSessionId = userSessionTransformer.encodeHashedUserSessionId(hashedUserSessionId);
+			return controllerUtils.buildResponseWithUserSessionCookie(encodedHashedUserSessionId).build();
+		}
+
+		Optional<DailyGuesses> existingDailyGuesses = dailyGuessesRepository.getUserGuessesToday(hashedUserSessionId);
+		DailyGuesses updatedDailyGuesses = existingDailyGuesses.map(
+				dailyGuesses -> ImmutableDailyGuesses.copyOf(dailyGuesses).withGuesses(
+						Stream.concat(dailyGuesses.guesses().stream(), Stream.of(payload.guess()))
 								.distinct()
 								.toList()
 				)
@@ -130,7 +134,7 @@ public class DailyGuessesController {
 				ImmutableDailyGuesses.builder()
 						.withHashedUserSessionId(hashedUserSessionId)
 						.withDate(todaySupplier.get())
-						.withGuesses(List.of(body.guess()))
+						.withGuesses(List.of(payload.guess()))
 						.build()
 		);
 
@@ -140,14 +144,11 @@ public class DailyGuessesController {
 
 		dailyGuessesRepository.writeDailyGuesses(updatedDailyGuesses);
 
-		if (userSessionCookie.isEmpty()) {
-			log.info("Request with no session, giving {}", hashedUserSessionId.value());
+		return ResponseEntity.ok(null);
+	}
 
-			EncodedHashedUserSessionId encodedHashedUserSessionId = userSessionTransformer.encodeHashedUserSessionId(hashedUserSessionId);
-			return controllerUtils.buildResponseWithUserSessionCookie(encodedHashedUserSessionId).build();
-		}
-		else {
-			return ResponseEntity.ok(null);
-		}
+	private Optional<EncodedHashedUserSessionId> getUserSessionCookie(HttpServletRequest request) {
+		Map<String, String> cookies = controllerUtils.buildCookieMap(request);
+		return controllerUtils.getUserSessionCookie(cookies);
 	}
 }
