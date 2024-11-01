@@ -115,12 +115,8 @@ public class DailyGuessesController {
 		Optional<EncodedHashedUserSessionId> userSessionCookie = getUserSessionCookie(request);
 		HashedUserSessionId hashedUserSessionId = userSessionCookie.map(userSessionTransformer::decodeEncodedHashedUserSessionId)
 				.orElse(userSessionGenerator.generateNewHashedUserSessionId());
-
 		if (userSessionCookie.isEmpty()) {
 			log.info("Request with no session, giving {}", hashedUserSessionId.value());
-
-			EncodedHashedUserSessionId encodedHashedUserSessionId = userSessionTransformer.encodeHashedUserSessionId(hashedUserSessionId);
-			return controllerUtils.buildResponseWithUserSessionCookie(encodedHashedUserSessionId).build();
 		}
 
 		Optional<DailyGuesses> existingDailyGuesses = dailyGuessesRepository.getUserGuessesToday(hashedUserSessionId);
@@ -144,7 +140,8 @@ public class DailyGuessesController {
 
 		dailyGuessesRepository.writeDailyGuesses(updatedDailyGuesses);
 
-		return ResponseEntity.ok(null);
+		EncodedHashedUserSessionId encodedHashedUserSessionId = userSessionTransformer.encodeHashedUserSessionId(hashedUserSessionId);
+		return controllerUtils.buildResponseWithUserSessionCookie(encodedHashedUserSessionId).build();
 	}
 
 	private Optional<EncodedHashedUserSessionId> getUserSessionCookie(HttpServletRequest request) {
