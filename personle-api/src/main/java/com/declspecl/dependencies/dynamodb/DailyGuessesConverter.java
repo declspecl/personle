@@ -46,7 +46,7 @@ public class DailyGuessesConverter {
 
 	public DailyGuesses fromItem(DailyGuessesItem item) {
 		return ImmutableDailyGuesses.builder()
-				.withHashedUserSessionId(deserializeHashedUserSessionIdFromPartitionKey(item.getHashedUserSessionId()))
+				.withHashedUserSessionId(deserializeHashedUserSessionIdFromPartitionKey(item.getUserSessionId()))
 				.withDate(deserializeDateFromSortKey(item.getSk()))
 				.withGuesses(item.getGuesses())
 				.build();
