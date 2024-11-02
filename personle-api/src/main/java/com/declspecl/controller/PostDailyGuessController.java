@@ -63,31 +63,26 @@ public class PostDailyGuessController {
 	@PostMapping
 	public ResponseEntity<Void> postUserGuess(HttpServletRequest request, @RequestBody PostUserGuessRequest payload) {
 		PersonaName userGuess = new PersonaName(payload.guess());
-
 		if (!personaNamePool.contains(userGuess)) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 
 		Optional<EncodedHashedUserSessionId> userSessionCookie = controllerUtils.getUserSessionCookie(request);
-		HashedUserSessionId hashedUserSessionId = userSessionCookie.map(userSessionTransformer::decodeEncodedHashedUserSessionId)
-				.orElse(userSessionGenerator.generateNewHashedUserSessionId());
 		if (userSessionCookie.isEmpty()) {
-			log.info("Request with no session, giving {}", hashedUserSessionId.value());
+			return buildDefaultResponse(userGuess);
 		}
 
+		HashedUserSessionId hashedUserSessionId = userSessionTransformer.decodeEncodedHashedUserSessionId(userSessionCookie.get());
 		Optional<DailyGuesses> existingDailyGuesses = dailyGuessesRepository.getUserGuessesForToday(hashedUserSessionId);
-		DailyGuesses updatedDailyGuesses = existingDailyGuesses.map(
-				dailyGuesses -> ImmutableDailyGuesses.copyOf(dailyGuesses).withGuesses(
-						Stream.concat(dailyGuesses.guesses().stream(), Stream.of(userGuess))
-								.distinct()
-								.toList()
-				)
-		).orElse(
-				ImmutableDailyGuesses.builder()
-						.withHashedUserSessionId(hashedUserSessionId)
-						.withDate(todaySupplier.get())
-						.withGuesses(List.of(userGuess))
-						.build()
+		if (existingDailyGuesses.isEmpty()) {
+			return buildDefaultResponse(userGuess, hashedUserSessionId);
+		}
+
+		DailyGuesses dailyGuesses = existingDailyGuesses.get();
+		DailyGuesses updatedDailyGuesses = ImmutableDailyGuesses.copyOf(dailyGuesses).withGuesses(
+				Stream.concat(dailyGuesses.guesses().stream(), Stream.of(userGuess))
+						.distinct()
+						.toList()
 		);
 
 		if (updatedDailyGuesses.guesses().size() > PersonleApiConstants.MAX_DAILY_GUESSES) {
@@ -95,6 +90,25 @@ public class PostDailyGuessController {
 		}
 
 		dailyGuessesRepository.writeDailyGuesses(updatedDailyGuesses);
+
+		return ResponseEntity.ok().build();
+	}
+
+	private ResponseEntity<Void> buildDefaultResponse(PersonaName userGuess) {
+		HashedUserSessionId hashedUserSessionId = userSessionGenerator.generateNewHashedUserSessionId();
+		log.info("Request with no session, giving {}", hashedUserSessionId.value());
+
+		return buildDefaultResponse(userGuess, hashedUserSessionId);
+	}
+
+	private ResponseEntity<Void> buildDefaultResponse(PersonaName userGuess, HashedUserSessionId hashedUserSessionId) {
+		DailyGuesses dailyGuesses = ImmutableDailyGuesses.builder()
+				.withHashedUserSessionId(hashedUserSessionId)
+				.withDate(todaySupplier.get())
+				.withGuesses(List.of(userGuess))
+				.build();
+
+		dailyGuessesRepository.writeDailyGuesses(dailyGuesses);
 
 		EncodedHashedUserSessionId encodedHashedUserSessionId = userSessionTransformer.encodeHashedUserSessionId(hashedUserSessionId);
 		return controllerUtils.buildResponseWithUserSessionCookie(encodedHashedUserSessionId).build();
