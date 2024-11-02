@@ -28,8 +28,9 @@ public class ControllerUtils {
 		).orElse(Collections.emptyMap());
 	}
 
-	public Optional<EncodedHashedUserSessionId> getUserSessionCookie(Map<String, String> cookies) {
-		return Optional.ofNullable(cookies.get(PERSONLE_USER_SESSION_COOKIE_NAME)).map(EncodedHashedUserSessionId::new);
+	public Optional<EncodedHashedUserSessionId> getUserSessionCookie(HttpServletRequest request) {
+		return Optional.ofNullable(buildCookieMap(request).get(PERSONLE_USER_SESSION_COOKIE_NAME))
+				.map(EncodedHashedUserSessionId::new);
 	}
 
 	public ResponseEntity.BodyBuilder buildResponseWithUserSessionCookie(EncodedHashedUserSessionId encodedHashedUserSessionId) {

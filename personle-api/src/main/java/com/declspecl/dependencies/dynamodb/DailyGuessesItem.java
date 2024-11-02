@@ -21,7 +21,6 @@ import java.util.List;
 public class DailyGuessesItem {
 	private String pk;
 	private String sk;
-	private String userSessionId;
 	private List<String> guesses;
 
 	@DynamoDbPartitionKey
@@ -34,11 +33,6 @@ public class DailyGuessesItem {
 	@DynamoDbAttribute("sk")
 	public String getSk() {
 		return sk;
-	}
-
-	@DynamoDbAttribute("userSessionId")
-	public String getUserSessionId() {
-		return userSessionId;
 	}
 
 	@DynamoDbAttribute("guesses")

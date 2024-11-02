@@ -4,6 +4,7 @@ import com.declspecl.converter.LocalDateConverter;
 import com.declspecl.model.DailyGuesses;
 import com.declspecl.model.HashedUserSessionId;
 import com.declspecl.model.ImmutableDailyGuesses;
+import com.declspecl.model.PersonaName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -31,24 +32,22 @@ public class DailyGuessesConverter {
 	}
 
 	public LocalDate deserializeDateFromSortKey(String sortKey) {
-		String[] skPrefixAndDate = sortKey.split("#");
-		return localDateConverter.parseDateFromString(skPrefixAndDate[1]);
+		return localDateConverter.parseDateFromString(sortKey.split("#")[1]);
 	}
 
 	public DailyGuessesItem fromDomain(DailyGuesses dailyGuesses) {
 		return new DailyGuessesItem(
 				serializePartitionKey(dailyGuesses.hashedUserSessionId()),
 				serializeSortKey(dailyGuesses.date()),
-				dailyGuesses.hashedUserSessionId().value(),
-				dailyGuesses.guesses()
+				dailyGuesses.guesses().stream().map(PersonaName::value).toList()
 		);
 	}
 
 	public DailyGuesses fromItem(DailyGuessesItem item) {
 		return ImmutableDailyGuesses.builder()
-				.withHashedUserSessionId(deserializeHashedUserSessionIdFromPartitionKey(item.getUserSessionId()))
+				.withHashedUserSessionId(deserializeHashedUserSessionIdFromPartitionKey(item.getPk()))
 				.withDate(deserializeDateFromSortKey(item.getSk()))
-				.withGuesses(item.getGuesses())
+				.withGuesses(item.getGuesses().stream().map(PersonaName::new).toList())
 				.build();
 	}
 }
