@@ -1,6 +1,15 @@
 spring:
     application:
         name: personle-api
+    mvc:
+        throw-exception-if-no-handler-found: true
+    resources:
+        add-mappings: false
+
+server:
+    error:
+        whitelabel:
+            enabled: false
 
 aws:
     region: us-east-2
