@@ -1,5 +1,5 @@
-import { Construct } from "constructs";
 import * as cdk from "aws-cdk-lib";
+import { Construct } from "constructs";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import * as ddb from "aws-cdk-lib/aws-dynamodb";
 import { Stack, StackProps } from "aws-cdk-lib";
