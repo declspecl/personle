@@ -41,7 +41,7 @@ public class UserSessionTransformer {
 
 	public HashedUserSessionId hashUserSessionId(UUID userSessionId) {
 		return new HashedUserSessionId(
-				Hashing.hmacSha256(hashingSecretKey.getBytes())
+				Hashing.hmacSha256(hashingSecretKey.getBytes(StandardCharsets.UTF_8))
 						.hashString(userSessionId.toString(), StandardCharsets.UTF_8)
 						.toString()
 		);
