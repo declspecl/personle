@@ -61,10 +61,6 @@ public class DailyPersonaS3Adapter {
                 .build();
     }
 
-    private GetObjectRequest buildGetObjectRequestForDate(FormattedDate formattedDate) {
-        return buildGetObjectRequest(formattedDate.date());
-    }
-
     private GetObjectRequest buildGetObjectRequest(String key) {
         return GetObjectRequest.builder()
                 .key(key)
