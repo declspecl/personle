@@ -75,7 +75,7 @@ public class PostDailyGuessController {
 			log.info("Request with no session, giving {}", hashedUserSessionId.value());
 		}
 
-		Optional<DailyGuesses> existingDailyGuesses = dailyGuessesRepository.getUserGuessesToday(hashedUserSessionId);
+		Optional<DailyGuesses> existingDailyGuesses = dailyGuessesRepository.getUserGuessesForToday(hashedUserSessionId);
 		DailyGuesses updatedDailyGuesses = existingDailyGuesses.map(
 				dailyGuesses -> ImmutableDailyGuesses.copyOf(dailyGuesses).withGuesses(
 						Stream.concat(dailyGuesses.guesses().stream(), Stream.of(userGuess))

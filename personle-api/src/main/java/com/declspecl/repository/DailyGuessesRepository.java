@@ -8,14 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
 import software.amazon.awssdk.enhanced.dynamodb.Key;
-import software.amazon.awssdk.enhanced.dynamodb.model.QueryConditional;
-import software.amazon.awssdk.enhanced.dynamodb.model.QueryEnhancedRequest;
 
 import java.time.LocalDate;
 import java.util.Optional;
-import java.util.Set;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 @Component
 public class DailyGuessesRepository {
@@ -34,7 +30,7 @@ public class DailyGuessesRepository {
 		this.todaySupplier = todaySupplier;
 	}
 
-	public Optional<DailyGuesses> getUserGuessesToday(HashedUserSessionId hashedUserSessionId) {
+	public Optional<DailyGuesses> getUserGuessesForToday(HashedUserSessionId hashedUserSessionId) {
 		return getUserGuessesForDay(hashedUserSessionId, todaySupplier.get());
 	}
 
@@ -47,23 +43,6 @@ public class DailyGuessesRepository {
 		);
 
 		return Optional.ofNullable(item).map(converter::fromItem);
-	}
-
-	public Set<DailyGuesses> getAllDailyGuesses(HashedUserSessionId hashedUserSessionId) {
-		Key queryKey = Key.builder()
-				.partitionValue(converter.serializePartitionKey(hashedUserSessionId))
-				.sortValue("GUESS#")
-				.build();
-
-		QueryEnhancedRequest request = QueryEnhancedRequest.builder()
-				.queryConditional(QueryConditional.sortBeginsWith(queryKey))
-				.build();
-
-		return ddbTable.query(request)
-				.items()
-				.stream()
-				.map(converter::fromItem)
-				.collect(Collectors.toSet());
 	}
 
 	public void writeDailyGuesses(DailyGuesses dailyGuesses) {

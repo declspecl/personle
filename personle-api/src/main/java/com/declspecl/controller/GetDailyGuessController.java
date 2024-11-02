@@ -63,7 +63,7 @@ public class GetDailyGuessController {
 		HashedUserSessionId hashedUserSessionId = userSessionTransformer.decodeEncodedHashedUserSessionId(userSessionCookie.get());
 		log.info("Request with session {}", hashedUserSessionId.value());
 
-		Optional<DailyGuesses> todayGuesses = dailyGuessesRepository.getUserGuessesToday(hashedUserSessionId);
+		Optional<DailyGuesses> todayGuesses = dailyGuessesRepository.getUserGuessesForToday(hashedUserSessionId);
 		List<PersonaName> personaGuesses = todayGuesses.map(DailyGuesses::guesses).orElse(Collections.emptyList());
 
 		return ResponseEntity.ok(

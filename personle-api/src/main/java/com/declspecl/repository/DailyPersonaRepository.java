@@ -26,7 +26,6 @@ import java.util.function.Supplier;
 @Component
 public class DailyPersonaRepository {
 	private final List<PersonaName> personaNamePool;
-	private final DailyPersonaS3Adapter s3Adapter;
 	private final Supplier<LocalDate> todaySupplier;
 	private final LocalDateConverter localDateConverter;
 	private final LoadingCache<FormattedDate, PersonaName> dailyPersonaCache;
@@ -38,7 +37,6 @@ public class DailyPersonaRepository {
 			LocalDateConverter localDateConverter,
 			@Qualifier("PersonaNamePool") List<PersonaName> personaNamePool
 	) {
-		this.s3Adapter = s3Adapter;
 		this.personaNamePool = personaNamePool;
 		this.todaySupplier = todaySupplier;
 		this.localDateConverter = localDateConverter;
@@ -64,12 +62,12 @@ public class DailyPersonaRepository {
 				);
 	}
 
-	public PersonaName getPersonaForDay(LocalDate date) throws ExecutionException {
-		return dailyPersonaCache.get(localDateConverter.convertDateToString(date));
-	}
-
 	public PersonaName getPersonaForToday() throws ExecutionException {
 		return getPersonaForDay(todaySupplier.get());
+	}
+
+	public PersonaName getPersonaForDay(LocalDate date) throws ExecutionException {
+		return dailyPersonaCache.get(localDateConverter.convertDateToString(date));
 	}
 
 	private PersonaName getRandomPersonaName() {
