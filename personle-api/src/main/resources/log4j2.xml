@@ -2,7 +2,7 @@
 <Configuration status="INFO">
     <Properties>
         <Property name="logPath">/var/logs/personle</Property>
-        <Property name="rollingFileName">personle</Property>
+        <Property name="rollingFileName">application</Property>
     </Properties>
 
     <Appenders>
@@ -12,8 +12,9 @@
 
         <RollingFile
             name="RollingFile"
+            ignoreExceptions="false"
             fileName="${logPath}/${rollingFileName}.log"
-            filePattern="${logPath}/${rollingFileName}-%d{yyyy-MM-dd}.log"
+            filePattern="${logPath}/${rollingFileName}-%d{yyyy-MM-dd}.log.gz"
         >
             <PatternLayout pattern="[%highlight{%-5level}] %d{DEFAULT} %c{1}.%M() - %msg%n%throwable{short.lineNumber}" />
 
@@ -21,6 +22,7 @@
                 <OnStartupTriggeringPolicy />
                 <TimeBasedTriggeringPolicy interval="1" modulate="true" />
             </Policies>
+            <DefaultRolloverStrategy max="10" />
         </RollingFile>
     </Appenders>
 
