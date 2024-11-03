@@ -12,6 +12,7 @@ import { UserGuessManager } from "@components/play/UserGuessManager";
 import { CorrectGuessDialog } from "@/components/play/CorrectGuessDialog";
 import { SkewedContainer } from "@/components/ui/SkewedContainer";
 import { Button } from "@/components/ui/Button";
+import { OutOfGuessesDialog } from "@/components/play/OutOfGuessesDialog";
 
 interface DailyPlayGuessManagerProps {
 	initialGuesses: PersonaData[];
@@ -26,6 +27,7 @@ function DailyPlayGuessManager({ initialGuesses, correctPersona, selectedPersona
 
 	const [guesses, setGuesses] = useState<PersonaData[]>(initialGuesses);
 	const [isCorrectGuessDialogOpen, setIsCorrectGuessDialogOpen] = useState(false);
+	const [isOutOfGuessesDialogOpen, setIsOutOfGuessesDialogOpen] = useState(false);
 
 	return (
 		<>
@@ -49,13 +51,15 @@ function DailyPlayGuessManager({ initialGuesses, correctPersona, selectedPersona
 							guesses: [...data.guesses, guess.name]
 						}));
 
+						if (guess.name === correctPersona.name) {
+							setTimeout(() => setIsCorrectGuessDialogOpen(true), 3500);
+						}
+						else if (newGuesses.length >= MAX_DAILY_GUESSES) {
+							setTimeout(() => setIsOutOfGuessesDialogOpen(true), 3500);
+						}
+
 						return newGuesses;
 					});
-
-
-					if (guess.name === correctPersona.name) {
-						setTimeout(() => setIsCorrectGuessDialogOpen(true), 3500);
-					}
 				}}
 			/>
 
@@ -68,6 +72,16 @@ function DailyPlayGuessManager({ initialGuesses, correctPersona, selectedPersona
 					</SkewedContainer>
 				</SkewedContainer>
 			</CorrectGuessDialog>
+
+			<OutOfGuessesDialog open={isOutOfGuessesDialogOpen} setOpen={setIsOutOfGuessesDialogOpen} correctPersona={correctPersona.name}>
+				<SkewedContainer skewDirection="right" deltaWidthRem={0.5} className="p-1 w-fit bg-white">
+					<SkewedContainer skewDirection="right" deltaWidthRem={0.5} className="w-fit bg-black">
+						<Button size="md" rotate={false} skewMagnitude="none" palette="whiteText" onClick={() => setIsOutOfGuessesDialogOpen(false)}>
+							Close
+						</Button>
+					</SkewedContainer>
+				</SkewedContainer>
+			</OutOfGuessesDialog>
 		</>
 	);
 }
