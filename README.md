@@ -18,7 +18,7 @@ As of 2024-11-03, the following features have been implemented:
 
 This project uses the following technologies:
 - React + TS frontend, notably using Tailwind CSS, react-router, Tanstack Query, and modified shadcn/ui components
-- Spring Boot REST API
+- Java Spring Boot REST API
 - Nginx for serving static React assets and reverse proxy to API
 - AWS EC2 w/ Route 53 (self-hosted), DynamoDB, and S3
 - Certbot for SSL certs
