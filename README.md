@@ -1,5 +1,19 @@
 # personle
 
+Personle! is a Wordle-inspired game for guessing Personas from Persona 5 Royal.
+It features a unique art style inspired by Persona 5 Royal, which is the primary motivation for me making this project.
+
+## Resources used in Development
+- [List of fonts similar to Persona 5 Royal's by u/Gamerverise on reddit](https://www.reddit.com/r/Persona5/comments/gmw6hz/persona_5_royal_fonts_if_i_find_more_about_the/)
+- [Persona 5 Royal game UI screenshots on gameuidatabase.com](https://www.gameuidatabase.com/gameData.php?id=618)
+
+## Features
+
+As of 2024-11-03, the following features have been implemented:
+- Daily play mode: a correct Persona is chosen every day for everyone to share
+- Free play mode: purely client-side with a randomly chosen correct Persona
+- Compendium: a listing of all the Personas the game considers and their relevant information, with numerous QoL filters
+
 ## Tech Stack
 
 This project uses the following technologies:
@@ -8,13 +22,6 @@ This project uses the following technologies:
 - Nginx for serving static React assets and reverse proxy to API
 - AWS EC2 w/ Route 53 (self-hosted), DynamoDB, and S3
 - Certbot for SSL certs
-
-## Features
-
-As of 2024-11-03, the following features have been implemented:
-- Daily play mode: a correct Persona is chosen every day for everyone to share
-- Free play mode: purely client-side with a randomly chosen correct Persona
-- Compendium: a listing of all the Personas the game considers and their relevant information, with numerous QoL filters
 
 ## Screenshots (2024-10-27)
 ### Home Page
