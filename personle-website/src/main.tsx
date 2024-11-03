@@ -19,7 +19,14 @@ import { PersonaDataByNameProvider, PersonaNamesProvider } from "@context/Person
 
 gsap.registerPlugin(useGSAP);
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			refetchOnWindowFocus: false,
+			retry: false
+		}
+	}
+});
 
 const router = createBrowserRouter([
 	{

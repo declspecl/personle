@@ -6,7 +6,7 @@ import { PersonaData } from "@lib/server/model";
 import { MAX_DAILY_GUESSES } from "@data/constants";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { DateWithDay } from "@components/typography/DateWithDay";
-import { getDailyGuesses, makeDailyGuess } from "@lib/server/api";
+import { getDailyGuesses, GetDailyGuessesResponse, makeDailyGuess } from "@lib/server/api";
 import { usePersonaDataByName } from "@hooks/usePersonaDataContext";
 import { UserGuessManager } from "@components/play/UserGuessManager";
 import { CorrectGuessDialog } from "@/components/play/CorrectGuessDialog";
@@ -41,11 +41,17 @@ function DailyPlayGuessManager({ initialGuesses, correctPersona, selectedPersona
 					const res = await makeDailyGuess(guess.name);
 					if (res.status !== 200 && res.status !== 204) return;
 
-					setGuesses((prev) => [...prev, personaDataByName[guess.name]]);
+					setGuesses((prev) => {
+						const newGuesses = [...prev, personaDataByName[guess.name]];
 
-					queryClient.invalidateQueries({
-						queryKey: ["getDailyGuesses"]
+						queryClient.setQueryData(["getDailyGuesses"], (data: GetDailyGuessesResponse): GetDailyGuessesResponse => ({
+							todayPersona: data.todayPersona,
+							guesses: [...data.guesses, guess.name]
+						}));
+
+						return newGuesses;
 					});
+
 
 					if (guess.name === correctPersona.name) {
 						setTimeout(() => setIsCorrectGuessDialogOpen(true), 3500);
