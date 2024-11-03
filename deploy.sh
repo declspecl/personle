@@ -4,12 +4,12 @@
 
 # move frontend files
 sudo mkdir -p /var/www/personle
-sudo mv dist/* /var/www/personle
+sudo mv personle-website/dist/* /var/www/personle
 sudo chmod -R 755 /var/www/personle
 
 # move backend files
 sudo mkdir -p /opt/personle/
-sudo mv target/personle-api.jar /opt/personle
+sudo mv personle-api/target/personle-api.jar /opt/personle
 
 # set up nginx
 sudo rm /etc/nginx/nginx.conf
