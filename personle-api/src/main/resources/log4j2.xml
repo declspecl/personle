@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
+    <Properties>
+        <Property name="logPath">/var/logs/personle</Property>
+        <Property name="rollingFileName">personle</Property>
+    </Properties>
+
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%highlight{%level}] %d{DEFAULT} %c{1}.%M() : %msg%n%throwable{short.lineNumber}" />
+            <PatternLayout pattern="[%highlight{%-5level}] %d{DEFAULT} %c{1}.%M() : %msg%n%throwable{short.lineNumber}" />
         </Console>
+
+        <RollingFile
+            name="RollingFile"
+            fileName="${logPath}/${rollingFileName}.log"
+            filePattern="${logPath}/${rollingFileName}-%d{yyyy-MM-dd}.log"
+        >
+            <PatternLayout pattern="[%highlight{%-5level}] %d{DEFAULT} %c{1}.%M() - %msg%n%throwable{short.lineNumber}" />
+
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
     </Appenders>
 
     <Loggers>
-        <Root level="info">
-            <AppenderRef ref="Console"/>
+        <Root level="INFO" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="RollingFile" />
         </Root>
     </Loggers>
 </Configuration>
