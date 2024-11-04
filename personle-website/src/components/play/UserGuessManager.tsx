@@ -11,9 +11,20 @@ interface UserGuessManagerProps {
 	selectedPersona: PersonaData | null;
 	setSelectedPersona: React.Dispatch<React.SetStateAction<PersonaData | null>>;
 	onSubmitGuess: (guess: PersonaData) => Promise<void> | void;
+	isFreeplay?: boolean;
+	resetOnGiveUp?: () => void;
 }
 
-export function UserGuessManager({ disabled = false, guesses, correctPersona, selectedPersona, setSelectedPersona, onSubmitGuess }: UserGuessManagerProps) {
+export function UserGuessManager({
+	disabled = false,
+	guesses,
+	correctPersona,
+	selectedPersona,
+	setSelectedPersona,
+	onSubmitGuess,
+	isFreeplay,
+	resetOnGiveUp
+}: UserGuessManagerProps) {
 	const allPersonaNames = usePersonaNames();
 
 	const possiblePersonaNames = useMemo(() => {
@@ -23,11 +34,14 @@ export function UserGuessManager({ disabled = false, guesses, correctPersona, se
 	return (
 		<div>
 			<MakeGuessController
+				isFreeplay={isFreeplay}
 				disabled={disabled}
 				personaNames={possiblePersonaNames}
 				selectedPersona={selectedPersona}
 				setSelectedPersona={setSelectedPersona}
 				onSubmit={onSubmitGuess}
+				correctPersona={correctPersona}
+				resetOnGiveUp={resetOnGiveUp}
 			/>
 
 			<GuessesTable className="my-8" guesses={guesses} correctPersona={correctPersona} selectedPersona={selectedPersona} />
