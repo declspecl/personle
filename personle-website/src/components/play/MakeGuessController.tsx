@@ -6,6 +6,7 @@ import { SkewedContainer } from "@ui/SkewedContainer";
 import React, { useLayoutEffect, useState } from "react";
 import { TutorialPopover } from "@components/tutorial/TutorialPopover";
 import { hasUserSeenTutorial, setUserHasSeenTutorial } from "@/lib/tutorial";
+import { GiveUpDialog } from "./GiveUpDialog";
 
 interface MakeGuessControllerProps {
 	selectedPersona: PersonaData | null;
@@ -13,10 +14,23 @@ interface MakeGuessControllerProps {
 	onSubmit?: (guess: PersonaData) => void;
 	personaNames: string[];
 	disabled?: boolean;
+	isFreeplay?: boolean;
+	correctPersona: PersonaData;
+	resetOnGiveUp?: () => void;
 }
 
-export function MakeGuessController({ selectedPersona, setSelectedPersona, onSubmit, personaNames, disabled }: MakeGuessControllerProps) {
+export function MakeGuessController({
+	selectedPersona,
+	setSelectedPersona,
+	onSubmit,
+	personaNames,
+	disabled,
+	isFreeplay,
+	correctPersona,
+	resetOnGiveUp
+}: MakeGuessControllerProps) {
 	const [isTutorialOpen, setIsTutorialOpen] = useState(false);
+	const [isGiveUpOpen, setIsGiveUpOpen] = useState<boolean>(false);
 
 	useLayoutEffect(() => {
 		if (!hasUserSeenTutorial()) {
@@ -45,30 +59,40 @@ export function MakeGuessController({ selectedPersona, setSelectedPersona, onSub
 				</MessageBox>
 			</div>
 
-			<SkewedContainer skewDirection="left" deltaWidthRem={0.5} className="self-end sm:mx-0 p-1 w-fit bg-white">
-				<SkewedContainer skewDirection="left" deltaWidthRem={0.5} className="w-fit bg-black">
-					<Button
-						size="md"
-						disabled={disabled || !selectedPersona}
-						rotate={false}
-						skewMagnitude="none"
-						palette="whiteText"
-						onClick={() => {
-							if (!selectedPersona) return;
+			<div className="flex justify-end align-center flex-col">
+				{isFreeplay && (
+					<MessageBox fromSide="right" className="text-white mb-4" deltaWidthRem={1}>
+						<Button size="md" rotate={false} skewMagnitude="xs" destructive palette="whiteText" onClick={() => setIsGiveUpOpen(true)}>
+							Give up?
+						</Button>
+					</MessageBox>
+				)}
+				<SkewedContainer skewDirection="left" deltaWidthRem={0.5} className="self-end sm:mx-0 p-1 w-fit bg-white">
+					<SkewedContainer skewDirection="left" deltaWidthRem={0.5} className="w-fit bg-black">
+						<Button
+							size="md"
+							disabled={disabled || !selectedPersona}
+							rotate={false}
+							skewMagnitude="none"
+							palette="whiteText"
+							onClick={() => {
+								if (!selectedPersona) return;
 
-							if (onSubmit) {
-								onSubmit(selectedPersona);
-							}
+								if (onSubmit) {
+									onSubmit(selectedPersona);
+								}
 
-							setSelectedPersona(null);
-						}}
-					>
-						Submit guess
-					</Button>
+								setSelectedPersona(null);
+							}}
+						>
+							Submit guess
+						</Button>
+					</SkewedContainer>
 				</SkewedContainer>
-			</SkewedContainer>
+			</div>
 
 			<TutorialPopover open={isTutorialOpen} setOpen={setIsTutorialOpen} />
+			{resetOnGiveUp && <GiveUpDialog resetOnGiveUp={resetOnGiveUp} correctPersona={correctPersona} open={isGiveUpOpen} setOpen={setIsGiveUpOpen} />}
 		</div>
 	);
 }
