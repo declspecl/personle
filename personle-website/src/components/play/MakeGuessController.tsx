@@ -89,6 +89,7 @@ export function MakeGuessController({
 								}
 
 								setSelectedPersona(null);
+								setPreviewPersona(null);
 							}}
 						>
 							Submit guess
