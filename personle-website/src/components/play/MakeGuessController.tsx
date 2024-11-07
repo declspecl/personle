@@ -17,6 +17,8 @@ interface MakeGuessControllerProps {
 	isFreeplay?: boolean;
 	correctPersona: PersonaData;
 	resetOnGiveUp?: () => void;
+	setPreviewPersona: React.Dispatch<React.SetStateAction<PersonaData | null>>;
+	previewPersona: PersonaData | null;
 }
 
 export function MakeGuessController({
@@ -27,7 +29,9 @@ export function MakeGuessController({
 	disabled,
 	isFreeplay,
 	correctPersona,
-	resetOnGiveUp
+	resetOnGiveUp,
+	previewPersona,
+	setPreviewPersona
 }: MakeGuessControllerProps) {
 	const [isTutorialOpen, setIsTutorialOpen] = useState(false);
 	const [isGiveUpOpen, setIsGiveUpOpen] = useState<boolean>(false);
@@ -50,6 +54,8 @@ export function MakeGuessController({
 
 				<MessageBox fromSide="left" className="text-white" deltaWidthRem={1}>
 					<PersonaCombobox
+						previewPersona={previewPersona}
+						setPreviewPersona={setPreviewPersona}
 						disabled={disabled}
 						selectedPersona={selectedPersona}
 						setSelectedPersona={setSelectedPersona}
