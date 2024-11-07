@@ -12,9 +12,10 @@ interface GuessesTableProps {
 	correctPersona: PersonaData;
 	guesses: PersonaData[];
 	className?: string;
+	previewPersona: PersonaData | null;
 }
 
-export function GuessesTable({ selectedPersona, correctPersona, guesses, className }: GuessesTableProps) {
+export function GuessesTable({ selectedPersona, correctPersona, guesses, className, previewPersona }: GuessesTableProps) {
 	const reversedGuesses = useMemo(() => [...guesses].reverse(), [guesses]);
 
 	const isDesktop = useMediaQuery("(min-width: 64rem)");
@@ -34,11 +35,11 @@ export function GuessesTable({ selectedPersona, correctPersona, guesses, classNa
 				</TableHeader>
 
 				<TableBody>
-					{selectedPersona && (
+					{(selectedPersona || previewPersona) && (
 						<GuessesRow
-							key={`guess-result-row-unsubmitted-${selectedPersona.name}`}
+							key={`guess-result-row-unsubmitted-${(previewPersona ?? selectedPersona!).name}`}
 							correctPersona={correctPersona}
-							guessPersona={selectedPersona}
+							guessPersona={previewPersona ?? selectedPersona!}
 							isSubmitted={false}
 						/>
 					)}

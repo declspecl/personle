@@ -22,6 +22,13 @@ export function FreePlayPage() {
 
 	const [isCorrectGuessDialogOpen, setIsCorrectGuessDialogOpen] = useState(false);
 
+	const [previewPersona, setPreviewPersona] = useState<PersonaData | null>(null);
+
+	const resetPage = () => {
+		setGuesses([]);
+		setCorrectPersona(personaDataByName[unseenPersonaNames[Math.floor(Math.random() * unseenPersonaNames.length)]]);
+	};
+
 	return (
 		<>
 			<DateWithDay className="self-start text-[min(7.5vw,2.5rem)] -rotate-[24deg]" />
@@ -35,6 +42,10 @@ export function FreePlayPage() {
 			</div>
 
 			<UserGuessManager
+				previewPersona={previewPersona}
+				setPreviewPersona={setPreviewPersona}
+				resetOnGiveUp={resetPage}
+				isFreeplay
 				disabled={guesses.includes(correctPersona)}
 				guesses={guesses}
 				correctPersona={correctPersona}
@@ -62,9 +73,7 @@ export function FreePlayPage() {
 							skewMagnitude="none"
 							palette="whiteText"
 							onClick={() => {
-								setGuesses([]);
-								setCorrectPersona(personaDataByName[unseenPersonaNames[Math.floor(Math.random() * unseenPersonaNames.length)]]);
-
+								resetPage();
 								setIsCorrectGuessDialogOpen(false);
 							}}
 						>
