@@ -1,12 +1,12 @@
 import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
 import * as s3 from "aws-cdk-lib/aws-s3";
+import { execFileSync } from "child_process";
 import * as ddb from "aws-cdk-lib/aws-dynamodb";
 import { Stack, StackProps } from "aws-cdk-lib";
+import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as apigw from "@aws-cdk/aws-apigatewayv2-alpha";
 import * as integrations from "@aws-cdk/aws-apigatewayv2-integrations-alpha";
-import * as lambda from "aws-cdk-lib/aws-lambda";
-import { execFileSync } from "child_process";
 
 export class PersonleCdkStack extends Stack {
 	constructor(scope: Construct, id: string, props?: StackProps) {
