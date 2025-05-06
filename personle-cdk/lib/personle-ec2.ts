@@ -1,5 +1,4 @@
 import * as cdk from "aws-cdk-lib";
-import { configDotenv } from "dotenv";
 import { Construct } from "constructs";
 import * as iam from "aws-cdk-lib/aws-iam";
 import * as ec2 from "aws-cdk-lib/aws-ec2";
@@ -7,8 +6,6 @@ import { Stack, StackProps } from "aws-cdk-lib";
 
 export class PersonleEc2Stack extends Stack {
 	constructor(scope: Construct, id: string, props?: StackProps) {
-		configDotenv({ path: ".env.local" });
-
 		super(scope, id, {
 			...props,
 			env: {
