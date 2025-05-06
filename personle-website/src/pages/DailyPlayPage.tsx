@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IconContext } from "react-icons";
-import { LuLoader2 } from "react-icons/lu";
 import { MessageBox } from "@ui/MessageBox";
 import { PersonaData } from "@lib/server/model";
+import { LuLoaderCircle } from "react-icons/lu";
 import { MAX_DAILY_GUESSES } from "@data/constants";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { DateWithDay } from "@components/typography/DateWithDay";
@@ -124,7 +124,7 @@ export function DailyPlayPage() {
 
 			{isPending ? (
 				<IconContext.Provider value={{ size: "2em", className: "text-white animate-spin" }}>
-					<LuLoader2 />
+					<LuLoaderCircle />
 				</IconContext.Provider>
 			) : error ? (
 				<div className="text-white">
