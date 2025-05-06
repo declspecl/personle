@@ -22,8 +22,10 @@ export const postDailyGuess = async (event: APIGatewayProxyEventV2): Promise<any
 		const userSessionCookie = getUserSessionCookie(event);
 
 		if (userSessionCookie) {
-			userId = Buffer.from(userSessionCookie, "base64").toString("utf-8");
+			console.log("User session cookie found:", userSessionCookie);
+			userId = userSessionCookie;
 		} else {
+			console.log("User session cookie not found, generating new user ID");
 			userId = generateNewHashedUserSessionId();
 			const cookieResponse = buildResponseWithUserSessionCookie(userId);
 			setCookieHeader = cookieResponse.headers;

@@ -1,6 +1,7 @@
 import crypto from "crypto";
 import { v4 as uuidv4 } from "uuid";
-import { HASHING_SECRET_KEY, USER_SESSION_COOKIE_NAME } from "./constants.js";
+import { APIGatewayProxyEventV2 } from "aws-lambda";
+import { USER_SESSION_COOKIE_NAME } from "./constants.js";
 
 export const generateNewHashedUserSessionId = (): string => {
 	const uuid = uuidv4();
@@ -8,19 +9,17 @@ export const generateNewHashedUserSessionId = (): string => {
 };
 
 export const hashUserSessionId = (userSessionId: string): string => {
-	const hmac = crypto.createHmac("sha256", HASHING_SECRET_KEY);
+	const hmac = crypto.createHmac("sha256", process.env.HASHING_SECRET_KEY);
 	hmac.update(userSessionId);
-	return hmac.digest("base64");
+	return hmac.digest("hex");
 };
 
-export const getCookie = (event: any, name: string): string | undefined => {
-	const cookieString = event.headers.cookie;
-	if (!cookieString) {
+export const getCookie = (event: APIGatewayProxyEventV2, name: string): string | undefined => {
+	if (!event.cookies) {
 		return undefined;
 	}
 
-	const cookies = cookieString.split(";");
-	for (const cookie of cookies) {
+	for (const cookie of event.cookies) {
 		const [cookieName, cookieValue] = cookie.trim().split("=");
 		if (cookieName === name) {
 			return cookieValue;
@@ -34,11 +33,9 @@ export const getUserSessionCookie = (event: any): string | undefined => {
 };
 
 export const buildResponseWithUserSessionCookie = (hashedUserSessionId: string): any => {
-	const base64UserSessionId = Buffer.from(hashedUserSessionId).toString("base64");
-
 	return {
 		headers: {
-			"Set-Cookie": `${USER_SESSION_COOKIE_NAME}=${base64UserSessionId}; Path=/; Secure; SameSite=None; Max-Age=31536000`,
+			"Set-Cookie": `${USER_SESSION_COOKIE_NAME}=${hashedUserSessionId}; Path=/; Secure; SameSite=None; Max-Age=31536000`,
 		}
 	};
 };

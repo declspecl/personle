@@ -34,6 +34,9 @@ export class PersonleCdkStack extends Stack {
 			autoDeleteObjects: true
 		});
 
+		if (!process.env.HASHING_SECRET_KEY) {
+			throw new Error("HASHING_SECRET_KEY environment variable is not set");
+		}
 		execFileSync("npm", ["run", "package"], {
 			cwd: "../personle-lambda",
 			stdio: "inherit"
@@ -42,7 +45,10 @@ export class PersonleCdkStack extends Stack {
             functionName: "PersonleLambda",
 			runtime: new lambda.Runtime("nodejs22.x"),
 			handler: "dist/main.handler",
-			code: lambda.Code.fromAsset("../personle-lambda/function.zip")
+			code: lambda.Code.fromAsset("../personle-lambda/function.zip"),
+			environment: {
+				HASHING_SECRET_KEY: process.env.HASHING_SECRET_KEY
+			}
 		});
 		userGameDataTable.grantReadWriteData(personleLambda);
 		dailyPersonasBucket.grantReadWrite(personleLambda);
@@ -52,7 +58,7 @@ export class PersonleCdkStack extends Stack {
 			corsPreflight: {
 				allowOrigins: ["https://www.personle.app", "https://personle.app", "http://localhost:5173"],
 				allowMethods: [apigw.CorsHttpMethod.GET, apigw.CorsHttpMethod.POST],
-				allowHeaders: ["*"],
+				allowHeaders: ["Content-Type"],
 				allowCredentials: true
 			}
 		});

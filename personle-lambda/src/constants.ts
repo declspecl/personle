@@ -1,7 +1,6 @@
 export const USER_GAME_DATA_TABLE_NAME = "UserGameData";
 export const DAILY_PERSONAS_BUCKET_NAME = "daily-personas";
 export const USER_SESSION_COOKIE_NAME = "personle.v1";
-export const HASHING_SECRET_KEY = "TODO";
 export const ALL_PERSONA_NAMES = [
 	"Abaddon",
 	"Agathion",
