@@ -55,7 +55,7 @@ export function PersonaCombobox({ disabled = false, selectedPersona, setSelected
 				<span>{personaName}</span>
 			</CommandItem>
 		));
-	}, [onSelect, selectedPersona, setSelectedPersona, personaDataByName, personaNames]);
+	}, [onSelect, selectedPersona, setSelectedPersona, setPreviewPersona, personaDataByName, personaNames]);
 
 	return (
 		<Popover open={open} onOpenChange={setOpen}>

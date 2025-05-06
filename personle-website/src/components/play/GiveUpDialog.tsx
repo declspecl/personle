@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Button } from "@ui/Button";
+import { PersonaData } from "@/lib/server/model";
+import { SkewedContainer } from "@ui/SkewedContainer";
 import { NewspaperText } from "@components/typography/NewspaperText";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@ui/Dialog";
-import { SkewedContainer } from "../ui/SkewedContainer";
-import { Button } from "../ui/Button";
-import { PersonaData } from "@/lib/server/model";
 
 interface GiveUpDialogProps {
 	open: boolean;
