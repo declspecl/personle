@@ -16,7 +16,7 @@ export const getDailyGuesses = async (event: APIGatewayProxyEventV2): Promise<an
 		const userSessionCookie = getUserSessionCookie(event);
 
 		if (userSessionCookie) {
-			userId = userSessionCookie;
+			userId = Buffer.from(userSessionCookie, "base64").toString("utf-8");
 		} else {
 			userId = generateNewHashedUserSessionId();
 			const cookieResponse = buildResponseWithUserSessionCookie(userId);

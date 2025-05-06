@@ -34,9 +34,11 @@ export const getUserSessionCookie = (event: any): string | undefined => {
 };
 
 export const buildResponseWithUserSessionCookie = (hashedUserSessionId: string): any => {
+	const base64UserSessionId = Buffer.from(hashedUserSessionId).toString("base64");
+
 	return {
 		headers: {
-			"Set-Cookie": `${USER_SESSION_COOKIE_NAME}=${hashedUserSessionId}; Path=/; Secure`
+			"Set-Cookie": `${USER_SESSION_COOKIE_NAME}=${base64UserSessionId}; Path=/; Secure`
 		}
 	};
 };
