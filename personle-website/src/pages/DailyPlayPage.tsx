@@ -18,10 +18,19 @@ interface DailyPlayGuessManagerProps {
 	initialGuesses: PersonaData[];
 	correctPersona: PersonaData;
 	selectedPersona: PersonaData | null;
+	previewPersona: PersonaData | null;
 	setSelectedPersona: React.Dispatch<React.SetStateAction<PersonaData | null>>;
+	setPreviewPersona: React.Dispatch<React.SetStateAction<PersonaData | null>>;
 }
 
-function DailyPlayGuessManager({ initialGuesses, correctPersona, selectedPersona, setSelectedPersona }: DailyPlayGuessManagerProps) {
+function DailyPlayGuessManager({
+	initialGuesses,
+	correctPersona,
+	selectedPersona,
+	setSelectedPersona,
+	previewPersona,
+	setPreviewPersona
+}: DailyPlayGuessManagerProps) {
 	const queryClient = useQueryClient();
 	const personaDataByName = usePersonaDataByName();
 
@@ -37,6 +46,8 @@ function DailyPlayGuessManager({ initialGuesses, correctPersona, selectedPersona
 				correctPersona={correctPersona}
 				selectedPersona={selectedPersona}
 				setSelectedPersona={setSelectedPersona}
+				previewPersona={previewPersona}
+				setPreviewPersona={setPreviewPersona}
 				onSubmitGuess={async (guess: PersonaData) => {
 					if (guesses.includes(personaDataByName[guess.name])) return;
 
@@ -46,15 +57,17 @@ function DailyPlayGuessManager({ initialGuesses, correctPersona, selectedPersona
 					setGuesses((prev) => {
 						const newGuesses = [...prev, personaDataByName[guess.name]];
 
-						queryClient.setQueryData(["getDailyGuesses"], (data: GetDailyGuessesResponse): GetDailyGuessesResponse => ({
-							todayPersona: data.todayPersona,
-							guesses: [...data.guesses, guess.name]
-						}));
+						queryClient.setQueryData(
+							["getDailyGuesses"],
+							(data: GetDailyGuessesResponse): GetDailyGuessesResponse => ({
+								todayPersona: data.todayPersona,
+								guesses: [...data.guesses, guess.name]
+							})
+						);
 
 						if (guess.name === correctPersona.name) {
 							setTimeout(() => setIsCorrectGuessDialogOpen(true), 3500);
-						}
-						else if (newGuesses.length >= MAX_DAILY_GUESSES) {
+						} else if (newGuesses.length >= MAX_DAILY_GUESSES) {
 							setTimeout(() => setIsOutOfGuessesDialogOpen(true), 3500);
 						}
 
@@ -93,7 +106,9 @@ export function DailyPlayPage() {
 		queryFn: getDailyGuesses,
 		staleTime: Infinity
 	});
+
 	const [selectedPersona, setSelectedPersona] = useState<PersonaData | null>(null);
+	const [previewPersona, setPreviewPersona] = useState<PersonaData | null>(null);
 
 	return (
 		<>
@@ -119,6 +134,8 @@ export function DailyPlayPage() {
 			) : (
 				data && (
 					<DailyPlayGuessManager
+						setPreviewPersona={setPreviewPersona}
+						previewPersona={previewPersona}
 						correctPersona={personaDataByName[data.todayPersona]}
 						initialGuesses={data.guesses.map((guess) => personaDataByName[guess])}
 						selectedPersona={selectedPersona}
