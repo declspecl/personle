@@ -1,5 +1,4 @@
-const API_BASE_URL = "/api";
-const DAILY_API_BASE_URL = `${API_BASE_URL}/daily`;
+const API_GATEWAY_URL = "https://u9kvcstat0.execute-api.us-east-2.amazonaws.com/api/daily-guesses";
 
 export interface GetDailyGuessesResponse {
 	todayPersona: string;
@@ -7,14 +6,14 @@ export interface GetDailyGuessesResponse {
 }
 
 export async function getDailyGuesses(): Promise<GetDailyGuessesResponse> {
-	return fetch(`${DAILY_API_BASE_URL}/guess`, {
+	return fetch(API_GATEWAY_URL, {
 		method: "GET",
 		credentials: "include"
 	}).then((response) => response.json());
 }
 
 export async function makeDailyGuess(persona: string): Promise<Response> {
-	return fetch(`${DAILY_API_BASE_URL}/guess`, {
+	return fetch(API_GATEWAY_URL, {
 		method: "POST",
 		credentials: "include",
 		headers: {
