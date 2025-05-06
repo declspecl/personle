@@ -38,7 +38,7 @@ export const buildResponseWithUserSessionCookie = (hashedUserSessionId: string):
 
 	return {
 		headers: {
-			"Set-Cookie": `${USER_SESSION_COOKIE_NAME}=${base64UserSessionId}; Path=/; Secure`
+			"Set-Cookie": `${USER_SESSION_COOKIE_NAME}=${base64UserSessionId}; Path=/; Secure; SameSite=None; Max-Age=31536000`,
 		}
 	};
 };
