@@ -50,9 +50,10 @@ export class PersonleCdkStack extends Stack {
 		const httpApi = new apigw.HttpApi(this, "PersonleHttpApi", {
             apiName: "PersonleHttpApi",
 			corsPreflight: {
-				allowOrigins: ["*"],
+				allowOrigins: ["https://www.personle.app", "https://personle.app", "http://localhost:5173"],
 				allowMethods: [apigw.CorsHttpMethod.GET, apigw.CorsHttpMethod.POST],
-				allowHeaders: ["*"]
+				allowHeaders: ["*"],
+				allowCredentials: true
 			}
 		});
 
